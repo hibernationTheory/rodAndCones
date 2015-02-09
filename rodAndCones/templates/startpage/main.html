@@ -8,82 +8,13 @@
 </head>
 <body>
 	<div id="container" class="js-masonry">
-	<div class="box col3 posters">
-		<img alt="1/1<br />From my solo show 'Positronics', 2013. Ink on paper" src='{% static "startpage/images/temp/positronics_06_thumb.jpg" %}' />
-	</div>
-	<div class="box col3 editorial">
-		<img alt="1/1<br />Cover for Printed Pages, published by It's Nice That." src='{% static "startpage/images/temp/printedpages_01_thumb.jpg" %}' />
-	</div>
-	<div class="box col3 posters">
-		<img alt="1/1<br />From my solo show 'Positronics', 2013. Ink on paper" src='{% static "startpage/images/temp/positronics_05_thumb.jpg" %}' />
-	</div>
-	<div class="box col3 editorial">
-		<img alt="1/1<br />Bishop Nehru and DOOM, special anouncement of collaboration from Lex Records." src='{% static "startpage/images/temp/nehrudoom_01_thumb.jpg" %}' />
-	</div>
-	<div class="box col3 posters">
-		<img alt="1/1<br />Limited edtition of 20 screen prints. Contact me for availability." src='{% static "startpage/images/temp/hands_01_thumb.jpg" %}' />
-	</div>
-	<div class="box col3 posters">
-		<img alt="1/1<br />Limited edtition of 20 screen prints. Contact me for availability." src='{% static "startpage/images/temp/heads_01_thumb.jpg" %}' />
-	</div>
-	<div class="box col3 posters">
-		<img alt="1/1<br />From my solo show 'Positronics', 2013. Ink on paper" src='{% static "startpage/images/temp/positronics_04_thumb.jpg" %}' />
-	</div>
-	<div class="box col3 editorial">
-		<img alt="1/1<br />Drawing of Earl Willis Beal for a music article in Norrona Magazine." src='{% static "startpage/images/temp/earlwillisbeal_01_thumb.jpg" %}' />
-	</div>
-	<div class="box col3 posters">
-		<img alt="1/1<br />From my solo show 'Positronics', 2013. Ink on paper" src='{% static "startpage/images/temp/positronics_07_thumb.jpg" %}' />
-	</div>
-	<div class="box col3 editorial">
-		<img alt="1/1<br />Cover for The NY Times Sunday Book Review." src='{% static "startpage/images/temp/timescover_01_thumb.jpg" %}' />
-	</div>
-	<div class="box col3 posters">
-		<img alt="1/1<br />From my solo show 'Positronics', 2013. Ink on paper" src='{% static "startpage/images/temp/positronics_08_thumb.jpg" %}' />
-	</div>
-	<div class="box col3 posters">
-		<img alt="1/1<br />From my solo show 'Positronics', 2013. Ink on paper" src='{% static "startpage/images/temp/positronics_10_thumb.jpg" %}' />
-	</div>
-	<div class="box col3 editorial">
-		<img alt="1/1<br />'I Wear the Black Hat' by Chuck Klosterman, for The NY Times Sunday Book Review." src='{% static "startpage/images/temp/parker_01_thumb.jpg" %}' />
-	</div>
-	<div class="box col3 posters">
-		<img alt="1/1<br />From my solo show 'Positronics', 2013. Ink on paper" src='{% static "startpage/images/temp/positronics_02_thumb.jpg" %}' />
-	</div>
-	<div class="box col3 editorial">
-		<img alt="1/1<br />'Joyland' by Stephen King, for The NY Times Sunday Book Review." src='{% static "startpage/images/temp/joyland_01_thumb.jpg" %}' />
-	</div>
-	<div class="box col3 posters">
-		<img alt="1/1<br />From my solo show 'Positronics', 2013. Ink on paper" src='{% static "startpage/images/temp/positronics_01_thumb.jpg" %}' />
-	</div>
-	<div class="box col3 posters">
-		<img alt="1/2<br />Limited edtition of 20 screen prints. Contact me for availability." src='{% static "startpage/images/temp/runners_01_thumb.jpg" %}' />
-	</div>
-	<div class="box col3 posters">
-		<img alt="1/2<br />Limited edtition of 20 screen prints. Contact me for availability." src='{% static "startpage/images/temp/runners_02_thumb.jpg" %}' />
-	</div>
-	<div class="box col3 editorial">
-		<img alt="1/1<br />'Red Moon' by Benjamin Percy, for The NY Times Sunday Book Review." src='{% static "startpage/images/temp/redmoon_01_thumb.jpg" %}' />
-	</div>
-	<div class="box col3 posters">
-		 <img alt="1/1<br />From my solo show 'Positronics', 2013. Ink on paper" src='{% static "startpage/images/temp/positronics_03_thumb.jpg" %}' />
-	</div>
-	<div class="box col3 posters">
-		 <img alt="1/1<br />From my solo show 'Positronics', 2013. Ink on paper" src='{% static "startpage/images/temp/positronics_09_thumb.jpg" %}' />
-	</div>
-	<div class="box col3 editorial">
-		<img alt="1/1<br />Doom, for Frank 151. Also used for the free track stream of 'Doomsayer', thanks to Jeff Jank from Stones Throw." src='{% static "startpage/images/temp/doom_01_thumb.jpg" %}' />
-	</div>
-	<div class="box col3 posters">
-		 <img alt="1/1<br />From my solo show 'Positronics', 2013. Ink on paper" src='{% static "startpage/images/temp/positronics_11_thumb.jpg" %}' />
-	</div>
-	<div class="box col3 posters">
-		<img alt="1/2<br />Limited edtition of 30 screen prints, available from Gallery Steinsland Berliner in Stockholm." src='{% static "startpage/images/temp/theyarecoming_01_thumb.jpg" %}' />
-	</div>
-	<div class="box col3 posters">
-		<img alt="1/2<br />Limited edtition of 30 screen prints, available from Gallery Steinsland Berliner in Stockholm." src='{% static "startpage/images/temp/runaway_01_thumb.jpg" %}' />
-	</div>
-
+		{% for data in linkData %}
+		<div class="item">
+			{% with data.relativePath as pathStatic %}
+				<img alt='1/1<br /> {{ data.description }}' src='{% static pathStatic %}' />
+			{% endwith %}
+		</div>
+		{% endfor %} <!-- loading variables inside the static tag -->
 	</div>
 </body>
 <script type="text/javascript" src='{% static "startpage/js/lib/jquery/jquery-2.1.3.js" %}'></script>
