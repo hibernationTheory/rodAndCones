@@ -42,9 +42,10 @@ Network Trash Folder
 Temporary Items
 .apdisk
 
-#virtualenv dir
+#dir to ignore
 env
 reference
+temp
 
 #others
 *.pyc
