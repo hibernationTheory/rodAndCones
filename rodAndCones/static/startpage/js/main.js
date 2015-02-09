@@ -1,11 +1,11 @@
 var $container = $('#container');
-var $parent = $container.parent()
-var innerWidth = $parent.innerWidth();
-console.log(innerWidth);
-// initialize
-$container.masonry({
-	columnWidth: innerWidth,
-	itemSelector: '.item'
+$container.imagesLoaded(function() {
+	// initialize
+	$container.masonry({
+		columnWidth: 60,
+		itemSelector: '.item'
+	});
 });
 
-var msnry = $container.data('masonry');
+// masonry related info from : http://designshack.net/
+// http://masonry.desandro.com/
