@@ -44,3 +44,7 @@ Temporary Items
 
 #virtualenv dir
 env
+reference
+
+#others
+*.pyc
