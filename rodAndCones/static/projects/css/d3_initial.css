@@ -6,6 +6,11 @@ html, body {
   font-family: 'PT Sans Caption', Arial, Verdana, Calibri;
 }
 
+svg {
+	display:block;
+	margin:auto;
+}
+
 * {
   box-sizing: border-box;
 }
@@ -18,13 +23,17 @@ html, body {
   height: 100%;
 }
 
+.nav-item {
+	list-style-type: none;
+}
+
 .nav-link {
   padding: 10px 5px;
   color: #fff;
   text-decoration: none;
   font-size: 14px;
   display: flex;
-  justify-content: center;
+  /*justify-content: center;*/
   text-transform: uppercase;
   
   &:hover,
@@ -81,6 +90,7 @@ html, body {
   left: 0; top: 0;
  
  
+ /*
   &-home {
     top: 0;
     // style
@@ -88,6 +98,7 @@ html, body {
     color: #fff;
     text-shadow: 1px 1px 0 #333;
   }
+  */
   
   &-about {
     top: 100%;
@@ -111,7 +122,7 @@ html, body {
 }
 
 // navigation
-#home:target ~ .wrapper .layout {
+#ex01:target ~ .wrapper .layout {
   top: 0;
 }
 
