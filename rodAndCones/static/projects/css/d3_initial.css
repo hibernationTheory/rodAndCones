@@ -114,3 +114,9 @@ h3 {
 #ex02:target ~ .wrapper .layout {
   top: -100%;
 }
+
+#ex03:target ~ .wrapper .layout {
+  top: -200%;
+}
+
+

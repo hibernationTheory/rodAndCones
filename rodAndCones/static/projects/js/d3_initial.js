@@ -172,3 +172,73 @@ for (var i = 0; i < DATASET_SIZE; i++) {
 })();
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+(function() {
+    /*
+    using scales, dynamic elemwidth
+    */
+    var elemWidth = SVG_WIDTH/DATASET_SIZE;
+    var padding = 0;
+    var exampleID = "ex03"
+    var exampleTitle = "Example 03"
+    var index = 2;
+
+    var subtitle = "Using D3 events"
+    var description = "D3 Events <br/> \
+    - Varying the color of the bars with the data value. <br/> \
+    - Implementing behaviour for click, mouseenter, mouseout <br/> \
+    - Silky smooth hover animation made possible by transition().duration(500)<br/> \
+    "
+    createInterfaceForViz(exampleID, exampleTitle, subtitle, description, index);
+
+    domainX = [0, DATASET_SIZE];
+    domainY = [0, 1] // domain is in btw 0 and 1 because of the random function;
+    // or you can use the max function to find the biggest element in the array
+    domainY = [0, d3.max(DATASET, function(d) { return d;})];
+
+    scaleX = d3.scale.linear().domain(domainX).range([0, SVG_WIDTH]);
+    scaleY = d3.scale.linear().domain(domainY).range([0, SVG_HEIGHT]);
+    scaleY_0and1 = d3.scale.linear().domain(domainY).range([0, 255]);
+
+    // create the svg canvas
+    d3.select(".page-" + exampleID).append("svg").attr({
+        "width":SVG_WIDTH,
+        "height":SVG_HEIGHT,
+        "class":"svg-" + exampleID
+    });
+
+    d3.select(".svg-" + exampleID)
+        .selectAll("rect")
+        .data(DATASET)
+        .enter()
+        .append("rect")
+        .attr({
+            "x":function(d,i) {
+                return scaleX(i);
+                },
+            "y":function(d,i) {
+                return SVG_HEIGHT-scaleY(d);
+                },
+            "width":elemWidth,
+            "height": function(d, i) {
+                   return scaleY(d); 
+                },
+            "fill":function(d,i) {
+                var expression = "rgb(" + [0,0, Math.floor(scaleY_0and1(d))] + ")";
+                return expression;
+            },
+        })
+        .on("click", function(d) {
+            console.log(d);
+        })
+        .on("mouseenter", function(d) {
+            d3.select(this).transition().duration(50).attr({"fill":"orange"});
+        })
+        .on("mouseout", function(d) {
+            var expression = "rgb(" + [0,0, Math.floor(scaleY_0and1(d))] + ")";
+            d3.select(this).transition().duration(500).attr({"fill":expression});
+        });
+})();
+
+
