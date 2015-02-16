@@ -1,13 +1,4 @@
-// create an array of random numbers
-
-var dataSet = [];
-var dataSetSize = 100;
-for (var i = 0; i < dataSetSize; i++) {
-    var num = Math.random();
-    dataSet.push(num);
-}
-
-function createInterfaceForViz(name, title) {
+function createInterfaceForViz(name, title, subtitle, description) {
     // creates the corresponding interface components for the visualization
 
     // create the navigation text
@@ -39,40 +30,76 @@ function createInterfaceForViz(name, title) {
         "class":"page-title",
         "text": title
     });
+    var infoSection = $("<h3></h3>", {
+        "text":subtitle
+    })
+
+    var detailedInfo = $("<p></p>", {
+        "class":"page-info",
+        "html":description
+    })
+
     $(".layout").append(section);
     header.appendTo(section);
+    infoSection.appendTo(section);
+    detailedInfo.appendTo(section);
 };
 
-var svgWidth = 1000;
-var svgHeight = 300;
-var elemWidth = 20;
-var padding = 0;
-var yMultiplier = 50;
+var SVG_WIDTH = 1000;
+var SVG_HEIGHT = 300;
 
-createInterfaceForViz("ex01", "test");
+// create an array of random numbers
 
-// create the svg canvas
-d3.select(".page-ex01").append("svg").attr({
-    "width":svgWidth,
-    "height":svgHeight,
-    "class":"svg-ex01"
-});
+var DATASET = [];
+var DATASET_SIZE = 100;
+for (var i = 0; i < DATASET_SIZE; i++) {
+    var num = Math.random();
+    DATASET.push(num);
+}
 
-d3.select(".svg-ex01")
-    .selectAll("rect")
-    .data(dataSet)
-    .enter()
-    .append("rect")
-    .attr({
-        "x":function(d,i) {
-            return i*elemWidth;
-            },
-        "y":function(d,i) {
-            return svgHeight-d*yMultiplier;
-            },
-        "width":elemWidth,
-        "height": function(d, i) {
-               return d*yMultiplier; 
-            },
-        "fill":"red"
-});
+(function() {
+    var elemWidth = 20;
+    var padding = 0;
+    var yMultiplier = 50;
+    var exampleID = "ex01"
+    var exampleTitle = "Example 01"
+
+    var subtitle = "A basic D3 example for creating a Barchart"
+    var description = "Using a random dataset to create a simple barchart. </br> Notes: </br> \
+    - to be able to center an svg inside a div, you need to change it's display to block (inline by default) </br> \
+    - at that point, you can apply margin: auto, </br>\
+    - you need to set the x, y, width, height on the rect's inside svg. </br>\
+    "
+    createInterfaceForViz(exampleID, exampleTitle, subtitle, description);
+
+    // create the svg canvas
+    d3.select(".page-" + exampleID).append("svg").attr({
+        "width":SVG_WIDTH,
+        "height":SVG_HEIGHT,
+        "class":"svg-" + exampleID
+    });
+
+    d3.select(".svg-" + exampleID)
+        .selectAll("rect")
+        .data(DATASET)
+        .enter()
+        .append("rect")
+        .attr({
+            "x":function(d,i) {
+                return i*elemWidth;
+                },
+            "y":function(d,i) {
+                return SVG_HEIGHT-d*yMultiplier;
+                },
+            "width":elemWidth,
+            "height": function(d, i) {
+                   return d*yMultiplier; 
+                },
+            "fill":"red"
+    });
+})();
+
+
+
+
+
