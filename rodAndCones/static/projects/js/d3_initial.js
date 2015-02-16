@@ -57,10 +57,12 @@ function createInterfaceForViz(name, title, subtitle, description, index) {
     header.appendTo(section);
     infoSection.appendTo(section);
     detailedInfo.appendTo(section);
+    $("</br>").appendTo(section);
+    $("</br>").appendTo(section);
 };
 
 var SVG_WIDTH = 1000;
-var SVG_HEIGHT = 300;
+var SVG_HEIGHT = 200;
 
 // create an array of random numbers
 
@@ -70,6 +72,8 @@ for (var i = 0; i < DATASET_SIZE; i++) {
     var num = Math.random();
     DATASET.push(num);
 }
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 (function() {
     var elemWidth = 20;
@@ -114,20 +118,31 @@ for (var i = 0; i < DATASET_SIZE; i++) {
     });
 })();
 
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 (function() {
-    var elemWidth = 20;
+    /*
+    using scales, dynamic elemwidth
+    */
+    var elemWidth = SVG_WIDTH/DATASET_SIZE;
     var padding = 0;
-    var yMultiplier = 50;
     var exampleID = "ex02"
     var exampleTitle = "Example 02"
     var index = 1;
 
-    var subtitle = "Using d3 scales"
-    var description = ""
+    var subtitle = "Using D3 scales"
+    var description = "Illustration the usage of D3 Scales for a more procedural way of creating graphs <br/> \
+    - Scales would dynamically normalize the values of x or y sizes. <br/> \
+    - Also using a width/dataset_size expression for bar width to have it more procedural"
     createInterfaceForViz(exampleID, exampleTitle, subtitle, description, index);
 
-    scaleX = d3.scale().linear().domain([0,1]).linear([0, SVG_WIDTH]);
-    scaleY = d3.scale().linear().domain([0,1]).linear([0, 1*yMultiplier]);
+    domainX = [0, DATASET_SIZE];
+    domainY = [0, 1] // domain is in btw 0 and 1 because of the random function;
+    // or you can use the max function to find the biggest element in the array
+    domainY = [0, d3.max(DATASET, function(d) { return d;})];
+
+    scaleX = d3.scale.linear().domain(domainX).range([0, SVG_WIDTH]);
+    scaleY = d3.scale.linear().domain(domainY).range([0, SVG_HEIGHT]);
 
     // create the svg canvas
     d3.select(".page-" + exampleID).append("svg").attr({
@@ -143,18 +158,17 @@ for (var i = 0; i < DATASET_SIZE; i++) {
         .append("rect")
         .attr({
             "x":function(d,i) {
-                return i*elemWidth;
+                return scaleX(i);
                 },
             "y":function(d,i) {
-                return SVG_HEIGHT-d*yMultiplier;
+                return SVG_HEIGHT-scaleY(d);
                 },
             "width":elemWidth,
             "height": function(d, i) {
-                   return d*yMultiplier; 
+                   return scaleY(d); 
                 },
             "fill":"red"
     });
 })();
 
-
-
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////
