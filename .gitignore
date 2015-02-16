@@ -46,6 +46,7 @@ Temporary Items
 env
 reference
 temp
+CACHE
 
 #others
 *.pyc
