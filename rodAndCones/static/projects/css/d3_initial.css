@@ -1,0 +1,128 @@
+@import url(http://fonts.googleapis.com/css?family=PT+Sans+Caption:400,700);
+
+html, body {
+  width: 100%;
+  height: 100%;
+  font-family: 'PT Sans Caption', Arial, Verdana, Calibri;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+// style
+.nav {
+  width: 230px;
+  min-width: 230px;
+  background-color: #333;
+  height: 100%;
+}
+
+.nav-link {
+  padding: 10px 5px;
+  color: #fff;
+  text-decoration: none;
+  font-size: 14px;
+  display: flex;
+  justify-content: center;
+  text-transform: uppercase;
+  
+  &:hover,
+  &:focus,
+  &:active {
+    background-color: #222;
+  }
+}
+
+.page-title {
+  text-align: center;
+  font-size: 2em;
+  padding: 10px;
+  line-height: 2.1em;
+}
+
+// MAGIC
+// ==================================== 
+.targets {
+  // hide targets at top of page
+  position: absolute;
+  left: -9999px; top: 0;
+}
+
+.wrapper {
+  // hide overflow
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  display: flex;
+  // for .holder position
+  position: relative;
+}
+
+.holder {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.layout {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  transition: top ease-in-out .6s;
+}
+
+.page {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0; top: 0;
+ 
+ 
+  &-home {
+    top: 0;
+    // style
+    background-color: #3498db;
+    color: #fff;
+    text-shadow: 1px 1px 0 #333;
+  }
+  
+  &-about {
+    top: 100%;
+    // style
+    background-color: #e74c3c;
+    color: #fff;
+    text-shadow: 1px 1px 0 #333;
+  }
+  
+  &-skills {
+    top: 200%;
+    // style
+    background-color: #27ae60;
+    color: #fff;
+    text-shadow: 1px 1px 0 #333;
+  }
+  
+  &-portfolio {
+    top: 300%;
+  }
+}
+
+// navigation
+#home:target ~ .wrapper .layout {
+  top: 0;
+}
+
+#about:target ~ .wrapper .layout {
+  top: -100%;
+}
+
+#skills:target ~ .wrapper .layout {
+  top: -200%;
+}
+
+#portfolio:target ~ .wrapper .layout {
+  top: -300%;
+}
