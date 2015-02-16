@@ -105,6 +105,15 @@ h3 {
   left: 0; top: 0;
 }
 
+.svg-rect {
+	transition: 0.6s;
+}
+
+.svg-rect:hover {
+	fill:orange;
+	transition: 0.05s;
+}
+
 // navigation
 
 #ex01:target ~ .wrapper .layout {
@@ -117,6 +126,10 @@ h3 {
 
 #ex03:target ~ .wrapper .layout {
   top: -200%;
+}
+
+#ex04:target ~ .wrapper .layout {
+  top: -300%;
 }
 
 
