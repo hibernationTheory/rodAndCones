@@ -277,7 +277,8 @@ for (var i = 0; i < DATASET_SIZE; i++) {
 
     var subtitle = "Using D3 events - Sorting"
     var description = "D3 Events - Sort with a click<br/> \
-    - For this example, disabling the JS hover method and implementing a css method instead <br/> \
+    - For this example, disabling the JS hover method and implementing a css method \
+    instead as it interferes with the sorting event <br/> \
     - Clicking once will sort in a descending order, consequtive click will alternate between ascending and descending <br/> \
     "
     createInterfaceForViz(exampleID, exampleTitle, subtitle, description, index);
@@ -330,4 +331,88 @@ for (var i = 0; i < DATASET_SIZE; i++) {
         });
 })();
 
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+(function() {
+    /*
+    scatterplot, axises
+    */
+    var scaleMultiplier = 20;
+
+    //var elemWidth = SVG_WIDTH/DATASET_SIZE;
+    var exampleID = "ex05"
+    var exampleTitle = "Example 05"
+    var index = 4;
+    var padding = scaleMultiplier*2;
+    var axisPadding = padding / 4;
+
+    var subtitle = "Scatterplot - Axises"
+    var description = "Example for using axises on a scatterplot diagram<br/> \
+    - You need to set a cx, cy and a r on a circle<br/> \
+    - We register the area as the size of the data, so treat the incoming value as an area value \
+    and set the radius accordingly </br> \
+    "
+    createInterfaceForViz(exampleID, exampleTitle, subtitle, description, index);
+
+    domainX = [0, DATASET_SIZE];
+    domainY = [0, 1] // domain is in btw 0 and 1 because of the random function;
+    // or you can use the max function to find the biggest element in the array
+    domainY = [0, d3.max(DATASET, function(d) { return d;})];
+
+    scaleX = d3.scale.linear().domain(domainX).range([0+padding, SVG_WIDTH-padding]);
+    scaleY = d3.scale.linear().domain(domainY).range([0+padding, SVG_HEIGHT-padding]);
+    scaleSize = d3.scale.linear().domain(domainY).range([0, scaleMultiplier]);
+    scaleY_0and1 = d3.scale.linear().domain(domainY).range([0, 255]);
+
+    var xAxis = d3.svg.axis().scale(scaleX).orient("top").ticks(5);
+    var yAxis = d3.svg.axis().scale(scaleY).orient("right").ticks(10);
+
+    // create the svg canvas
+    var svg = d3.select(".page-" + exampleID).append("svg").attr({
+        "width":SVG_WIDTH,
+        "height":SVG_HEIGHT,
+        "class":"svg-" + exampleID
+    });
+    
+    svg.append("g")
+    .attr("transform", "translate(" + [0, (SVG_HEIGHT-axisPadding)] + ")")
+    .attr("class", "axis")
+    .call(xAxis);
+
+    svg.append("g")
+    .attr("transform", "translate(" + [axisPadding, 0] + ")")
+    .attr("class", "axis")
+    .call(yAxis);
+    
+    svg.selectAll("circle")
+        .data(DATASET)
+        .enter()
+        .append("circle")
+        .classed("svg-circle", true) // now adding a class to rects.
+        .attr({
+            "cx":function(d,i) {
+                return scaleX(i);
+                },
+            "cy":function(d,i) {
+                return SVG_HEIGHT-scaleY(d);
+                },
+            "r":function(d,i) {
+                return scaleSize(Math.sqrt(d/3.14));
+                },
+            "fill":function(d,i) {
+                var expression = "rgb(" + [0,0, Math.floor(scaleY_0and1(d))] + ")";
+                return expression;
+            },
+        })
+        /*
+        .on("click", function(d) {
+            var parent = d3.select(".svg-" + exampleID);
+            if (!SORTED) {
+                SORTED = sortBars(parent, ".svg-rect", scaleX, "descending");
+            } else {
+                SORTED = sortBars(parent, ".svg-rect", scaleX, "ascending");
+            }
+        });
+        */
+})();
 

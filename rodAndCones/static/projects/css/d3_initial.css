@@ -23,7 +23,7 @@ h3 {
     box-shadow: 0px 1px 3px rgba(0,0,0, 0.2);
     padding: 30px;
     border-radius: 5px;
-    background-color:#FFF;
+    background-color:#D8D8D8;
 }
 
 * {
@@ -99,10 +99,10 @@ h3 {
 }
 
 .page {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  left: 0; top: 0;
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	left: 0; top: 0;
 }
 
 .svg-rect {
@@ -110,6 +110,15 @@ h3 {
 }
 
 .svg-rect:hover {
+	fill:orange;
+	transition: 0.05s;
+}
+
+.svg-circle {
+	transition: 0.6s;
+}
+
+.svg-circle:hover {
 	fill:orange;
 	transition: 0.05s;
 }
@@ -130,6 +139,10 @@ h3 {
 
 #ex04:target ~ .wrapper .layout {
   top: -300%;
+}
+
+#ex05:target ~ .wrapper .layout {
+  top: -400%;
 }
 
 
