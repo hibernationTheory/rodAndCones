@@ -1,0 +1,27 @@
+{
+    "0": {
+        "title": "Checklist",
+        "subTitle": "A Checklist App built in PyQt",
+        "description": "A Checklist App built in PyQt"
+    },
+    "1": {
+        "title": "Tools",
+        "subTitle": "Various tools for Maya & Houdini",
+        "description": "A Checklist App built in PyQt"
+    },
+    "2": {
+        "title": "Movie Titles",
+        "subTitle": "A Datamining project",
+        "description": "A Checklist App built in PyQt"
+    },
+    "3": {
+        "title": "sQuery",
+        "subTitle": "a jQuery-like library for Houdini",
+        "description": "A Checklist App built in PyQt"
+    },
+    "4": {
+        "title": "Website",
+        "subTitle": "A Checklist App built in PyQt",
+        "description": "A Checklist App built in PyQt"
+    },
+}

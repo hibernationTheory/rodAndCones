@@ -1,32 +1,110 @@
 jQuery(document).ready(function($){
-	//check if background-images have been loaded and show list items
-	$('.cd-single-project').bgLoaded({
-	  	afterLoaded : function(){
-	   		showCaption($('.projects-container li').eq(0));
-	  	}
-	});
 
-	//open project
-	$('.cd-single-project').on('click', function(){
-		var selectedProject = $(this),
-			toggle = !selectedProject.hasClass('is-full-width');
-		if(toggle) toggleProject($(this), $('.projects-container'), toggle);
-	});
+	var STYLE = {
+		"projectsContainerList":{"id":"projects-list"},
+		"projectListItem":{"class":"cd-single-project"},
+		"projectTitle":{"class":"cd-title"},
+		"projectSubTitle":{"class":"cd-sub-title"},
+		"projectInfo":{"class":"cd-project-info"}
+	}
 
-	//close project
-	$('.projects-container .cd-close').on('click', function(){
-		toggleProject($('.is-full-width'), $('.projects-container'), false);
-	});
+	main();
 
-	//scroll to project info
-	$('.projects-container .cd-scroll').on('click', function(){
-		$('.projects-container').animate({'scrollTop':$(window).height()}, 500); 
-	});
+	function main() {
+		var parentElSelector = "#" + STYLE["projectsContainerList"]["id"];
+		loadProjectData(parentElSelector);
+	}
 
-	//update title and .cd-scroll opacity while scrolling
-	$('.projects-container').on('scroll', function(){
-		window.requestAnimationFrame(changeOpacity);
-	});
+	function loadProjectData(parentElSelector) {
+		// loads the projects data from an external json file
+		$.getJSON("../static/projects/js/project_portfolio/project_data.js")
+			.done(function(json) {
+				buildPageFromJson(json, parentElSelector);
+			})
+			.fail(function( jqxhr, textStatus, error ) {
+				var err = textStatus + ", " + error;
+				console.log( "Request Failed: " + err );
+			});
+	};
+
+	function buildPageFromJson(data, parentElSelector) {
+		var length = Object.keys(data, parentElSelector).length;
+		var parentEl = $(parentElSelector);
+		for (var i = 0; i < length; i ++ ) {
+			console.log(data[i]);
+			var currData = data[i];
+
+			// project cover
+			var $projectTitleContainer = $("<div></div>", {
+				"class":STYLE["projectTitle"]["class"],
+			});
+
+			var $projectTitle = $("<h2></h2>", {
+				"text":currData["title"]
+			});
+
+			var $projectSubtitle = $("<p></p>", {
+				"text":currData["subTitle"]
+			});
+
+			$projectTitleContainer.append($projectTitle);
+			$projectTitleContainer.append($projectSubtitle);
+
+			// project content
+			var $projectInfoContainer = $("<div></div>", {
+				"class":STYLE["projectInfo"]["class"],
+			});
+
+			var $projectInfo = $("<p></p>", {
+				"text":currData["projectInfo"]
+			});
+
+			$projectInfoContainer.append($projectInfo);
+
+			//project container
+
+			var $singleProjectContainer = $("<li></li>", {
+				"class":STYLE["projectListItem"]["class"]
+			});
+
+			$projectTitleContainer.appendTo($singleProjectContainer);
+			$projectInfoContainer.appendTo($singleProjectContainer);
+			$singleProjectContainer.appendTo(parentEl);
+
+			installEventListeners();
+		}
+	};
+
+
+	function installEventListeners() {
+		//check if background-images have been loaded and show list items
+		$('.cd-single-project').bgLoaded({
+		  	afterLoaded : function(){
+		   		showCaption($('.projects-container li').eq(0));
+		  	}
+		});
+		//open project
+		$('.cd-single-project').on('click', function(){
+			var selectedProject = $(this),
+				toggle = !selectedProject.hasClass('is-full-width');
+			if(toggle) toggleProject($(this), $('.projects-container'), toggle);
+		});
+
+		//close project
+		$('.projects-container .cd-close').on('click', function(){
+			toggleProject($('.is-full-width'), $('.projects-container'), false);
+		});
+
+		//scroll to project info
+		$('.projects-container .cd-scroll').on('click', function(){
+			$('.projects-container').animate({'scrollTop':$(window).height()}, 500); 
+		});
+
+		//update title and .cd-scroll opacity while scrolling
+		$('.projects-container').on('scroll', function(){
+			window.requestAnimationFrame(changeOpacity);
+		});
+	};
 
 	function toggleProject(project, container, bool) {
 		if(bool) {
