@@ -5,3 +5,8 @@ def d3_initial(request):
 	#context = RequestContext(request)
 	#context_dict = {"boldmessage" : this will be a bold message}
 	return render_to_response("projects/d3_initial.html")
+
+def project_portfolio(request):
+	#context = RequestContext(request)
+	#context_dict = {"boldmessage" : this will be a bold message}
+	return render_to_response("projects/project_portfolio.html")
