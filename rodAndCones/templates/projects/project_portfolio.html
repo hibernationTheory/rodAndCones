@@ -1,6 +1,7 @@
 <!doctype html>
 
 {% load static %}
+{% load compress %}
 
 <html lang="en" class="no-js">
 	<head>
@@ -8,13 +9,20 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<link href='http://fonts.googleapis.com/css?family=PT+Sans:400,700|Merriweather:400italic,400' rel='stylesheet' type='text/css'>
 		<link rel="stylesheet" href='{% static "projects/css/project_portfolio/reset.css" %}'> <!-- CSS reset -->
-		<link rel="stylesheet" href='{% static "projects/css/project_portfolio/style.css" %}'> <!-- Resource style -->
+		<!-- Resource style -->
+		<!--
+		<link rel="stylesheet" href='{% static "projects/css/project_portfolio/style.css" %}'>
+		-->
+		{% compress css %}
+		<link type="text/less" rel="stylesheet" charset="utf-8" href="{% static 'projects/css/project_portfolio/style_less.css' %}" />
+		{% endcompress %}
 		<script src='{% static "projects/js/lib/modernizr/modernizr.js" %}'></script> <!-- Modernizr -->
 		<title>Portfolio</title>
 	</head>
 	<body>
 		<div class="projects-container">
 		<ul id="projects-list">
+
 		{% for project in projects %}
 			<li class="cd-single-project">
 				<div class="cd-title">
@@ -29,6 +37,7 @@
 				</div>
 			</li>
 		{% endfor %}
+
 		</ul>
 		<a href="#0" class="cd-close">Close</a>
 		<a href="#0" class="cd-scroll">Scroll</a>
