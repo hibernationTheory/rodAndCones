@@ -31,8 +31,32 @@
 				</div>
 
 				<div class="cd-project-info">
+				<div id="nav-wrap"> <!--http://codepen.io/AndreCortellini/pen/kaCEf-->
+					<div id="scroller-anchor"></div> 
+					<div id="nav">
+						<ul class="clearfix">
+							<li class="nav-btn active" data-row-id="row1">Link#1</li>
+							<li class="nav-btn" data-row-id="row2">Link#2</li>
+							<li class="nav-btn" data-row-id="row3">Link#3</li>
+							<li class="nav-btn" data-row-id="row4">Link#4</li>
+							<li class="nav-btn" data-row-id="row5">Link#5</li>
+							<li class="nav-btn" data-row-id="row6">Link#6</li>
+						<div id="nav-indicator"></div>
+						</ul>
+					</div>
+				</div>
+
+
 					<p>
-						{{ project.projectInfo }}
+						<h2 class="text-title">{{ project.subTitle }}</h2>
+						<h3> MOTIVATION </h3>
+						<p class="text-container">{{ project.description.motivation }}</p>
+
+						<h3> TECHNIQUE </h3>
+						<p class="text-container">{{ project.description.technique }}</p>
+
+						<h3> FURTHER DISCUSSION </h3>
+						<p class="text-container">{{ project.description.furtherDiscussion }}</p>
 					</p>
 				</div>
 			</li>

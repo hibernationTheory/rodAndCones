@@ -1,27 +1,56 @@
 {
     "0": {
-        "title": "Checklist",
-        "subTitle": "A Checklist App built in PyQt",
-        "description": "A Checklist App built in PyQt"
+        "title": "Various Tools",
+        "subTitle": "Various Tools Developed for 3d Apps",
+        "description": {
+            "motivation":"I actively develop tools at work and on my own time to enhance the productivity and efficiency of myself and my teammates. I believe solving problems for even secondary concerns in such applications such as accessiblity, improves the user experience greatly.",
+            "technique":"I use Python as my main language and the PyQt Framework to develop Interfaces for the tools, the host application permitting. Likewise I use PyQt to build studio-wide desktop applications. Tools are built with good coding practices and scalability in mind.",
+            "furtherDiscussion":"I believe automating repetitive processes doesn't take away from artists duties but actually leave a larger room for them to exercise their creativity. In my mind any redundany step in a repetitive production process that can be automated should be done so."
+        }
     },
     "1": {
-        "title": "Tools",
-        "subTitle": "Various tools for Maya & Houdini",
-        "description": "A Checklist App built in PyQt"
+        "title": "Checklist Tool",
+        "subTitle": "A Checklist App Built in PyQt",
+        "description": {
+            "motivation":"aaaa",
+            "technique":"bbbb",
+            "furtherDiscussion":"ccc"
+        }
     },
     "2": {
-        "title": "Movie Titles",
-        "subTitle": "A Datamining project",
-        "description": "A Checklist App built in PyQt"
+        "title": "Procedural Shapes",
+        "subTitle": "Procedural Shape Creation in Houdini",
+        "description": {
+            "motivation":"aaaa",
+            "technique":"bbbb",
+            "furtherDiscussion":"ccc"
+        }
     },
     "3": {
-        "title": "sQuery",
-        "subTitle": "a jQuery-like library for Houdini",
-        "description": "A Checklist App built in PyQt"
+        "title": "Movie Title Translations",
+        "subTitle": "A Quantitative Analysis of Movie Title Translations",
+        "description": {
+            "motivation":"aaaa",
+            "technique":"bbbb",
+            "furtherDiscussion":"ccc"
+        }
     },
     "4": {
-        "title": "Website",
-        "subTitle": "A Checklist App built in PyQt",
-        "description": "A Checklist App built in PyQt"
+        "title": "sQuery",
+        "subTitle": "a jQuery-like Library for 3d Applications",
+        "description": {
+            "motivation":"aaaa",
+            "technique":"bbbb",
+            "furtherDiscussion":"ccc"
+        }
+    },
+    "5": {
+        "title": "Project Route",
+        "subTitle": "A Social - Location based Story Telling Web Application",
+        "description": {
+            "motivation":"aaaa",
+            "technique":"bbbb",
+            "furtherDiscussion":"ccc"
+        }
     }
 }
