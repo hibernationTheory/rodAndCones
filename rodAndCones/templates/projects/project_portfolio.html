@@ -15,20 +15,20 @@
 	<body>
 		<div class="projects-container">
 		<ul id="projects-list">
-			<!--
+		{% for project in projects %}
 			<li class="cd-single-project">
 				<div class="cd-title">
-					<h2>Project 1</h2>
-					<p>Brief description of the project here</p>
+					<h2>{{ project.title }}</h2>
+					<p class="cd-sub-title">{{ project.subTitle }}</p>
 				</div>
 
 				<div class="cd-project-info">
 					<p>
-						Content
+						{{ project.projectInfo }}
 					</p>
 				</div>
 			</li>
-			-->
+		{% endfor %}
 		</ul>
 		<a href="#0" class="cd-close">Close</a>
 		<a href="#0" class="cd-scroll">Scroll</a>

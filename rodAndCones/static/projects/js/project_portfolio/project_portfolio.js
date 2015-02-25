@@ -12,69 +12,9 @@ jQuery(document).ready(function($){
 
 	function main() {
 		var parentElSelector = "#" + STYLE["projectsContainerList"]["id"];
-		loadProjectData(parentElSelector);
+		installEventListeners();
+		//loadProjectData(parentElSelector);
 	}
-
-	function loadProjectData(parentElSelector) {
-		// loads the projects data from an external json file
-		$.getJSON("../static/projects/js/project_portfolio/project_data.js")
-			.done(function(json) {
-				buildPageFromJson(json, parentElSelector);
-			})
-			.fail(function( jqxhr, textStatus, error ) {
-				var err = textStatus + ", " + error;
-				console.log( "Request Failed: " + err );
-			});
-	};
-
-	function buildPageFromJson(data, parentElSelector) {
-		var length = Object.keys(data, parentElSelector).length;
-		var parentEl = $(parentElSelector);
-		for (var i = 0; i < length; i ++ ) {
-			console.log(data[i]);
-			var currData = data[i];
-
-			// project cover
-			var $projectTitleContainer = $("<div></div>", {
-				"class":STYLE["projectTitle"]["class"],
-			});
-
-			var $projectTitle = $("<h2></h2>", {
-				"text":currData["title"]
-			});
-
-			var $projectSubtitle = $("<p></p>", {
-				"text":currData["subTitle"]
-			});
-
-			$projectTitleContainer.append($projectTitle);
-			$projectTitleContainer.append($projectSubtitle);
-
-			// project content
-			var $projectInfoContainer = $("<div></div>", {
-				"class":STYLE["projectInfo"]["class"],
-			});
-
-			var $projectInfo = $("<p></p>", {
-				"text":currData["projectInfo"]
-			});
-
-			$projectInfoContainer.append($projectInfo);
-
-			//project container
-
-			var $singleProjectContainer = $("<li></li>", {
-				"class":STYLE["projectListItem"]["class"]
-			});
-
-			$projectTitleContainer.appendTo($singleProjectContainer);
-			$projectInfoContainer.appendTo($singleProjectContainer);
-			$singleProjectContainer.appendTo(parentEl);
-
-			installEventListeners();
-		}
-	};
-
 
 	function installEventListeners() {
 		//check if background-images have been loaded and show list items
