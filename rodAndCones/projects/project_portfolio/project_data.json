@@ -3,10 +3,14 @@
         "title": "Various Tools",
         "subTitle": "Various Tools Developed for 3d Apps",
         "description": {
-            "motivation":"I actively develop tools at work and on my own time to enhance the productivity and efficiency of myself and my teammates. I believe solving problems for even secondary concerns in such applications such as accessiblity, improves the user experience greatly.",
-            "technique":"I use Python as my main language and the PyQt Framework to develop Interfaces for the tools, the host application permitting. Likewise I use PyQt to build studio-wide desktop applications. Tools are built with good coding practices and scalability in mind.",
-            "furtherDiscussion":"I believe automating repetitive processes doesn't take away from artists duties but actually leave a larger room for them to exercise their creativity. In my mind any redundany step in a repetitive production process that can be automated should be done so."
-        }
+            "motivation":"I actively develop tools to enhance the productivity and efficiency of myself and my teammates. I believe solving problems for even secondary concerns in 3d software applications such as accessiblity, improves the user experience considerably.",
+            "technique":"I use Python as my main language and the PyQt Framework to develop the interfaces for the tools - the host application permitting. Likewise I use PyQt to build studio-wide desktop applications. Tools are built with good coding practices and scalability in mind.",
+            "furtherDiscussion":"I believe automating repetitive processes doesn't take away from artists duties but actually leave a larger room for them to exercise their creativity. In my mind any redundant step in a repetitive production process that can be automated should be done so."
+        },
+        "examples":[
+            "../../static/projects/images/project_portfolio/variousTools_01.jpg",
+            "../../static/projects/images/project_portfolio/variousTools_01.jpg"
+        ]
     },
     "1": {
         "title": "Checklist Tool",

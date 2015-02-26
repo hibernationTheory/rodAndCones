@@ -31,7 +31,9 @@
 				</div>
 
 				<div class="cd-project-info">
-				<div id="nav-wrap"> <!--http://codepen.io/AndreCortellini/pen/kaCEf-->
+				<!--http://codepen.io/AndreCortellini/pen/kaCEf-->
+				<!--
+				<div id="nav-wrap"> 
 					<div id="scroller-anchor"></div> 
 					<div id="nav">
 						<ul class="clearfix">
@@ -45,18 +47,27 @@
 						</ul>
 					</div>
 				</div>
-
+				-->
 
 					<p>
 						<h2 class="text-title">{{ project.subTitle }}</h2>
-						<h3> MOTIVATION </h3>
+						<h3 class="pinline"><span>MOTIVATION</span></h3>
 						<p class="text-container">{{ project.description.motivation }}</p>
 
-						<h3> TECHNIQUE </h3>
+						<h3 class="pinline"><span>TECHNIQUE</span></h3>
 						<p class="text-container">{{ project.description.technique }}</p>
 
-						<h3> FURTHER DISCUSSION </h3>
+						<h3 class="pinline"><span>FURTHER DISCUSSION</span></h3>
 						<p class="text-container">{{ project.description.furtherDiscussion }}</p>
+
+						{% if project.examples %}
+							<h3 class="pinline"><span>EXAMPLES</span></h3>
+							{% for example in project.examples %}
+							<div class="container">
+								<img src="{{ example }}"></img>
+							</div>
+							{% endfor %}
+						{% endif %}
 					</p>
 				</div>
 			</li>

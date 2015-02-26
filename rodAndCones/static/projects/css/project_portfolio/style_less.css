@@ -1,3 +1,4 @@
+@import url('http://fonts.googleapis.com/css?family=Gentium+Basic|Open+Sans:700italic,800');
 
 /* -------------------------------- 
 
@@ -36,6 +37,14 @@ Variables
 
 @project-info-bg-color:#EFEFEF;
 
+@font-family: 'Open Sans'; /* PT Sans */
+@font-family-title: 'Gentium Basic'; /* Merriweather */ 
+
+@font-text-title: 1.5em;
+@font-text-description: 0.9em;
+@font-text-h3: 0.9em;
+@font-title-h2-size: 1.8rem;
+
 /* -------------------------------- 
 
 Primary style
@@ -53,7 +62,7 @@ html {
 
 body {
   font-size: 1.6rem;
-  font-family: "PT Sans", sans-serif;
+  font-family: @font-family, sans-serif;
   color: #ffffff;
   background-color: #101524;
 }
@@ -63,108 +72,120 @@ a {
   text-decoration: none;
 }
 
-h3 {
-  margin-top: 1.2727em;
-  margin-bottom: 1.2727em;
-  font-size: 1.3750em; 
-  line-height: 1.2727em; 
-  text-align: center;
+img{
+  display:block;
+  margin:auto;
+  margin-top:10px;
+  margin-bottom:40px;
 }
+
 
 .text-title {
   margin-top: 1.2727em;
   margin-bottom: 1.2727em;
-  font-size: 1.6750em; 
+  font-size: @font-text-title;
   line-height: 1.2727em; 
   text-align: center;
   text-transform: uppercase;
 }
 
 .text-container {
+  font-family: @font-family-title;
+  text-align: justify;
   margin-top: .5em;
-  font-size: 1em;
+  font-size: @font-text-description;
   line-height: 1.7500em;
-  color: rgba(0,0,0,.5);
-
+  color: rgba(0,0,0,.75);
   position: relative;
   margin-bottom: .1em;
   padding: 1.2em;
   width: 100%;
   display: table;
-  box-sizing: border-box;
-  background-color: #fff;
-  box-shadow:4px 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+/* IMAGE */ 
+
+.container {
+  border-radius: 5px;
+}
+
+.container img {
+  opacity: 0.75;
+  display:block;
+  border-radius: 5px;
+  -moz-border-radius: 5px;
+  -webkit-box-shadow: -3px 5px 17px 0px rgba(50, 50, 50, 0.77);
+  -moz-box-shadow:    -3px 5px 17px 0px rgba(50, 50, 50, 0.77);
+  box-shadow:         -3px 5px 17px 0px rgba(50, 50, 50, 0.77);
+  -webkit-transition: opacity .5s ease-in-out;
+  -moz-transition: opacity .5s ease-in-out;
+  -ms-transition: opacity .5s ease-in-out;
+  -o-transition: opacity .5s ease-in-out;
+  transition: opacity .5s ease-in-out;
+}
+
+.container img:hover {
+  opacity:1;
+  -webkit-transition: opacity .5s ease-in-out;
+  -moz-transition: opacity .5s ease-in-out;
+  -ms-transition: opacity .5s ease-in-out;
+  -o-transition: opacity .5s ease-in-out;
+  transition: opacity .5s ease-in-out;
+}
+
+/* IMAGE END */
+
+
+/* PINLINE STYLE FOR THE BODY OF TEXT */
+
+h3.pinline {
+  text-align: center;
+  display: block;
+  overflow: hidden;
+  font-size: @font-text-h3;
+  font-weight: 100;
+  margin: 20px 0;
+  font-family: @font-family;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+h3.pinline span {
+  position: relative;
+  display: inline-block;
+  line-height: 1;
 }
 
 
+h3.pinline span::before,
+h3.pinline span::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  height: 1px;
+  background: #000;
+  width: 50%;
+}
+
+h3.pinline span::before {
+  left: 100%;
+  margin-left: 20px;
+}
+
+h3.pinline span::after {
+  right: 100%;
+  margin-right: 20px;
+}
+
+/* PINLINE STYLE FOR THE BODY OF TEXT END */
+
+
+/* TO BE DELETED ?? */
 .inner {
   max-width: 50em;
   margin: 0 auto;
 }
-
-/*NAV*/
-#nav-wrap{
-  background-color:#555;
-  box-shadow:0px 1px 5px rgba(0,0,0,0.4);
-  height:60px;
-  position:absolute;
-  top:0;
-  left:0;
-  width:100%;
-  z-index:100;
-}
-
-#nav{
-  height:60px;
-  width:600px;
-  margin: 0 auto;
-}
-
-#nav ul{position:relative;}
-#nav-indicator{
-  position:absolute;
-  width:100px;
-  top:55px;
-  left:0;
-  height:5px;
-  background:#f36666; 
-  
-  -webkit-transition: all 0.2s ease;
-  -moz-transition:    all 0.2s ease;
-  -o-transition:      all 0.2s ease;
-  -ms-transition:     all 0.2s ease;
-  transition:         all 0.2s ease;
-}
-
-.nav-btn{
-  width:99px;
-  float:left;
-  padding:24px 0;
-  list-style:none;
-  color:#fff;
-  text-align:center;
-  cursor:pointer;
-  text-transform:uppercase;
-  font-size:12px;
-  color:#ccc;
-  
-  border-left:1px solid rgba(255,255,255,0.2);
-  box-shadow: inset 1px 1px 0 rgba(0,0,0,0.5) ;
-  
-  text-shadow:rgba(0,0,0,0.8) 1px 1px 0px;
-}
-
-
-.nav-btn:first-child{
-  border:none;
-  box-shadow: none;
-}
-
-.nav-btn:hover, .nav-btn.active {
-  color:#FFF;
-  background:#444;
-  box-shadow: inset 0px 1px 3px rgba(0,0,0,0.5) ;
-}
+/* TO BE DELETED END ?? */
 
 /* -------------------------------- 
 
@@ -430,13 +451,13 @@ Main Components
   -moz-osx-font-smoothing: grayscale;
 }
 .cd-title h2 {
-  font-size: 2.5rem;
+  font-size: @font-title-h2-size;
   line-height: 1.5;
   font-weight: 700;
 }
 .cd-title p {
   font-size: 1.4rem;
-  font-family: "Merriweather", serif;
+  font-family: @font-family-title, serif;
   font-style: italic;
   line-height: 1.2;
   padding: .4em 2em;
@@ -477,7 +498,7 @@ Main Components
 }
 @media only screen and (min-width: 1170px) {
   .cd-title h2 {
-    font-size: 3.6rem;
+    @font-title-h2-size: 1.8rem;
   }
 }
 
@@ -649,3 +670,70 @@ Main Components
     transform: translateX(-50%) scale(1);
   }
 }
+
+
+/* NAV */
+#nav-wrap{
+  background-color:#555;
+  box-shadow:0px 1px 5px rgba(0,0,0,0.4);
+  height:60px;
+  position:absolute;
+  top:0;
+  left:0;
+  width:100%;
+  z-index:100;
+}
+
+#nav{
+  height:60px;
+  width:600px;
+  margin: 0 auto;
+}
+
+#nav ul{position:relative;}
+#nav-indicator{
+  position:absolute;
+  width:100px;
+  top:55px;
+  left:0;
+  height:5px;
+  background:#f36666; 
+  
+  -webkit-transition: all 0.2s ease;
+  -moz-transition:    all 0.2s ease;
+  -o-transition:      all 0.2s ease;
+  -ms-transition:     all 0.2s ease;
+  transition:         all 0.2s ease;
+}
+
+.nav-btn{
+  width:99px;
+  float:left;
+  padding:24px 0;
+  list-style:none;
+  color:#fff;
+  text-align:center;
+  cursor:pointer;
+  text-transform:uppercase;
+  font-size:12px;
+  color:#ccc;
+  
+  border-left:1px solid rgba(255,255,255,0.2);
+  box-shadow: inset 1px 1px 0 rgba(0,0,0,0.5) ;
+  
+  text-shadow:rgba(0,0,0,0.8) 1px 1px 0px;
+}
+
+
+.nav-btn:first-child{
+  border:none;
+  box-shadow: none;
+}
+
+.nav-btn:hover, .nav-btn.active {
+  color:#FFF;
+  background:#444;
+  box-shadow: inset 0px 1px 3px rgba(0,0,0,0.5) ;
+}
+
+/* NAV END */
