@@ -58,9 +58,6 @@
         "description": {
             "motivation":"Co-partner in development of a story-sharing web application with a Medium-like WYSIWYG interface, which integrates narrative with location data using Google Maps API. I am responsible for all the technical aspects.",
             "technique":"The biggest web-application I have been developing so far that uses Django for the backend and Javascript and JQuery for the front-end. Even though the application is work in progress a local version can be made be available for demonstration purposes."
-        },
-        "examples":[
-            {"src":"../../static/projects/images/project_portfolio/route_01.gif"}
-        ]
+        }
     }
 }
