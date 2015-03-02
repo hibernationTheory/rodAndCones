@@ -37,6 +37,18 @@ jQuery(document).ready(function($){
 		$('.projects-container').on('scroll', function(){
 			window.requestAnimationFrame(changeOpacity);
 		});
+
+		//navbar related
+		$("#nav-icon").click(function() {
+		  $("nav").toggleClass("active");
+		  $("li").toggleClass("active");
+		  if($(this).text() == "☰") {
+		    $(this).text("×");
+		  }
+		  else {
+		    $(this).text("☰");
+		  }
+		});
 	};
 
 	function toggleProject(project, container, bool) {

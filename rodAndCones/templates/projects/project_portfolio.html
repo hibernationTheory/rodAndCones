@@ -20,9 +20,17 @@
 		<title>Portfolio</title>
 	</head>
 	<body>
+
+
+		<span id="nav-icon">☰</span>
+		<nav>
+		  <ul>
+		    <li><a href="http://www.enginarslan.com">VFX Works</a></li>
+		  </ul>
+		</nav>
+
 		<div class="projects-container">
 		<ul id="projects-list">
-
 		{% for project in projects %}
 			<li class="cd-single-project">
 				<div class="cd-title">
@@ -31,24 +39,6 @@
 				</div>
 
 				<div class="cd-project-info">
-				<!--http://codepen.io/AndreCortellini/pen/kaCEf-->
-				<!--
-				<div id="nav-wrap"> 
-					<div id="scroller-anchor"></div> 
-					<div id="nav">
-						<ul class="clearfix">
-							<li class="nav-btn active" data-row-id="row1">Link#1</li>
-							<li class="nav-btn" data-row-id="row2">Link#2</li>
-							<li class="nav-btn" data-row-id="row3">Link#3</li>
-							<li class="nav-btn" data-row-id="row4">Link#4</li>
-							<li class="nav-btn" data-row-id="row5">Link#5</li>
-							<li class="nav-btn" data-row-id="row6">Link#6</li>
-						<div id="nav-indicator"></div>
-						</ul>
-					</div>
-				</div>
-				-->
-
 					<p>
 						<h2 class="text-title">{{ project.subTitle }}</h2>
 						<h3 class="pinline"><span>INTRODUCTION / MOTIVATION</span></h3>
