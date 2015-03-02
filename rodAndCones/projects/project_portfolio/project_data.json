@@ -3,36 +3,43 @@
         "title": "Various Tools",
         "subTitle": "Various Tools Developed for 3d Apps",
         "description": {
-            "motivation":"I actively develop tools to enhance the productivity and efficiency of myself and my teammates. I believe solving problems for even secondary concerns in 3d software applications such as accessiblity, improves the user experience considerably.",
-            "technique":"I use Python as my main language and the PyQt Framework to develop the interfaces for the tools - the host application permitting. Likewise I use PyQt to build studio-wide desktop applications. Tools are built with good coding practices and scalability in mind.",
-            "furtherDiscussion":"I believe automating repetitive processes doesn't take away from artists duties but actually leave a larger room for them to exercise their creativity. In my mind any redundant step in a repetitive production process that can be automated should be done so."
+            "motivation":"I actively develop tools to enhance the productivity and efficiency of myself and my teammates. I believe that solving problems even for what might be considered secondary concerns in 3d software applications such as accessiblity  improves the user experience considerably.",
+            "technique":"I use Python as my main language and the PyQt Framework to develop the interfaces for the tools - the host application permitting. Likewise I use PyQt to build studio-wide desktop applications. All the tools are built with good coding practices and scalability in mind.",
+            "furtherDiscussion":"I believe automating repetitive processes doesn't take away from artists duties but actually leave a larger room for them to exercise their creativity. In my mind any redundant step in a repetitive production process that can be automated should be done so.",
+            "link":"http://enginarslan.com/maya-python/"
         },
         "examples":[
-            "../../static/projects/images/project_portfolio/variousTools_01.jpg",
-            "../../static/projects/images/project_portfolio/variousTools_02.jpg"
+            {
+                "src":"../../static/projects/images/project_portfolio/variousTools_01.jpg",
+                "figcaption":"a PyQt based Houdini-Like Render Operators Implementation in Maya"
+            },
+            {
+                "src":"../../static/projects/images/project_portfolio/variousTools_02.jpg",
+                "figcaption":"a PyQt based Checklist application in Maya and Houdini"
+            }
         ]
     },
     "1": {
         "title": "Procedural Shapes",
         "subTitle": "Procedural Shape Creation in Houdini",
         "description": {
-            "motivation":"I am a big fan of infographics or interface design elements especially for feature film. Given the looser constraints of the medium, graphic artists creating work for movies have been pushing the boundaries of visual complexity. Having said that I never made the connection between creation of these images and the tools that I use for visual effects until reading an excellent article from Jtnimoy (http://jtnimoy.net/?q=178) about the creation of such graphics in Tron. What I found really interesting was how they ended up re-creating some of the graphics that were initially created in Openframeworks and/or Processing in Sidefx Houdini. So I ended up setting up couple of tools in Houdini for my own amusement to facilitate the procedural creation of such effects.",
-            "technique":"I have built each tool using the 'foreach Sop' or using Python Sop at times for custom functionality. The idea was to create visual complexity by re-iterating a shape, each time with different parameterization. These digital assets allow for creation of infinitely many different shapes by adjusting it's parameters.",
-            "furtherDiscussion":"Houdini is an exciting tool that not allows for creation of any complex scene, object or effects and also for creation of systems (or assets) that encapsulatates the underlying process for modularization and repeatability"
+            "motivation":"I am a big fan of infographics or interface design elements especially for feature film. Given the looser constraints of the medium, graphic artists creating work for movies have been pushing the boundaries of visual complexity. Having said that I never made the connection between creation of these images and the tools that I use for Visual Effects until reading an excellent article from Jtnimoy about the creation of such graphics in Tron. What I found really interesting was how they ended up re-creating some of the graphics that were initially created in Openframeworks and/or Processing in Sidefx Houdini. So I ended up setting up couple of tools in Houdini for my own amusement to facilitate the procedural creation of such effects.",
+            "technique":"I have built each tool in the SOP context using builtin or Custom Python Sop at times. The idea was to create visual complexity by re-iterating a shape, each time with different parameterization. These digital assets allow for the creation of infinitely many different shapes by adjusting it's parameters.",
+            "furtherDiscussion":"Houdini is an exciting tool that not only allows for the creation of any complex scene, object or effect but also the creation of systems (or assets) that encapsulatates the underlying process for modularization and repeatability"
         },
         "examples":[
-            "../../static/projects/images/project_portfolio/houdini_01.jpg",
-            "../../static/projects/images/project_portfolio/houdini_02.jpg"
+            {"src":"../../static/projects/images/project_portfolio/houdini_01.jpg"},
+            {"src":"../../static/projects/images/project_portfolio/houdini_02.jpg"}
         ]
     },
     "2": {
         "title": "Movie Title Translations",
         "subTitle": "A Quantitative Analysis of Movie Title Translations",
-        "link":"",
+        "link":"https://medium.com/@inspiratory/first-day-death-road-love-story-3d-610685def266",
         "description": {
-            "motivation":"aaaa",
-            "technique":"bbbb",
-            "furtherDiscussion":"ccc"
+            "motivation":"One of my favorite things to do using programming is to collect large datasets and infer results from it. After watching the movie 'Transcendence' and wondering what the translation of the title might be in my own native language, I found myself trying to quantify the discrepancies between the original English movie titles and their Turkish counterparts using data mining. Resulting piece is an essay chronicling my findings and discussing the possible underlying cultural and linguistic reasons.",
+            "technique":"I have used Python and the Beautiful Soup Library to collect the data from the relevant websites. I have also made use of the D3.js library to create simple node-graph visualizations of some of my results. This was the first time that I found a chance to use D3.js. I am absolutely amazed by it’s ease of use and looking forward to leverage it much more extensively in my upcoming projects. ",
+            "furtherDiscussion":"Even though this project didn’t end up evolving into the technical display of my skillset in data mining and visualization as I would have liked it to be, it was still enjoyable due to the personal affection I have for the subject matter. And it proved to be a good way to illustrate various things that can be done using programming to my 'Intro to Python' students. I find that this project is particularly engaging for the demographics that I am teaching which largely consists of International Students. Every culture have their translation disasters and it is entertaining to be able to quantify this and approach the subject in a more analytical manner."
         }
     },
     "3": {
@@ -40,8 +47,8 @@
         "subTitle": "a jQuery-like Library for 3d Applications",
         "link":"https://github.com/hibernationTheory/sQuery",
         "description": {
-            "motivation":"As a visual effects artist who is immensely interested in Modern Web Development I found myself in a unique position to bridge ideas in between these two seemingly, but not so much, separated domains. One idea that is result of that exposure is sQuery, a jQuery like library for querying and modifying scenes in 3d Applications using their corresponding API’s. Given how deep the scene hierarchies can get in 3d programs for complex scenes, it is puzzling to me that such a library have not been developed before.",
-            "technique":"This project not only allowed me to import ideas from modern web development into Visual Effects but also techniques from Javascript to Python. I found myself fascinated by some of the Javascript patterns, like the high emphasis on functions as callbacks due to their first class object status and hence functional programming. This greater emphasis on functions in JS made finally realise and appreciate the usage of some patterns (such as decorators) in Python lot more.",
+            "motivation":"As a visual effects artist who is immensely interested in Modern Web Development I found myself in a unique position to bridge ideas in between these two seemingly separated domains. One idea that is result of that exposure is sQuery, a jQuery like library for querying and modifying scenes in 3d Applications using their corresponding API’s. Given how deep the scene hierarchies can get in 3d programs for complex scenes, it is puzzling to me that such a library have not been developed before.",
+            "technique":"This project not only allowed me to import ideas from Web Development into Visual Effects but also techniques from Javascript to Python. I found myself fascinated by some of the Javascript design patterns, like the high emphasis on functions as callbacks due to their first class object status and hence functional programming techniques. This greater emphasis on functions in JS made me finally realise and appreciate the usage of some patterns (such as decorators) in Python lot more.",
             "furtherDiscussion":"sQuery is an Open Source Project in the same vein as jQuery and it represents a similar ambition  just like it's inspiration. To be able to create a common language in between different 3d Applications. The framework is established so that it can be rather easily extend to any other application that supports a Python interface."
         }
     },
@@ -49,12 +56,11 @@
         "title": "Project Route",
         "subTitle": "A Social - Location based Story Telling Web Application",
         "description": {
-            "motivation":"aaaa",
-            "technique":"bbbb",
-            "furtherDiscussion":"ccc"
+            "motivation":"Co-partner in development of a story-sharing web application with a Medium-like WYSIWYG interface, which integrates narrative with location data using Google Maps API. I am responsible for all the technical aspects.",
+            "technique":"The biggest web-application I have been developing so far that is using Django for the backend and Javascript and JQuery for the front-end. Even though the application is work in progress a local version can be made be available for demonstration purposes."
         },
         "examples":[
-            "../../static/projects/images/project_portfolio/route_01.gif"
+            {"src":"../../static/projects/images/project_portfolio/route_01.gif"}
         ]
     }
 }

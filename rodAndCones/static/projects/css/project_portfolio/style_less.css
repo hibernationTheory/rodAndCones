@@ -106,11 +106,14 @@ img{
 
 /* IMAGE */ 
 
-.container {
+.image-container {
   border-radius: 5px;
+  margin-top:50px;
+  display:table;
+  margin:auto;
 }
 
-.container img {
+.image-container img {
   opacity: 0.75;
   display:block;
   border-radius: 5px;
@@ -125,13 +128,23 @@ img{
   transition: opacity .5s ease-in-out;
 }
 
-.container img:hover {
+.image-container img:hover {
   opacity:1;
   -webkit-transition: opacity .5s ease-in-out;
   -moz-transition: opacity .5s ease-in-out;
   -ms-transition: opacity .5s ease-in-out;
   -o-transition: opacity .5s ease-in-out;
   transition: opacity .5s ease-in-out;
+}
+
+figcaption {
+  font-family: @font-family-title;
+  text-align: justify;
+  margin-top: .5em;
+  font-size: @font-text-description;
+  color: rgba(0, 0, 0, 0.75);
+  margin-bottom: 2em;
+  display: table;
 }
 
 /* IMAGE END */

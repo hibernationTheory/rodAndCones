@@ -1,23 +1,16 @@
 jQuery(document).ready(function($){
 
-	var STYLE = {
-		"projectsContainerList":{"id":"projects-list"},
-		"projectListItem":{"class":"cd-single-project"},
-		"projectTitle":{"class":"cd-title"},
-		"projectSubTitle":{"class":"cd-sub-title"},
-		"projectInfo":{"class":"cd-project-info"}
-	}
-
 	main();
 
 	function main() {
-		var parentElSelector = "#" + STYLE["projectsContainerList"]["id"];
 		installEventListeners();
-		//loadProjectData(parentElSelector);
 	}
 
 	function installEventListeners() {
 		//check if background-images have been loaded and show list items
+
+		showCaption($('.projects-container li').eq(0)); // to fix the loading problem (delete the bgLoaded section??)
+
 		$('.cd-single-project').bgLoaded({
 		  	afterLoaded : function(){
 		   		showCaption($('.projects-container li').eq(0));

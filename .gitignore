@@ -47,7 +47,9 @@ env
 reference
 temp
 CACHE
+backup
 
 #others
 *.pyc
 *.pyc
+*.psd

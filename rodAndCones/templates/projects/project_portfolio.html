@@ -51,21 +51,29 @@
 
 					<p>
 						<h2 class="text-title">{{ project.subTitle }}</h2>
-						<h3 class="pinline"><span>MOTIVATION</span></h3>
+						<h3 class="pinline"><span>INTRODUCTION / MOTIVATION</span></h3>
 						<p class="text-container">{{ project.description.motivation }}</p>
 
 						<h3 class="pinline"><span>TECHNIQUE</span></h3>
 						<p class="text-container">{{ project.description.technique }}</p>
 
-						<h3 class="pinline"><span>FURTHER DISCUSSION</span></h3>
-						<p class="text-container">{{ project.description.furtherDiscussion }}</p>
+						{% if project.description.furtherDiscussion %}
+							<h3 class="pinline"><span>FURTHER DISCUSSION</span></h3>
+							<p class="text-container">{{ project.description.furtherDiscussion }}</p>
+						{% endif %}
+
+						{% if project.link %}
+							<h3 class="pinline"><span>LINKS</span></h3>
+							<p class="text-container"><a href="{{ project.link }}"> {{ project.link }} </a></p>
+						{% endif %}
 
 						{% if project.examples %}
 							<h3 class="pinline"><span>EXAMPLES</span></h3>
 							{% for example in project.examples %}
-							<div class="container">
-								<img src="{{ example }}"></img>
-							</div>
+							<figure class="image-container">
+								<img src="{{ example.src }}"></img>
+								<figcaption>{{ example.figcaption }}</figcaption>
+							</figure>
 							{% endfor %}
 						{% endif %}
 					</p>
