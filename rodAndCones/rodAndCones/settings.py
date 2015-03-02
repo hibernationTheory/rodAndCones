@@ -88,7 +88,7 @@ STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.FileSystemFinder',
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
     #'django.contrib.staticfiles.finders.DefaultStorageFinder',
-    'compressor.finders.CompressorFinder',
+    #'compressor.finders.CompressorFinder',
 )
 
 COMPRESS_ENABLED = True
@@ -138,7 +138,7 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     #less preprocessor:
-    'compressor',
+    #'compressor',
     'startpage',
     'projects',
     # Uncomment the next line to enable the admin:
