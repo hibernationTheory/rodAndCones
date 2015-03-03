@@ -48,6 +48,7 @@ reference
 temp
 CACHE
 backup
+misc
 
 #others
 *.pyc
