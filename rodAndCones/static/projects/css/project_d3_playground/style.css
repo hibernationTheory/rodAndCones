@@ -1,12 +1,14 @@
-@import url(http://fonts.googleapis.com/css?family=Quicksand:400,300);
-@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,300);
-*, *:before, *:after {
+@import url('http://fonts.googleapis.com/css?family=Quicksand:400,300');
+@import url('http://fonts.googleapis.com/css?family=Open+Sans:400,300');
+*,
+*:before,
+*:after {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
-
-html, body {
+html,
+body {
   height: 100%;
   width: 100%;
   color: white;
@@ -15,7 +17,6 @@ html, body {
   font-family: 'Quicksand', 'Open Sans', 'Helvetica Neue', 'Helvetica', sans-serif;
   background: radial-gradient(ellipse at bottom left, rgba(104, 128, 138, 0.4) 10%, rgba(138, 114, 76, 0) 40%), linear-gradient(to bottom, rgba(57, 173, 219, 0.25), rgba(42, 60, 87, 0.4)), linear-gradient(135deg, #670d10, #092756);
 }
-
 nav {
   position: absolute;
   top: 0;
@@ -63,7 +64,6 @@ nav > ul > li > div:nth-child(2) {
   text-align: left;
   padding-left: 0.7rem;
 }
-
 .desktop {
   position: absolute;
   top: 0;
@@ -86,23 +86,91 @@ nav > ul > li > div:nth-child(2) {
   text-align: justify;
   margin: 0 0 1rem 0;
 }
-
 #one {
   background: radial-gradient(ellipse at bottom left, rgba(104, 128, 138, 0.4) 10%, rgba(138, 114, 76, 0) 40%), linear-gradient(to bottom, rgba(57, 173, 219, 0.25), rgba(42, 60, 87, 0.4)), linear-gradient(135deg, #670d10, #092756);
 }
-
 #two {
   background: linear-gradient(135deg, #723362, #9d223c);
 }
-
 #three {
   background: linear-gradient(135deg, #2c539e, #63967d);
 }
-
 #four {
   background: linear-gradient(135deg, rgba(244, 226, 156, 0) 0%, #3b293a 100%), linear-gradient(to right, #f4e29c 0%, #826057 100%);
 }
-
 #five {
   background: linear-gradient(45deg, rgba(194, 233, 221, 0.5) 1%, rgba(104, 119, 132, 0.5) 100%), linear-gradient(-45deg, #494d71 0%, rgba(217, 230, 185, 0.5) 80%);
+}
+.clear {
+  clear: both;
+}
+.tabbed-menu {
+  top:34px;
+  font-size: 15px;
+  width: 75%;
+  min-width: 850px;
+  margin: 0px auto;
+  position: relative;
+}
+.tabbed-menu * {
+  color: #444;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -o-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+}
+.tabbed-menu .tabs {
+  position: relative;
+  top: 1px;
+  text-align: center;
+  line-height: 5px;
+  min-width: 850px;
+}
+.tabbed-menu .tabs li {
+  padding: 20px;
+  background: #CCC;
+  display: inline-block;
+  color: #000;
+  width: 49.73%;
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+  -ms-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+  font-size: 1.0em;
+}
+.tabs li.selected {
+  background: #FFF;
+  color: #7E1801;
+}
+.tabs li:hover {
+  cursor: pointer;
+  background: #55533A;
+  color: #FFF;
+}
+.tabs li.selected:hover {
+  color: #55533A;
+  background: #FFF;
+}
+.tabbed-menu .page {
+  text-align: justify;
+}
+.tabbed-menu .content {
+  padding:70px;
+  overflow: hidden;
+  min-height: 600px;
+  text-align: justify;
+}
+.tabbed-menu .content p {
+  padding: 0;
+  marging: 0;
+  text-align: left;
+  line-height: 1.4em;
+  text-align: justify;
+}
+.tabbed-menu .contentWrapper {
+  width: 100%;
+  min-width: 850px;
+  postiion: relative;
+  background: #FFF;
 }

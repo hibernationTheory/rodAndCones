@@ -40,3 +40,21 @@ document.getElementById('link-five').addEventListener('click', function () {
 }, false);
 
 show(document.getElementById('one'));
+
+
+// TABS
+
+$(document).ready(function() {
+  $('.tabs li').click(function(){               //on tab click
+    if ($(this).hasClass('selected')===false) { //if tab is not selected
+      $('.tabs li').removeClass('selected');    //remove class 'selected'
+      $(this).addClass('selected');             //mark selected tab
+    }
+    var tabSelection = $(this).attr('id');    //determine tab relation
+    $('.content').fadeOut('fast', function(){ //fade out content
+      $('div .page').css('display','none');   //hide all content
+      $('.'+tabSelection).css('display',"");  //display selected tab
+      $('.content').fadeIn('slow');           //fade the content in slowly
+    });
+  });
+});
