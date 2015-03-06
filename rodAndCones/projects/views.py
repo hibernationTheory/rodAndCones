@@ -12,6 +12,10 @@ def d3_initial(request):
 	#context = RequestContext(request)
 	return render_to_response("projects/d3_initial.html")
 
+def project_d3_playground(request):
+	#context = RequestContext(request)
+	return render_to_response("projects/project_d3_playground/main.html")
+
 def project_portfolio(request):
 	jsonDataPath = os.path.join(CURRENT_DIR, "projects", "project_portfolio", "project_data.json")
 	with open(jsonDataPath) as jsonFile:
