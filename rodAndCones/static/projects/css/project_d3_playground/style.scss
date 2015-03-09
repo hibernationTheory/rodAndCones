@@ -4,10 +4,11 @@
 /* MIXINS */
 
 @mixin tabbed-menu($main-color:#444, $main-position-top:34px, $main-width-min:850px, $main-width:75%, 
-  $main-font-size:15px, $tab-line-height:5px, $tab-height:20px, $tab-font-size:1em, 
-  $tab-color-selected:#7E1801, $tab-color-hover:#0066FF, $tab-color-deactive:#CCC, 
-  $tab-color-content:#000, $tab-color-active:#FFF, $content-padding:70px, 
-  $content-p-line-height:1.4em, $content-height:400px, $transition-speed:300ms
+  $main-font-size:15px, $tab-width:45%, $tab-line-height:5px, $tab-height:20px, 
+  $tab-font-size:1em, $tab-color-selected:#7E1801, $tab-color-hover:#0066FF, 
+  $tab-color-deactive:#CCC, $tab-color-content:#000, $tab-color-active:#FFF, 
+  $tab-border-radius:3px, $content-padding:70px, $content-p-line-height:1.4em, 
+  $content-height:400px, $transition-speed:300ms
   ) {
   /* tabbed menu */
   /* source : http://codepen.io/thestevekelzer/pen/yGFsJ */ 
@@ -20,6 +21,7 @@
   position: relative; }
 
   .tabbed-menu * {
+    border-radius: $tab-border-radius;
     color: $main-color;
     box-sizing: border-box;
     -moz-box-sizing: border-box;
@@ -28,7 +30,7 @@
 
   .tabbed-menu .tabs {
     position: relative;
-    top: 1px;
+    top: 4px;
     text-align: center;
     line-height: $tab-line-height;
     min-width: $main-width-min; }
@@ -38,7 +40,7 @@
     background: $tab-color-deactive;
     display: inline-block;
     color: $tab-color-content;
-    width: 49.74%;
+    width: $tab-width;
     -webkit-transition: all $transition-speed ease-in-out;
     -moz-transition: all $transition-speed ease-in-out;
     -o-transition: all $transition-speed ease-in-out;
