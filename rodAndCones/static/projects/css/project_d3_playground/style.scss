@@ -2,6 +2,86 @@
 @import url('http://fonts.googleapis.com/css?family=Open+Sans:400,300');
 
 /* MIXINS */
+
+@mixin tabbed-menu($main-color:#444, $main-position-top:34px, $main-width-min:850px, $main-width:75%, 
+  $main-font-size:15px, $tab-line-height:5px, $tab-height:20px, $tab-font-size:1em, 
+  $tab-color-selected:#7E1801, $tab-color-hover:#0066FF, $tab-color-deactive:#CCC, 
+  $tab-color-content:#000, $tab-color-active:#FFF, $content-padding:70px, 
+  $content-p-line-height:1.4em, $content-height:400px, $transition-speed:300ms
+  ) {
+  /* tabbed menu */
+  /* source : http://codepen.io/thestevekelzer/pen/yGFsJ */ 
+  .tabbed-menu {
+  top: $main-position-top;
+  font-size: $main-font-size;
+  width: $main-width;
+  min-width: $main-width-min;
+  margin: 0px auto;
+  position: relative; }
+
+  .tabbed-menu * {
+    color: $main-color;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -o-box-sizing: border-box;
+    -webkit-box-sizing: border-box; }
+
+  .tabbed-menu .tabs {
+    position: relative;
+    top: 1px;
+    text-align: center;
+    line-height: $tab-line-height;
+    min-width: $main-width-min; }
+
+  .tabbed-menu .tabs li {
+    padding: $tab-height;
+    background: $tab-color-deactive;
+    display: inline-block;
+    color: $tab-color-content;
+    width: 49.74%;
+    -webkit-transition: all $transition-speed ease-in-out;
+    -moz-transition: all $transition-speed ease-in-out;
+    -o-transition: all $transition-speed ease-in-out;
+    -ms-transition: all $transition-speed ease-in-out;
+    transition: all $transition-speed ease-in-out;
+    font-size: $tab-font-size; }
+
+  .tabs li.selected {
+    background: $tab-color-active;
+    color: $tab-color-selected; }
+
+  .tabs li:hover {
+    cursor: pointer;
+    background: $tab-color-hover;
+    color: $tab-color-active; }
+
+  .tabs li.selected:hover {
+    color: $tab-color-hover;
+    background: $tab-color-active; }
+
+  .tabbed-menu .page {
+    text-align: justify; }
+
+  .tabbed-menu .content {
+    padding: $content-padding;
+    overflow: hidden;
+    min-height: $content-height;
+    text-align: justify; }
+
+  .tabbed-menu .content p {
+    padding: 0;
+    marging: 0;
+    text-align: left;
+    line-height: $content-p-line-height;
+    text-align: justify; }
+
+  .tabbed-menu .contentWrapper {
+    width: 100%;
+    min-width: $main-width-min;
+    position: relative;
+    background: $tab-color-active; }
+}
+
 @mixin nav-horizontal-expand($bg-color:#2680f3, $item-color-bg:#0c66da, $item-color-hover:#569cf6, $item-color-active:#87b9f8, $item-height:3.5rem, $item-key-width:3.5rem, $item-value-width:10.5rem, $item-value-padding-left:0.7rem, $transition-speed:300ms, $drop-shadow-radius:10px) {
   /* An expandable side bar */
   /* source: http://codepen.io/Venerons/pen/jbBvu */
@@ -83,6 +163,7 @@ body {
 /* NAVIGATION RELATED */
 @include nav-horizontal-expand();
 /* NAVIGATION RELATED END */
+@include tabbed-menu();
 
 .desktop {
   position: absolute;
@@ -124,77 +205,3 @@ body {
 .clear {
   clear: both;
 }
-
-/* TABBED MENU */
-.tabbed-menu {
-  top:34px;
-  font-size: 15px;
-  width: 75%;
-  min-width: 850px;
-  margin: 0px auto;
-  position: relative;
-}
-.tabbed-menu * {
-  color: #444;
-  box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  -o-box-sizing: border-box;
-  -webkit-box-sizing: border-box;
-}
-.tabbed-menu .tabs {
-  position: relative;
-  top: 1px;
-  text-align: center;
-  line-height: 5px;
-  min-width: 850px;
-}
-.tabbed-menu .tabs li {
-  padding: 20px;
-  background: #CCC;
-  display: inline-block;
-  color: #000;
-  width: 49.73%;
-  -webkit-transition: all 0.3s ease-in-out;
-  -moz-transition: all 0.3s ease-in-out;
-  -o-transition: all 0.3s ease-in-out;
-  -ms-transition: all 0.3s ease-in-out;
-  transition: all 0.3s ease-in-out;
-  font-size: 1.0em;
-}
-.tabs li.selected {
-  background: #FFF;
-  color: #7E1801;
-}
-.tabs li:hover {
-  cursor: pointer;
-  background: #55533A;
-  color: #FFF;
-}
-.tabs li.selected:hover {
-  color: #55533A;
-  background: #FFF;
-}
-.tabbed-menu .page {
-  text-align: justify;
-}
-.tabbed-menu .content {
-  padding:70px;
-  overflow: hidden;
-  min-height: 600px;
-  text-align: justify;
-}
-.tabbed-menu .content p {
-  padding: 0;
-  marging: 0;
-  text-align: left;
-  line-height: 1.4em;
-  text-align: justify;
-}
-.tabbed-menu .contentWrapper {
-  width: 100%;
-  min-width: 850px;
-  postiion: relative;
-  background: #FFF;
-}
-
-/* TABBED MENU END */ 

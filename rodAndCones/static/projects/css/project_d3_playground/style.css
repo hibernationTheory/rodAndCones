@@ -75,6 +75,78 @@ nav > ul > li > div:nth-child(2) {
   padding-left: 0.7rem; }
 
 /* NAVIGATION RELATED END */
+/* tabbed menu */
+/* source : http://codepen.io/thestevekelzer/pen/yGFsJ */
+.tabbed-menu {
+  top: 34px;
+  font-size: 15px;
+  width: 75%;
+  min-width: 850px;
+  margin: 0px auto;
+  position: relative; }
+
+.tabbed-menu * {
+  color: #444;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -o-box-sizing: border-box;
+  -webkit-box-sizing: border-box; }
+
+.tabbed-menu .tabs {
+  position: relative;
+  top: 1px;
+  text-align: center;
+  line-height: 5px;
+  min-width: 850px; }
+
+.tabbed-menu .tabs li {
+  padding: 20px;
+  background: #CCC;
+  display: inline-block;
+  color: #000;
+  width: 49.74%;
+  -webkit-transition: all 300ms ease-in-out;
+  -moz-transition: all 300ms ease-in-out;
+  -o-transition: all 300ms ease-in-out;
+  -ms-transition: all 300ms ease-in-out;
+  transition: all 300ms ease-in-out;
+  font-size: 1em; }
+
+.tabs li.selected {
+  background: #FFF;
+  color: #7E1801; }
+
+.tabs li:hover {
+  cursor: pointer;
+  background: #0066FF;
+  color: #FFF; }
+
+.tabs li.selected:hover {
+  color: #0066FF;
+  background: #FFF; }
+
+.tabbed-menu .page {
+  text-align: justify; }
+
+.tabbed-menu .content {
+  padding: 70px;
+  overflow: hidden;
+  min-height: 400px;
+  text-align: justify; }
+
+.tabbed-menu .content p {
+  padding: 0;
+  marging: 0;
+  text-align: left;
+  line-height: 1.4em;
+  text-align: justify; }
+
+.tabbed-menu .contentWrapper {
+  width: 100%;
+  min-width: 850px;
+  position: relative;
+  background: #FFF; }
+
 .desktop {
   position: absolute;
   top: 0;
@@ -114,78 +186,5 @@ nav > ul > li > div:nth-child(2) {
 
 .clear {
   clear: both; }
-
-/* TABBED MENU */
-.tabbed-menu {
-  top: 34px;
-  font-size: 15px;
-  width: 75%;
-  min-width: 850px;
-  margin: 0px auto;
-  position: relative; }
-
-.tabbed-menu * {
-  color: #444;
-  box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  -o-box-sizing: border-box;
-  -webkit-box-sizing: border-box; }
-
-.tabbed-menu .tabs {
-  position: relative;
-  top: 1px;
-  text-align: center;
-  line-height: 5px;
-  min-width: 850px; }
-
-.tabbed-menu .tabs li {
-  padding: 20px;
-  background: #CCC;
-  display: inline-block;
-  color: #000;
-  width: 49.73%;
-  -webkit-transition: all 0.3s ease-in-out;
-  -moz-transition: all 0.3s ease-in-out;
-  -o-transition: all 0.3s ease-in-out;
-  -ms-transition: all 0.3s ease-in-out;
-  transition: all 0.3s ease-in-out;
-  font-size: 1.0em; }
-
-.tabs li.selected {
-  background: #FFF;
-  color: #7E1801; }
-
-.tabs li:hover {
-  cursor: pointer;
-  background: #55533A;
-  color: #FFF; }
-
-.tabs li.selected:hover {
-  color: #55533A;
-  background: #FFF; }
-
-.tabbed-menu .page {
-  text-align: justify; }
-
-.tabbed-menu .content {
-  padding: 70px;
-  overflow: hidden;
-  min-height: 600px;
-  text-align: justify; }
-
-.tabbed-menu .content p {
-  padding: 0;
-  marging: 0;
-  text-align: left;
-  line-height: 1.4em;
-  text-align: justify; }
-
-.tabbed-menu .contentWrapper {
-  width: 100%;
-  min-width: 850px;
-  postiion: relative;
-  background: #FFF; }
-
-/* TABBED MENU END */
 
 /*# sourceMappingURL=style.css.map */
