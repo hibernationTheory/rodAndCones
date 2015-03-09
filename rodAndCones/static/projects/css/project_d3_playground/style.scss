@@ -1,0 +1,194 @@
+@import url('http://fonts.googleapis.com/css?family=Quicksand:400,300');
+@import url('http://fonts.googleapis.com/css?family=Open+Sans:400,300');
+
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  height: 100%;
+  width: 100%;
+  color: white;
+  font-size: 18px;
+  font-weight: 400;
+  font-family: 'Quicksand', 'Open Sans', 'Helvetica Neue', 'Helvetica', sans-serif;
+  background: radial-gradient(ellipse at bottom left, rgba(104, 128, 138, 0.4) 10%, rgba(138, 114, 76, 0) 40%), linear-gradient(to bottom, rgba(57, 173, 219, 0.25), rgba(42, 60, 87, 0.4)), linear-gradient(135deg, #670d10, #092756);
+}
+
+/* NAVIGATION RELATED */
+@mixin nav-horizontal-expand($bg-color:#2680f3, $item-color-bg:#0c66da, $item-color-hover:#569cf6, $item-color-active:#87b9f8, $item-height:3.5rem, $item-key-width:3.5rem, $item-value-width:10.5rem, $item-value-padding-left:0.7rem, $transition-speed:300ms, $drop-shadow-radius:10px) {
+  /* source: http://codepen.io/Venerons/pen/jbBvu */
+  *,
+  *:before,
+  *:after {
+    margin: 0;
+    padding: 0;
+  }
+  $width-expand: $item-key-width + $item-value-width;
+  nav {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 3.5rem;
+    height: 100%;
+    background: $bg-color;
+    transition: all $transition-speed ease;
+    overflow: hidden;
+    z-index: 1;
+    box-shadow: 0px 0px $drop-shadow-radius #333;
+  }
+  nav:hover {
+    width: $width-expand;
+  }
+  nav * {
+    user-select: none;
+  }
+  nav > ul {
+    display: table;
+    width: $width-expand;
+  }
+  nav > ul > li {
+    display: table-row;
+    background: $item-color-bg;
+    cursor: pointer;
+  }
+  nav > ul > li:hover {
+    background: $item-color-hover;
+  }
+  nav > ul > li:active {
+    background: $item-color-active;
+  }
+  nav > ul > li > div {
+    height: $item-height;
+    line-height: $item-height;
+    display: table-cell;
+  }
+  nav > ul > li > div:nth-child(1) {
+    width:$item-key-width;
+    text-align: center;
+  }
+  nav > ul > li > div:nth-child(2) {
+    width: $item-value-width;
+    text-align: left;
+    padding-left: $item-value-padding-left;
+  }
+}
+
+@include nav-horizontal-expand();
+/* NAVIGATION RELATED */
+
+.desktop {
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  padding: 1rem 1rem 1rem 4.5rem;
+  transition: all 500ms ease;
+  overflow: auto;
+}
+.desktop h1 {
+  margin: 1rem 0;
+  font-weight: 300;
+}
+.desktop h1:nth-child(1) {
+  margin-top: 0;
+}
+.desktop p {
+  font-weight: 300;
+  text-align: justify;
+  margin: 0 0 1rem 0;
+}
+#one {
+  background: radial-gradient(ellipse at bottom left, rgba(104, 128, 138, 0.4) 10%, rgba(138, 114, 76, 0) 40%), linear-gradient(to bottom, rgba(57, 173, 219, 0.25), rgba(42, 60, 87, 0.4)), linear-gradient(135deg, #670d10, #092756);
+}
+#two {
+  background: linear-gradient(135deg, #723362, #9d223c);
+}
+#three {
+  background: linear-gradient(135deg, #2c539e, #63967d);
+}
+#four {
+  background: linear-gradient(135deg, rgba(244, 226, 156, 0) 0%, #3b293a 100%), linear-gradient(to right, #f4e29c 0%, #826057 100%);
+}
+#five {
+  background: linear-gradient(45deg, rgba(194, 233, 221, 0.5) 1%, rgba(104, 119, 132, 0.5) 100%), linear-gradient(-45deg, #494d71 0%, rgba(217, 230, 185, 0.5) 80%);
+}
+.clear {
+  clear: both;
+}
+.tabbed-menu {
+  top:34px;
+  font-size: 15px;
+  width: 75%;
+  min-width: 850px;
+  margin: 0px auto;
+  position: relative;
+}
+.tabbed-menu * {
+  color: #444;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -o-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+}
+.tabbed-menu .tabs {
+  position: relative;
+  top: 1px;
+  text-align: center;
+  line-height: 5px;
+  min-width: 850px;
+}
+.tabbed-menu .tabs li {
+  padding: 20px;
+  background: #CCC;
+  display: inline-block;
+  color: #000;
+  width: 49.73%;
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+  -ms-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+  font-size: 1.0em;
+}
+.tabs li.selected {
+  background: #FFF;
+  color: #7E1801;
+}
+.tabs li:hover {
+  cursor: pointer;
+  background: #55533A;
+  color: #FFF;
+}
+.tabs li.selected:hover {
+  color: #55533A;
+  background: #FFF;
+}
+.tabbed-menu .page {
+  text-align: justify;
+}
+.tabbed-menu .content {
+  padding:70px;
+  overflow: hidden;
+  min-height: 600px;
+  text-align: justify;
+}
+.tabbed-menu .content p {
+  padding: 0;
+  marging: 0;
+  text-align: left;
+  line-height: 1.4em;
+  text-align: justify;
+}
+.tabbed-menu .contentWrapper {
+  width: 100%;
+  min-width: 850px;
+  postiion: relative;
+  background: #FFF;
+}
