@@ -50,7 +50,12 @@ CACHE
 backup
 misc
 
+#sass related
+.sass-cache
+*.scss.map
+*.sass.map
+*.css.map
+
 #others
-*.pyc
 *.pyc
 *.psd
