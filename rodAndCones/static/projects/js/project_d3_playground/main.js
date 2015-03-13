@@ -14,35 +14,105 @@ function show(element) {
 	element.style.setProperty('left', '0', element.style.getPropertyPriority('left'));
 }
 
-document.getElementById('link-one').addEventListener('click', function () {
-	hideAll();
-	show(document.getElementById('one'));
-}, false);
+function installLinkEvents(linkSelector, linkIdBaseName, desktopBaseName) {
+	// mix of jquery and js, make it one or the other
+	linkIdBaseNameLen = linkIdBaseName.length;
+	$(linkSelector).each(function(x, y) {
+		// derive name
+		var id = $(this).attr("id");
+		var suffix = id.slice(linkIdBaseNameLen+1,id.length);
+		var desktopName = desktopBaseName + "-" + suffix;
+		this.addEventListener('click', function () {
+			hideAll();
+			show(document.getElementById(desktopName));
+		}, false);
+	})
+}
 
-document.getElementById('link-two').addEventListener('click', function () {
-	hideAll();
-	show(document.getElementById('two'));
-}, false);
-
-document.getElementById('link-three').addEventListener('click', function () {
-	hideAll();
-	show(document.getElementById('three'));
-}, false);
-
-document.getElementById('link-four').addEventListener('click', function () {
-	hideAll();
-	show(document.getElementById('four'));
-}, false);
-
-document.getElementById('link-five').addEventListener('click', function () {
-	hideAll();
-	show(document.getElementById('five'));
-}, false);
-
-show(document.getElementById('one'));
+installLinkEvents(".desktop-link", "link", "desktop");
 
 
-// TABS
+
+// D3 examples
+
+// D3 Generic Functions //
+
+function createSvgEl(parentSelector, width, height, idNum) {
+	var svg = d3.select(parentSelector)
+	.append("svg")
+	.attr({
+		"width": width,
+		"height": height,
+		"id": "svg-" + idNum
+	});
+
+	var svgData = {}
+	svgData["width"] = width;
+	svgData["height"] = height;
+	svgData["svg"] = svg;
+
+	return svgData;
+}
+
+function createRandomDataset(amount) {
+	var dataset = [];
+	for (var i = 0; i < amount; i++) {
+		var num = Math.random();
+		dataset.push(num);
+	}
+	return dataset;
+}
+
+function setScaleData(dataset, svgData) {
+	var domainX = [0, dataset.length];
+	var domainY = [0, d3.max(dataset)];
+
+	var width = svgData["width"];
+	var height = svgData["height"];
+
+	var scaleX = d3.scale.linear().domain(domainX).range([0, width]);
+	var scaleY = d3.scale.linear().domain(domainY).range([height, 0]);
+	var scaleSize = d3.scale.linear().domain(domainY).range([0, height]);
+	var scaleColor = d3.scale.linear().domain(domainY).range([0, 255]);
+
+	var scale = {}
+	scale["scaleX"] = scaleX;
+	scale["scaleY"] = scaleY;
+	scale["scaleSize"] = scaleSize;
+	scale["scaleColor"] = scaleColor;
+
+	console.log(scale);
+	return scale;
+}
+
+function enterDataElements(svgData, visEl, dataset, scaleData) {
+	var svg = svgData["svg"];
+
+	var dataElements = svg.selectAll(visEl)
+	.data(dataset)
+	.enter()
+	.append(visEl)
+	.attr({
+		"x":function(d,i) {
+			return scaleData["scaleX"](i);
+			},
+		"y":function(d,i) {
+			return scaleData["scaleY"](d);
+			},
+		"width": svgData["width"] / dataset.length,
+		"height": function(d, i) { return scaleData["scaleSize"](d)},
+		"fill": function(d,i) {return "rgb(0,0," + Math.floor(scaleData["scaleColor"](d)) + ")"}
+	});
+
+	return dataElements;
+};
+
+function createDataVis() {
+	var svgData = createSvgEl("#vis-1", "800", "300", "1");
+	var dataset = createRandomDataset(10);
+	var scaleData = setScaleData(dataset, svgData);
+	var dataElements = enterDataElements(svgData, "rect", dataset, scaleData);
+}
 
 $(document).ready(function() {
 	$('.tabs li').click(function(){               //on tab click
@@ -57,22 +127,6 @@ $(document).ready(function() {
 			$('.content').fadeIn('slow');           //fade the content in slowly
 		});
 	});
+
+	createDataVis();
 });
-
-// D3 examples
-
-// First Create the Host SVG
-
-function createSvgEl(parentSelector, width, height) {
-	var svg = d3.select(parentSelector)
-	.append("svg")
-	.attr("width", width)
-	.height("height", height);
-
-	var svgData = {}
-	svgData["width"] = width;
-	svgData["height"] = height;
-	svgData["svg"] = svg;
-
-	return svgData;
-}
