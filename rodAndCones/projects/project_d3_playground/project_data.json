@@ -1,7 +1,7 @@
 {
     "0": {
-        "title": "Various Tools",
-        "subTitle": "Various Tools Developed for 3d Apps",
+        "title": "D3 101",
+        "subTitle": "A simple barchart",
         "description": {
             "summary":"Using a random dataset to create a simple barchart.",
             "notes":[

@@ -24,31 +24,37 @@
 			</ul>
 		</nav>
 
-		<div id="desktop-1" class="desktop">
-			<div class="tabbed-menu">
+		{% for project in projects %}
+			<div id="desktop-{{ forloop.counter }}" class="desktop">
+				<div class="tabbed-menu">
 
-		        <ul class="tabs">
-		            <li id="tab1" class="selected">The Graph</li>
-		            <li id="tab2">Notes</li>
-		        </ul>
+			        <ul class="tabs">
+			            <li id="tab1" class="selected">The Graph</li>
+			            <li id="tab2">Notes</li>
+			        </ul>
 
-		   		<div class="contentWrapper">
-					<div class="content">
-						<div class="page tab1" style="display:block;">
-							<h1>Desktop System with Sidebar</h1>
-							<p>This is the desktop 1</p>
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras vestibulum sem elit, vitae rutrum leo euismod vitae. Aliquam accumsan quam sit amet ultrices rhoncus. Proin diam diam, pellentesque et felis in, aliquam lacinia mauris. Sed euismod ipsum in feugiat sollicitudin. Praesent vel odio placerat, vehicula sapien eu, pellentesque dui. Praesent convallis augue non tristique lacinia. Quisque eu vulputate sem, vel commodo nisi. Nunc ullamcorper velit quis diam vulputate adipiscing. Mauris congue rhoncus fringilla. Phasellus porttitor purus neque, porttitor posuere nisl dictum eget. Duis pharetra augue leo, at sodales ipsum congue eu. Vestibulum eu justo erat. Nullam tempor varius mi, id placerat nisl pellentesque at. Quisque lacinia, nibh at viverra molestie, augue nunc commodo enim, euismod adipiscing eros mi nec nisl.</p>
+			   		<div class="contentWrapper">
+						<div class="content">
+							<div class="page tab1" style="display:block;">
+								<h1>{{ project.subTitle }}</h1>
+								<div id="viz-{{ forloop.counter }}"></div>
+						    </div>
+
+							<div class="page tab2" style="display:none;">
+								<h1>{{ project.title }}</h1>
+								<h2>{{ project.subTitle }}</h2>
+								<p> {{ project.description.summary }}</p>
+								<ul>
+									{% for note in project.description.notes %}
+									<li class="notes">{{ note }}</li></br>
+									{% endfor %}
+								</ul>
+						    </div>
 					    </div>
-
-						<div class="page tab2" style="display:none;">
-							<h1>Desktop System with Sidebar</h1>
-							<p>This is the desktop 1 TAB 2</p>
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras vestibulum sem elit, vitae rutrum leo euismod vitae. Aliquam accumsan quam sit amet ultrices rhoncus. Proin diam diam, pellentesque et felis in, aliquam lacinia mauris. Sed euismod ipsum in feugiat sollicitudin. Praesent vel odio placerat, vehicula sapien eu, pellentesque dui. Praesent convallis augue non tristique lacinia. Quisque eu vulputate sem, vel commodo nisi. Nunc ullamcorper velit quis diam vulputate adipiscing. Mauris congue rhoncus fringilla. Phasellus porttitor purus neque, porttitor posuere nisl dictum eget. Duis pharetra augue leo, at sodales ipsum congue eu. Vestibulum eu justo erat. Nullam tempor varius mi, id placerat nisl pellentesque at. Quisque lacinia, nibh at viverra molestie, augue nunc commodo enim, euismod adipiscing eros mi nec nisl.</p>
-					    </div>
-				    </div>
+					</div>
 				</div>
-			</div>
-		</div> <!-- DESKTOP END -->
+			</div> <!-- DESKTOP END -->
+		{% endfor %}
 
 	</body>
 	<script type="text/javascript" src='{% static "projects/js/lib/jquery/jquery-2.1.3.min.js" %}'></script>
