@@ -1,3 +1,7 @@
+// THINGS TO DO : 
+// Need to style notes section properly.
+// Make the svg the size of the tab window, right now it is causing it to extend.
+
 var desktops = document.querySelectorAll('.desktop');
 
 function hide(element) {
@@ -17,7 +21,7 @@ function show(element) {
 function installLinkEvents(linkSelector, linkIdBaseName, desktopBaseName) {
 	// mix of jquery and js, make it one or the other
 	linkIdBaseNameLen = linkIdBaseName.length;
-	$(linkSelector).each(function(x, y) {
+	$(linkSelector).each(function() {
 		// derive name
 		var id = $(this).attr("id");
 		var suffix = id.slice(linkIdBaseNameLen+1,id.length);
@@ -81,7 +85,6 @@ function setScaleData(dataset, svgData) {
 	scale["scaleSize"] = scaleSize;
 	scale["scaleColor"] = scaleColor;
 
-	console.log(scale);
 	return scale;
 }
 
@@ -107,12 +110,16 @@ function enterDataElements(svgData, visEl, dataset, scaleData) {
 	return dataElements;
 };
 
-function createDataVis() {
-	var svgData = createSvgEl("#vis-1", "800", "300", "1");
-	var dataset = createRandomDataset(10);
+// D3 Generic Functions END //
+
+function createDataVis(selector, id) {
+	var svgData = createSvgEl(selector, "800", "300", id);
+	var dataset = createRandomDataset(50);
 	var scaleData = setScaleData(dataset, svgData);
 	var dataElements = enterDataElements(svgData, "rect", dataset, scaleData);
 }
+
+var D3_FUNCTIONS = [createDataVis, createDataVis];
 
 $(document).ready(function() {
 	$('.tabs li').click(function(){               //on tab click
@@ -128,5 +135,12 @@ $(document).ready(function() {
 		});
 	});
 
-	createDataVis();
+
+	$(".desktop-link").each(function(i) {
+		console.log(i);
+		var currentFunction = D3_FUNCTIONS[i];
+		var strIndex = (i+1).toString();
+		currentFunction("#vis-" + strIndex, strIndex);
+	});
+
 });

@@ -6,7 +6,18 @@
             "summary":"Using a random dataset to create a simple barchart.",
             "notes":[
                     "To be able to center an svg inside a div, you need to change it's display to block (inline by default). At that point, you can apply margin: auto.",
-                    "You need to set the x, y, width, height on the rect's inside svg."
+                    "To be able to see a rect svg, you need to set the x, y, width, height attributes on them."
+                    ]
+        }
+    },
+    "1": {
+        "title": "Events",
+        "subTitle": "A simple barchart with Events",
+        "description": {
+            "summary":"Implementing Events and Hover Animation",
+            "notes":[
+                    "Implementing behaviour for click, mouseenter, mouseout",
+                    "Silky smooth hover animation made possible by transition().duration(500)"
                     ]
         }
     }
