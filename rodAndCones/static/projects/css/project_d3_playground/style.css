@@ -77,7 +77,7 @@ nav > ul > li > div:nth-child(2) {
 /* source : http://codepen.io/thestevekelzer/pen/yGFsJ */
 .tabbed-menu {
   top: 34px;
-  font-size: 15px;
+  font-size: 1em;
   width: 75%;
   min-width: 850px;
   margin: 0px auto;
@@ -90,6 +90,19 @@ nav > ul > li > div:nth-child(2) {
   -moz-box-sizing: border-box;
   -o-box-sizing: border-box;
   -webkit-box-sizing: border-box; }
+
+.tabbed-menu h1 {
+  font-size: 1.5em;
+  font-weight: 10;
+  padding-bottom: 0.75em; }
+
+.tabbed-menu h2 {
+  font-size: 1.25em;
+  font-weight: 10;
+  padding-bottom: 0.5em; }
+
+.tabbed-menu .page ul {
+  list-style: square outside none; }
 
 .tabbed-menu .tabs {
   position: relative;

@@ -4,7 +4,7 @@
 /* MIXINS */
 
 @mixin tabbed-menu($tab-amount:2, $main-color:#444, $main-position-top:34px, $main-width-min:850px, $main-width:75%, 
-  $main-font-size:15px, $tab-width:45%, $tab-line-height:5px, $tab-height:20px, 
+  $main-font-size:1em, $tab-width:45%, $tab-line-height:5px, $tab-height:20px, 
   $tab-font-size:1em, $tab-color-selected:#7E1801, $tab-color-hover:#0066FF, 
   $tab-color-deactive:#CCC, $tab-color-content:#000, $tab-color-active:#FFF, 
   $tab-border-radius:0px, $content-padding:70px, $content-p-line-height:1.4em, 
@@ -28,6 +28,20 @@
     -o-box-sizing: border-box;
     -webkit-box-sizing: border-box; }
 
+  .tabbed-menu h1 {
+    font-size: 1.5em;
+    font-weight: 10;
+    padding-bottom: 0.75em; }
+
+  .tabbed-menu h2 {
+    font-size: 1.25em;
+    font-weight: 10;
+    padding-bottom: 0.5em; }
+
+  .tabbed-menu .page ul {
+    list-style: square outside none;
+  }
+  
   .tabbed-menu .tabs {
     position: relative;
     top: 4px;
