@@ -1,6 +1,9 @@
 // THINGS TO DO : 
 // Need to style notes section properly.
 // Make the svg the size of the tab window, right now it is causing it to extend.
+// Make a home screen that explains the entire project
+// Seems like when you switch to a new desktop, a tab is not selected, fix this.
+// Find out how to vary the bg color with each desktop.
 
 var desktops = document.querySelectorAll('.desktop');
 
