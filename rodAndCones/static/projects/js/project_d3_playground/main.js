@@ -5,6 +5,8 @@
 // Seems like when you switch to a new desktop, a tab is not selected, fix this.
 // Find out how to vary the bg color with each desktop.
 
+// DESKTOP RELATED //
+
 var desktops = document.querySelectorAll('.desktop');
 
 function hide(element) {
@@ -38,9 +40,9 @@ function installLinkEvents(linkSelector, linkIdBaseName, desktopBaseName) {
 
 installLinkEvents(".desktop-link", "link", "desktop");
 
+// DESKTOP RELATED END //
 
-
-// D3 examples
+// D3 EXAMPLES //
 
 // D3 Generic Functions //
 
@@ -113,16 +115,23 @@ function enterDataElements(svgData, visEl, dataset, scaleData) {
 	return dataElements;
 };
 
+
 // D3 Generic Functions END //
 
-function createDataVis(selector, id) {
-	var svgData = createSvgEl(selector, "800", "300", id);
+function createDataVis_01(id) {
+	var selector = "#vis-" + id;
+
+	var selectorWidth = $(selector).outerWidth();
+	var selectorHeight = 200;
+	var svgData = createSvgEl(selector, selectorWidth, selectorHeight, id);
 	var dataset = createRandomDataset(50);
 	var scaleData = setScaleData(dataset, svgData);
 	var dataElements = enterDataElements(svgData, "rect", dataset, scaleData);
 }
 
-var D3_FUNCTIONS = [createDataVis, createDataVis];
+// D3 EXAMPLES END //
+
+var D3_FUNCTIONS = [createDataVis_01, createDataVis_01];
 
 // TAB MENU RELATED //
 
@@ -145,7 +154,7 @@ $(document).ready(function() {
 		console.log(i);
 		var currentFunction = D3_FUNCTIONS[i];
 		var strIndex = (i+1).toString();
-		currentFunction("#vis-" + strIndex, strIndex);
+		currentFunction(strIndex);
 	});
 
 // TAB MENU RELATED END //

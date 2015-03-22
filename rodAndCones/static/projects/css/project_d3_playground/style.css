@@ -103,7 +103,7 @@ nav > ul > li > div:nth-child(2) {
   background: #CCC;
   display: inline-block;
   color: #000;
-  width: 33.33333%;
+  width: 50%;
   -webkit-transition: all 300ms ease-in-out;
   -moz-transition: all 300ms ease-in-out;
   -o-transition: all 300ms ease-in-out;

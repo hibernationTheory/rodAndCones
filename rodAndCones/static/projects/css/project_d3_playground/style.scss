@@ -3,7 +3,7 @@
 
 /* MIXINS */
 
-@mixin tabbed-menu($tab-amount:3, $main-color:#444, $main-position-top:34px, $main-width-min:850px, $main-width:75%, 
+@mixin tabbed-menu($tab-amount:2, $main-color:#444, $main-position-top:34px, $main-width-min:850px, $main-width:75%, 
   $main-font-size:15px, $tab-width:45%, $tab-line-height:5px, $tab-height:20px, 
   $tab-font-size:1em, $tab-color-selected:#7E1801, $tab-color-hover:#0066FF, 
   $tab-color-deactive:#CCC, $tab-color-content:#000, $tab-color-active:#FFF, 

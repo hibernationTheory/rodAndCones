@@ -1,7 +1,7 @@
 {
     "0": {
         "title": "D3 101",
-        "subTitle": "A simple barchart",
+        "subTitle": "A Simple Barchart",
         "description": {
             "summary":"Using a random dataset to create a simple barchart.",
             "notes":[
@@ -12,7 +12,7 @@
     },
     "1": {
         "title": "Events",
-        "subTitle": "A simple barchart with Events",
+        "subTitle": "A Simple Barchart With Events",
         "description": {
             "summary":"Implementing Events and Hover Animation",
             "notes":[
