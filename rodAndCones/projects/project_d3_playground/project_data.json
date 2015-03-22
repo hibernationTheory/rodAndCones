@@ -14,13 +14,16 @@
         }
     },
     "1": {
-        "title": "Events",
-        "subTitle": "A Simple Barchart With Events",
+        "title": "Scales",
+        "subTitle": "A Simple Barchart With Scales",
         "description": {
-            "summary":"Implementing Events and Hover Animation",
+            "summary":"Using Scales for more procedural scaling of graphs",
             "notes":[
-                    "Implementing behaviour for click, mouseenter, mouseout",
-                    "Silky smooth hover animation made possible by transition().duration(500)"
+                    "Scales would dynamically normalize the values of x or y sizes.",
+                    "Scales map a given domain to a given range",
+                    "ex: d3.scale.linear().domain([0, dataset.length]).range([0, width]);",
+                    "While setting a 'Domain' for your scale, you can use the d3.max() function to find the biggest data in your dataset",
+                    "Also using a svgData['width']/dataset.length expression for bar width to have it more procedural."
                     ]
         }
     }
