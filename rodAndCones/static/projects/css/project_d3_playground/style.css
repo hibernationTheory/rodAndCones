@@ -84,7 +84,7 @@ nav > ul > li > div:nth-child(2) {
   position: relative; }
 
 .tabbed-menu * {
-  border-radius: 3px;
+  border-radius: 0px;
   color: #444;
   box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -103,7 +103,7 @@ nav > ul > li > div:nth-child(2) {
   background: #CCC;
   display: inline-block;
   color: #000;
-  width: 45%;
+  width: 33.33333%;
   -webkit-transition: all 300ms ease-in-out;
   -moz-transition: all 300ms ease-in-out;
   -o-transition: all 300ms ease-in-out;

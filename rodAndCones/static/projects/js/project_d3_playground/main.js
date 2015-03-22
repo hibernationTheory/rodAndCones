@@ -124,6 +124,8 @@ function createDataVis(selector, id) {
 
 var D3_FUNCTIONS = [createDataVis, createDataVis];
 
+// TAB MENU RELATED //
+
 $(document).ready(function() {
 	$('.tabs li').click(function(){               //on tab click
 		if ($(this).hasClass('selected')===false) { //if tab is not selected
@@ -145,5 +147,7 @@ $(document).ready(function() {
 		var strIndex = (i+1).toString();
 		currentFunction("#vis-" + strIndex, strIndex);
 	});
+
+// TAB MENU RELATED END //
 
 });
