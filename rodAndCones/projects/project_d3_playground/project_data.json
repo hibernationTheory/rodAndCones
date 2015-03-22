@@ -6,6 +6,9 @@
             "summary":"Using a random dataset to create a simple barchart.",
             "notes":[
                     "To be able to center an svg inside a div, you need to change it's display to block (inline by default). At that point, you can apply margin: auto.",
+                    "First thing you do, when starting out a visualization is to set up a svg element to display your visualization in",
+                    "On the Svg Element, you need to set the width and height values",
+                    "After you have the svg element going you can start adding in your visualizations using the 'data update pattern'",
                     "To be able to see a rect svg, you need to set the x, y, width, height attributes on them."
                     ]
         }
