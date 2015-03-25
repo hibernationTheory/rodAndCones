@@ -29,9 +29,9 @@ function addControls(controlObject) {
   var camera = myTHREEJS["camera"];
   var renderer = myTHREEJS["renderer"];
   
-  var plane =  createObject({"type":"plane", "material":"lambert", "color":0xcccccc, "name":"plane_ground", "size":[60,20], "parent":scene});
-  var sphere =  createObject({"type":"sphere", "material":"lambert", "color":0xffffff, "name":"sphere", "size":[4,20,20], "parent":scene});
-  var cube = createObject({"type":"box", "material":"normal", "name":"cube", "parent":scene});
+  var plane =  createObject({"type":"plane", "material":"lambert", "color":0xcccccc, "name":"plane_ground", "size":[60,20], "parent":scene, "receiveShadow":true});
+  var sphere =  createObject({"type":"sphere", "material":"lambert", "color":0xffffff, "name":"sphere", "size":[4,20,20], "parent":scene, "castShadow":true});
+  var cube = createObject({"type":"box", "material":"normal", "name":"cube", "parent":scene, "castShadow":true});
   var light = createObject({"type":"light_spot", "name":"light_spot_01", "color":0xffffff, "parent":scene, "castShadow":true});
   // var light_ambient = createObject({"type":"light_ambient", "name":"light_ambient_01", "color":0x0c0c0c, "parent":scene});
 
@@ -51,7 +51,7 @@ function addControls(controlObject) {
   addControls(myTHREEJS["control"]);
 
   document.body.appendChild(renderer.domElement);
-  myRender({"renderer":renderer, "scene":scene, "camera":camera});
+  myRender({"renderer":renderer, "scene":scene, "camera":camera, "castShadow":true});
 }
 )();
 
@@ -61,20 +61,19 @@ function myRender() {
 
   myTHREEJS["renderer"].render(scene, myTHREEJS["camera"]);
 
-  //var cube = scene.getObjectByName("cube");
+  var cube = scene.getObjectByName("cube");
   //var plane = scene.getObjectByName("plane");
-  var groundPlane = scene.getObjectByName("box-ground-plane");
 
-  //cube.rotation.x += controller.rotationSpeedX;
-  //cube.rotation.y += controller.rotationSpeedY;
-  //cube.rotation.z += controller.rotationSpeedZ;
+  cube.rotation.x += controller.rotationSpeedX;
+  cube.rotation.y += controller.rotationSpeedY;
+  cube.rotation.z += controller.rotationSpeedZ;
+  cube.scale.set(controller.scale, controller.scale, controller.scale);
 
   /*
   groundPlane.scale.x = controller.boxScaleX;
   groundPlane.scale.y = controller.boxScaleY;
   groundPlane.scale.z = controller.boxScaleZ;
   */
-  //cube.scale.set(controller.scale, controller.scale, controller.scale);
   requestAnimationFrame(myRender);
 }
 
