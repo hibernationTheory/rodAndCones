@@ -1,3 +1,4 @@
+
 function createScene() {
   var scene = new THREE.Scene();
   return scene;
@@ -25,7 +26,7 @@ function createRenderer(data) {
 }
 
 function createRandomObjects(data) {
-  var amount = data && data["amount"] || 100;
+  var amount = data && data["amount"] || 500;
   var size = data && data["size"] || null;
   var sizeMultiplier = data && data["sizeMultiplier"] || 1;
   var baseName = data && data["baseName"] || null;
@@ -43,30 +44,32 @@ function createRandomObjects(data) {
   for (var i = 0; i < amount; i ++) {
     var randomNumber = Math.random();
     var randomNumberSizeScaled = randomNumber * sizeMultiplier;
-    var randomNumberScaled = randomNumber * 1;
+    var randomNumberScaled = randomNumber * 100;
     data["size"] = [sizeX * randomNumberSizeScaled, sizeY * randomNumberSizeScaled, sizeZ * randomNumberSizeScaled];
     data["name"] = data["baseName"] + "_" + i || "";
+    console.log(data["name"]);
     var object = createObject(data);
-    //setTransform({"object":object, "type":"t", "transform":[randomNumberScaled,randomNumberScaled,randomNumberScaled]});
+    if (Math.floor(randomNumberScaled) % 2 === 0) { randomNumberScaled *= -1}
+    setTransform({"object":object, "type":"t", "transform":[randomNumberScaled,randomNumberScaled,randomNumberScaled]});
   }
 }
 
 function createObject(data) {
-  var type = data && data["type"] || null;
+  var type = data && data["type"];
   var color = data && data["color"] || "0xcccccc"
   var isWireframe = data && data["wireframe"] || false;
   var material = data && data["material"] || "basic";
-  var name = data && data["name"] || null;
-  var parent = data && data["parent"] || null;
-  var size = data && data["size"] || null;
+  var name = data && data["name"];
+  var parent = data && data["parent"];
+  var size = data && data["size"];
   var castShadow = data && data["castShadow"] || false;
   var receiveShadow = data && data["receiveShadow"] || false;
   
-  if (type === null) {
+  if (type === undefined) {
     return null;
   }
   
-  if (size !== null) {
+  if (size !== undefined) {
     var sizeX = size[0];
     var sizeY = size[1];
     var sizeZ = size[2];
@@ -77,7 +80,7 @@ function createObject(data) {
   }
   
   if (type === "plane") {
-    var geometry = new THREE.PlaneGeometry(sizeX,sizeY,sizeZ,1);
+    var geometry = new THREE.PlaneGeometry(sizeX,sizeY);
   }
   if (type === "box") {
     var geometry = new THREE.BoxGeometry(sizeX,sizeY,sizeZ);
@@ -120,10 +123,10 @@ function createObject(data) {
       object.receiveShadow = true;
   }
   
-  if (name !== null) {
+  if (name !== undefined) {
     object.name = name;
   }
-  if (parent !== null) {
+  if (parent !== undefined) {
     parent.add(object);
   }
   
@@ -131,42 +134,42 @@ function createObject(data) {
 }
 
 function setTransform(data) {
-  var obj = data && data["object"] || null;
-  if (obj === null) { return null;}
+  var obj = data && data["object"];
+  if (obj === undefined) { return null;}
   
-  var transformType = data && data["type"] || null;
-  if (transformType === null) {return null;}
+  var transformType = data && data["type"];
+  if (transformType === undefined) {return null;}
   
-  var transform = data && data["transform"] || null;
-  var transformX = data && data["transformX"] || null;
-  var transformY = data && data["transformY"] || null;
-  var transformZ = data && data["transformZ"] || null;
+  var transform = data && data["transform"];
+  var transformX = data && data["transformX"];
+  var transformY = data && data["transformY"];
+  var transformZ = data && data["transformZ"];
   
-  if (transform !== null) {
-    var x = data && data["transform"][0] || null;
-    var y = data && data["transform"][1] || null;
-    var z = data && data["transform"][2] || null;
+  if (transform !== undefined) {
+    var x = data && data["transform"][0];
+    var y = data && data["transform"][1];
+    var z = data && data["transform"][2];
   }
   
  if (transformX) {
-    var x = data && data["transformX"] || null;
+    var x = data && data["transformX"];
   }
  if (transformY) {
-    var y = data && data["transformY"] || null;
+    var y = data && data["transformY"];
  }
  if (transformZ) {
-    var z = data && data["transformZ"] || null;
+    var z = data && data["transformZ"];
  }
   
   if (transformType === "t") {
-    if (x !== null) {obj.position.x = x;}
-    if (y !== null) {obj.position.y = y;}
-    if (z !== null) {obj.position.z = z;}
+    if (x !== undefined) {obj.position.x = x;}
+    if (y !== undefined) {obj.position.y = y;}
+    if (z !== undefined) {obj.position.z = z;}
   }
 
   if (transformType === "r") {
-    if (x !== null) {obj.rotation.x = x;}
-    if (y !== null) {obj.rotation.y = y;}
-    if (z !== null) {obj.rotation.z = z;}
+    if (x !== undefined) {obj.rotation.x = x;}
+    if (y !== undefined) {obj.rotation.y = y;}
+    if (z !== undefined) {obj.rotation.z = z;}
   }
 }
