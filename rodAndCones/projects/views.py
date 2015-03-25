@@ -39,3 +39,7 @@ def project_portfolio(request):
 	#context = RequestContext(request)
 	context_data = {"projects" :projectsData}
 	return render_to_response("projects/project_portfolio.html", context_data)
+
+def project_threejs_playground(request, var):
+	context_data = {}
+	return render_to_response("projects/project_threejs_playground/%s.html" %var, context_data)

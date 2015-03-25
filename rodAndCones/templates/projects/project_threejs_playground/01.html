@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+
+{% load static %}
+
+<html>
+
+<head>
+    <title>Example 01</title>
+    <style>
+        body {
+            /* set margin to 0 and overflow to hidden, to
+             use the complete page */
+            margin: 0;
+            overflow: hidden;
+        }
+    </style>
+</head>
+<body>
+
+<!-- Div which will hold the Output -->
+<div id="WebGL-output">
+</div>
+
+</body>
+<script type="text/javascript" src='{% static "projects/js/lib/threejs/three.js" %}'></script>
+<script type="text/javascript" src='{% static "projects/js/lib/jquery/jquery-2.1.3.min.js" %}'></script>
+<script type="text/javascript" src='{% static "projects/js/lib/threejs/dat.gui.min.js" %}'></script>
+<script type="text/javascript" src={% static "projects/js/project_threejs_playground/common.js" %}></script>
+<script type="text/javascript" src={% static "projects/js/project_threejs_playground/01.js" %}></script>
+</html>
