@@ -4,15 +4,13 @@ if (!myTHREEJS) {
 myTHREEJS["renderer"] = createRenderer({"castShadow":true});
 myTHREEJS["scene"] = createScene();
 myTHREEJS["camera"] = createCamera();
-
-/*
-myTHREEJS["controls"] = tumble({
+myTHREEJS["autoTumbleOn"] = false;
+myTHREEJS["tumble"] = tumble({
   "type":"trackball",
   "camera":myTHREEJS["camera"], 
   "render":render
 });
-*/
-installWindowEvents(myTHREEJS["camera"], myTHREEJS["renderer"]);
+
 
 myTHREEJS["control"]  = new function () {
   this.boxScaleX = 1;
@@ -70,7 +68,11 @@ function render() {
   // can these parms below be accepted as arguments?
   var scene = myTHREEJS["scene"];
   var camera = myTHREEJS["camera"];
-  autoTumble(camera, scene);
+
+  if (myTHREEJS["autoTumbleOn"]) {
+    autoTumble(camera, scene);
+  }
+
   myTHREEJS["renderer"].render(scene, camera);
 }
 
@@ -96,8 +98,8 @@ function renderLoop() {
   */
 
   requestAnimationFrame(renderLoop);
-  if (myTHREEJS["controls"]) {
-    myTHREEJS["controls"].update();
+  if (myTHREEJS["tumble"]) {
+    myTHREEJS["tumble"].update();
   }
 }
 

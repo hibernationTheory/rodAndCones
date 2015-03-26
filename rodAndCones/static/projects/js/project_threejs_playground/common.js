@@ -12,13 +12,15 @@ function onDocumentMouseMove( event ) {
   myTHREEJS["mouseY"] = event.clientY - myTHREEJS["windowHalfY"];
 }
 
-function installWindowEvents(camera, renderer) {
+function installWindowEvents() {
   document.addEventListener( 'mousemove', onDocumentMouseMove, false );
-  //document.addEventListener( 'touchstart', onDocumentTouchStart, false );
-  //document.addEventListener( 'touchmove', onDocumentTouchMove, false );
 }
 
 function autoTumble(camera, scene) {
+  if (!myTHREEJS["windowEventsInstalled"]) {
+    installWindowEvents();
+    myTHREEJS["windowEventsInstalled"] = true;
+  }
   camera.position.x += ( myTHREEJS["mouseX"] - camera.position.x ) * 0.0036;
   camera.position.y += ( - (myTHREEJS["mouseY"]) - camera.position.y ) * 0.0036;
   camera.lookAt(scene.position);
