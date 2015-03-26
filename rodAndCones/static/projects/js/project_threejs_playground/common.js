@@ -1,3 +1,10 @@
+function orbit(camera, renderLoop) {
+  // function to enable camera orbitting, requires an orbit plugin
+  var controls = new THREE.OrbitControls(camera);
+  controls.damping = 1;
+  controls.addEventListener("change", renderLoop);
+  return controls;
+}
 
 function createScene() {
   var scene = new THREE.Scene();

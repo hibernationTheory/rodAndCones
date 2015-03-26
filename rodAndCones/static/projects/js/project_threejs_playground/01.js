@@ -2,6 +2,7 @@ var myTHREEJS = {}
 myTHREEJS["renderer"] = createRenderer({"castShadow":true});
 myTHREEJS["scene"] = createScene();
 myTHREEJS["camera"] = createCamera();
+myTHREEJS["controls"] = orbit(myTHREEJS["camera"], render);
 
 myTHREEJS["control"]  = new function () {
   this.boxScaleX = 1;
@@ -51,16 +52,24 @@ function addControls(controlObject) {
   addControls(myTHREEJS["control"]);
 
   document.body.appendChild(renderer.domElement);
-  myRender({"renderer":renderer, "scene":scene, "camera":camera, "castShadow":true});
+  renderLoop({"renderer":renderer, "scene":scene, "camera":camera, "castShadow":true});
 }
 )();
 
-function myRender() {
+function render() {
+  // can these parms below be accepted as arguments?
   var scene = myTHREEJS["scene"];
+  var camera = myTHREEJS["camera"];
+  myTHREEJS["renderer"].render(scene, camera);
+
+}
+
+function renderLoop() {
+  // can these parms below be accepted as arguments?
+  var scene = myTHREEJS["scene"];
+  var camera = myTHREEJS["camera"];
   var controller = myTHREEJS["control"];
-
-  myTHREEJS["renderer"].render(scene, myTHREEJS["camera"]);
-
+  
   var cube = scene.getObjectByName("cube");
   //var plane = scene.getObjectByName("plane");
 
@@ -74,6 +83,8 @@ function myRender() {
   groundPlane.scale.y = controller.boxScaleY;
   groundPlane.scale.z = controller.boxScaleZ;
   */
-  requestAnimationFrame(myRender);
+
+  requestAnimationFrame(renderLoop);
+  myTHREEJS["controls"].update();
 }
 
