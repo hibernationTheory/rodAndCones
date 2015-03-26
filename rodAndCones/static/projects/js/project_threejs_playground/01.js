@@ -22,8 +22,7 @@ myTHREEJS["composer"] = postProcess({
              {
               "type":"RGBShiftShader",
               "amount":0.0015
-             }
-            ]
+             }]
 });
 
 
@@ -118,6 +117,8 @@ function renderLoop() {
   */
 
   requestAnimationFrame(renderLoop);
+
+  /* this below section can be functionalized as well */
   if (myTHREEJS["tumble"]) {
     myTHREEJS["tumble"].update();
   }
