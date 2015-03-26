@@ -33,9 +33,9 @@ function addControls(controlObject) {
   var sphere =  createObject({"type":"sphere", "material":"lambert", "color":0xffffff, "name":"sphere", "size":[4,20,20], "parent":scene, "castShadow":true});
   var cube = createObject({"type":"box", "material":"normal", "name":"cube", "parent":scene, "castShadow":true});
   var light = createObject({"type":"light_spot", "name":"light_spot_01", "color":0xffffff, "parent":scene, "castShadow":true});
+  //createSprites(scene);
+  createParticles(4, true, 0.6, true, true, 0xffffff, scene);
   // var light_ambient = createObject({"type":"light_ambient", "name":"light_ambient_01", "color":0x0c0c0c, "parent":scene});
-
-  //plane.rotation.x=-0.5*Math.PI;
   
   setTransform({"object":camera, "type":"t", "transform":[-30,40,30]});
   setTransform({"object":plane, "type":"t", "transform":[15,0,0]});

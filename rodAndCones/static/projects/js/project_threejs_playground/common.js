@@ -54,6 +54,65 @@ function createRandomObjects(data) {
   }
 }
 
+function createSprites(scene) {
+    var material = new THREE.SpriteMaterial();
+
+    for (var x = -5; x < 5; x++) {
+        for (var y = -5; y < 5; y++) {
+            var sprite = new THREE.Sprite(material);
+            sprite.position.set(x * 10, y * 10, 0);
+            scene.add(sprite);
+        }
+    }
+}
+
+function _createParticles(scene) {
+    var geom = new THREE.Geometry();
+    var material = new THREE.PointCloudMaterial({size: 1, vertexColors: false, color: 0xffffff});
+
+    for (var x = -5; x < 5; x++) {
+        for (var y = -5; y < 5; y++) {
+            var particle = new THREE.Vector3(x * 10, y * 10, 0);
+            geom.vertices.push(particle);
+            geom.colors.push(new THREE.Color(Math.random() * 0x00ffff));
+        }
+    }
+
+    var cloud = new THREE.PointCloud(geom, material);
+    scene.add(cloud);
+}
+
+function createParticles(size, transparent, opacity, vertexColors, sizeAttenuation, color, scene) {
+
+
+    var geom = new THREE.Geometry();
+    var material = new THREE.PointCloudMaterial({
+        size: size,
+        transparent: transparent,
+        opacity: opacity,
+        vertexColors: vertexColors,
+
+        sizeAttenuation: sizeAttenuation,
+        color: color
+    });
+
+
+    var range = 500;
+    for (var i = 0; i < 15000; i++) {
+        var particle = new THREE.Vector3(Math.random() * range - range / 2, Math.random() * range - range / 2, Math.random() * range - range / 2);
+        geom.vertices.push(particle);
+        var color = new THREE.Color(0x00ff00);
+        color.setHSL(color.getHSL().h, color.getHSL().s, Math.random() * color.getHSL().l);
+        geom.colors.push(color);
+
+    }
+
+    cloud = new THREE.PointCloud(geom, material);
+    cloud.name = "particles";
+    scene.add(cloud);
+}
+
+
 function createObject(data) {
   var type = data && data["type"];
   var color = data && data["color"] || "0xcccccc"
