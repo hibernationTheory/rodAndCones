@@ -7,6 +7,59 @@ myTHREEJS["windowHeight"] = window.innerHeight/2;
 myTHREEJS["windowHalfX"] = myTHREEJS["windowWidth"]/2;
 myTHREEJS["windowHalfY"] = myTHREEJS["windowHeight"]/2;
 
+/* POSTPROCESSING RELATED */
+
+function postProcess(data) {
+  var scene = data && data["scene"];
+  var camera = data && data["camera"];
+  var renderer = data && data["renderer"];
+
+  if (!scene || !camera || !renderer) {
+    return null;
+  }
+
+  var composer = new THREE.EffectComposer(renderer);
+  composer.addPass(new THREE.RenderPass(scene, camera));
+
+  var effects = data && data["effects"] || [];
+  for (var i = 0; i < effects.length; i++) {
+    var effectData = effects[i];
+    effectData["composer"] = composer;
+    composer = addEffect(effectData);
+  }
+  return composer;
+}
+
+function addEffect(data) {
+  var composer = data && data["composer"];
+  var type = data && data["type"];
+  var scale = data && data["scale"] || 4;
+  var amount = data && data["amount"] || 0.0015;
+  var effect;
+
+  if (!composer || !type) {
+    return null;
+  }
+  if (type == "DotScreenShader") {
+    var effect = new THREE.ShaderPass(THREE.DotScreenShader);
+    effect.uniforms['scale'].value = scale;
+  }
+  if (type == "RGBShiftShader") {
+    var effect = new THREE.ShaderPass(THREE.RGBShiftShader);
+    effect.uniforms['amount'].value = amount;
+    effect.renderToScreen = true;
+  }
+  if (effect) {
+    composer.addPass(effect);
+  }
+  console.log(composer);
+  return composer;
+}
+
+/* POSTPROCESSING RELATED END */
+
+
+/* TUMBLING RELATED */
 function onDocumentMouseMove( event ) {
   myTHREEJS["mouseX"] = event.clientX - myTHREEJS["windowHalfX"];
   myTHREEJS["mouseY"] = event.clientY - myTHREEJS["windowHalfY"];
@@ -73,6 +126,10 @@ function tumbleTrackball(data) {
   controls.addEventListener( 'change', render );
   return controls;
 }
+
+/* TUMBLING RELATED END */
+
+/* SCENE RELATED */
 
 function createScene() {
   var scene = new THREE.Scene();
@@ -266,6 +323,8 @@ function createObject(data) {
   
   return object;
 }
+
+/* SCENE RELATED END */
 
 function setTransform(data) {
   var obj = data && data["object"];

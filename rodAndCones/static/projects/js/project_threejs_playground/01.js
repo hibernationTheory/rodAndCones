@@ -11,8 +11,25 @@ myTHREEJS["tumble"] = tumble({
   "render":render
 });
 
+myTHREEJS["composer"] = postProcess({
+  "camera":myTHREEJS["camera"],
+  "scene":myTHREEJS["scene"],
+  "renderer":myTHREEJS["renderer"],
+  "effects":[{
+              "type":"DotScreenShader",
+              "scale":4
+             },
+             {
+              "type":"RGBShiftShader",
+              "amount":0.0015
+             }
+            ]
+});
+
 
 myTHREEJS["control"]  = new function () {
+  this.DotScreenShaderScale = 4;
+  this.RGBShiftShaderAmount = 0.0015;
   this.boxScaleX = 1;
   this.boxScaleY = 0.1;
   this.boxScaleZ = 100;
@@ -24,6 +41,9 @@ myTHREEJS["control"]  = new function () {
 
 function addControls(controlObject) {
   var gui = new dat.GUI();
+  gui.add(controlObject, "DotScreenShaderScale", 0, 2);
+  gui.add(controlObject, "RGBShiftShaderAmount", 0, 1);
+
   gui.add(controlObject, 'boxScaleX', 0.1, 100);
   gui.add(controlObject, 'boxScaleY', 0.1, 100);
   gui.add(controlObject, 'boxScaleZ', 0.1, 100);
@@ -100,6 +120,12 @@ function renderLoop() {
   requestAnimationFrame(renderLoop);
   if (myTHREEJS["tumble"]) {
     myTHREEJS["tumble"].update();
+  }
+  if (myTHREEJS["composer"]) {
+    // should be an easier way to do this!
+    myTHREEJS["composer"]["passes"][1]["uniforms"]["scale"]["value"] = controller.DotScreenShaderScale;
+    myTHREEJS["composer"]["passes"][2]["uniforms"]["amount"]["value"] = controller.RGBShiftShaderAmount;
+    myTHREEJS["composer"].render();
   }
 }
 
