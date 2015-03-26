@@ -1,8 +1,18 @@
-var myTHREEJS = {}
+if (!myTHREEJS) {
+  var myTHREEJS = {};
+}
 myTHREEJS["renderer"] = createRenderer({"castShadow":true});
 myTHREEJS["scene"] = createScene();
 myTHREEJS["camera"] = createCamera();
-myTHREEJS["controls"] = orbit(myTHREEJS["camera"], render);
+
+/*
+myTHREEJS["controls"] = tumble({
+  "type":"trackball",
+  "camera":myTHREEJS["camera"], 
+  "render":render
+});
+*/
+installWindowEvents(myTHREEJS["camera"], myTHREEJS["renderer"]);
 
 myTHREEJS["control"]  = new function () {
   this.boxScaleX = 1;
@@ -60,16 +70,17 @@ function render() {
   // can these parms below be accepted as arguments?
   var scene = myTHREEJS["scene"];
   var camera = myTHREEJS["camera"];
+  autoTumble(camera, scene);
   myTHREEJS["renderer"].render(scene, camera);
-
 }
 
 function renderLoop() {
   // can these parms below be accepted as arguments?
+  render();
   var scene = myTHREEJS["scene"];
   var camera = myTHREEJS["camera"];
   var controller = myTHREEJS["control"];
-  
+
   var cube = scene.getObjectByName("cube");
   //var plane = scene.getObjectByName("plane");
 
@@ -85,6 +96,8 @@ function renderLoop() {
   */
 
   requestAnimationFrame(renderLoop);
-  myTHREEJS["controls"].update();
+  if (myTHREEJS["controls"]) {
+    myTHREEJS["controls"].update();
+  }
 }
 

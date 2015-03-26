@@ -1,8 +1,74 @@
-function orbit(camera, renderLoop) {
-  // function to enable camera orbitting, requires an orbit plugin
+var myTHREEJS = {}
+
+myTHREEJS["mouseX"] = 0;
+myTHREEJS["mouseY"] = 0;
+myTHREEJS["windowWidth"] = window.innerWidth/2;
+myTHREEJS["windowHeight"] = window.innerHeight/2;
+myTHREEJS["windowHalfX"] = myTHREEJS["windowWidth"]/2;
+myTHREEJS["windowHalfY"] = myTHREEJS["windowHeight"]/2;
+
+function onDocumentMouseMove( event ) {
+  myTHREEJS["mouseX"] = event.clientX - myTHREEJS["windowHalfX"];
+  myTHREEJS["mouseY"] = event.clientY - myTHREEJS["windowHalfY"];
+}
+
+function installWindowEvents(camera, renderer) {
+  document.addEventListener( 'mousemove', onDocumentMouseMove, false );
+  //document.addEventListener( 'touchstart', onDocumentTouchStart, false );
+  //document.addEventListener( 'touchmove', onDocumentTouchMove, false );
+}
+
+function autoTumble(camera, scene) {
+  camera.position.x += ( myTHREEJS["mouseX"] - camera.position.x ) * 0.0036;
+  camera.position.y += ( - (myTHREEJS["mouseY"]) - camera.position.y ) * 0.0036;
+  camera.lookAt(scene.position);
+}
+
+function tumble(data) {
+  var type = data["type"];
+  if (!data["damping"]) {
+    data["damping"] = 1;
+  }
+  if (!data["rotateSpeed"]) {
+    data["rotateSpeed"] = 0.01;
+  }
+  if (!data["minDistance"]) {
+    data["minDistance"] = 100;
+  }
+  if (!data["maxDistance"]) {
+    data["maxDistance"] = 200;
+  }
+
+  if (type === "orbit") {
+    var controls = tumbleOrbit(data);
+  }
+  if (type === "trackball") {
+    var controls = tumbleTrackball(data);
+  }
+  return controls
+}
+
+function tumbleOrbit(data) {
+  // function to enable orbit style viewport tumbling, requires the orbit js file
+  var camera = data["camera"];
+  var render = data["render"];
   var controls = new THREE.OrbitControls(camera);
-  controls.damping = 1;
-  controls.addEventListener("change", renderLoop);
+
+  controls.damping = data["damping"];
+  controls.addEventListener("change", render);
+  return controls;
+}
+
+function tumbleTrackball(data) {
+  // function to enable trackball style camera tumbling, requires the trackball js file
+  var camera = data["camera"];
+  var render = data["render"];
+  var controls = new THREE.TrackballControls(camera);
+
+  controls.rotateSpeed = data["rotateSpeed"];
+  controls.minDistance = data["minDistance"];
+  controls.maxDistance = data["maxDistance"];
+  controls.addEventListener( 'change', render );
   return controls;
 }
 
