@@ -9,3 +9,9 @@ def main(request):
 	context_dict = {"linkData":linkDataAll}
 
 	return render_to_response("startpage/main.html", context_dict)
+
+def index(request):
+	context = RequestContext(request)
+	context_dict = {}
+
+	return render_to_response("startpage/index.html", context_dict)
