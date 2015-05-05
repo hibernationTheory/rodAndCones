@@ -1,7 +1,14 @@
+import json
+import os
+
 from django.template import RequestContext
 from django.shortcuts import render_to_response
 from django.http import HttpResponse
 from resource import linkData
+
+CURR_DIR = os.path.dirname(__file__)
+RESOURCES_DIR = os.path.join(CURR_DIR, "resource")
+INDEX_DATA_FILE_PATH = os.path.join(RESOURCES_DIR, "indexData.json")
 
 def main(request):
 	context = RequestContext(request)
@@ -12,6 +19,7 @@ def main(request):
 
 def index(request):
 	context = RequestContext(request)
-	context_dict = {}
+	with open(INDEX_DATA_FILE_PATH, "r") as targetFile:
+		context_dict = json.load(targetFile)
 
 	return render_to_response("startpage/index.html", context_dict)
