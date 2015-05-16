@@ -43,3 +43,7 @@ def project_portfolio(request):
 def project_threejs_playground(request, var):
 	context_data = {}
 	return render_to_response("projects/project_threejs_playground/%s.html" %var, context_data)
+
+def project_deliberate(request):
+	context_data = {}
+	return render_to_response("projects/project_deliberate/index.html", context_data)
