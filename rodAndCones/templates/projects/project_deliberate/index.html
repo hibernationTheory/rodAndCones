@@ -1,10 +1,33 @@
 <!DOCTYPE html>
+
+{% load static %}
+
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
 	<title>Deliberate Practice</title>
 </head>
 <body>
+
+<section>
+	<ul>
+		{% for topic in topics %}
+			<li class="topic-item">
+				<div class="topic-wrapper">
+					<h2>{{ topic.name }}</h2>
+				</div>
+			</li>
+
+			<!--
+			<li id="link-{{ forloop.counter }}" class="desktop-link">
+				<div>{{ forloop.counter }}</div>
+				<div>{{ project.title }}</div>
+			</li>
+			-->
+		{% endfor %}
+	</ul>
+</section>
+
 	
 </body>
 </html>
