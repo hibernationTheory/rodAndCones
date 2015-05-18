@@ -13,24 +13,31 @@
 
 <style>
 	.parallaxParent {
-		height: 100vh;
+		height: 700px;
 		overflow: hidden;
 	}
 	.parallaxParent > * {
+		padding-top: 150px;
 		height: 200%;
 		position: relative;
 		top: -100%;
 	}
 
+	section#subject-images {
+		background-color: rgb(232, 232, 232);
+		box-shadow: 0px 0px 50px 1px rgb(181, 181, 181);
+		z-index: 20;
+	}
+
 	.topic-item {
 		background:gray;
 		text-align: center;
-		width:300px;
-		height:300px;
+		width:200px;
 	}
 
 	ul {
 		list-style:none;
+		padding-top:30px;
 	}
 
 	ul li {
@@ -46,21 +53,6 @@
 		border:50px solid transparent;
 	}
 
-	/*
-
-	section.module.parallax {
-	  height: 600px;
-	  background-position: 50% 50%;
-	  background-repeat: no-repeat;
-	  background-attachment: fixed;
-	  background-size: cover;
-	}
-	*/
-	#parallax-011 div{
-	  background-image: url('{% static "projects/images/project_deliberate/bg_test_v01.png" %}');
-	}
-	
-
 </style>
 
 <body>
@@ -74,7 +66,20 @@
 </nav>
 
 <div id="parallax-01" class="module parallax parallaxParent">
-		<div id="svg-content">
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-sm-8">
+					<div id="svg-content"></div>
+				</div>
+				<div class="col-sm-4">
+					<div class="jumbotron">
+						<h1>Hello World!</h1>
+						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nisi hic ducimus, cupiditate fuga blanditiis officiis laudantium, consectetur, aliquid nobis eveniet culpa similique ipsam beatae. Illo assumenda eos inventore vero sequi!</p>
+					</div>
+				</div>
+			</div>
+		</div>
+
 		</div>
 		<!--
 		<div class="container-fluid">
@@ -92,26 +97,27 @@
 		-->
 </div>
 
-<section class="module">
+<section id="subject-images" class="module">
 	<div class="container-fluid">
-	<ul>
-		{% for topic in topics %}
-		<li>
-			<div class="topic-item">
-				<div class="topic-img-container">
-					<img src='{% static "projects/images/project_deliberate/logo/" %}{{ topic.image_name }}' alt="{{ topic.name }}" style="background-color:{{ topic.color }}">
+		<ul>
+			{% for topic in topics %}
+			<li>
+				<div class="topic-item">
+					<div class="topic-img-container">
+						<a href="">
+							<img src='{% static "projects/images/project_deliberate/logo/" %}{{ topic.image_name }}' alt="{{ topic.name }}" style="background-color:{{ topic.color }}">	
+						</a>
+					</div>
 				</div>
-			</div>
-		</li>
-		{% endfor %}
-	</ul>
+			</li>
+			{% endfor %}
+		</ul>
 	</div>
 </section>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js"></script>
 <script type="text/javascript" src='{% static "projects/js/project_deliberate/lib/ScrollMagic.js" %}'></script>
 <script type="text/javascript" src='{% static "projects/js/project_deliberate/lib/TweenMax.min.js" %}'></script>
-
 <script type="text/javascript" src='{% static "projects/js/project_deliberate/lib/animation.gsap.js" %}'></script>
 <script type="text/javascript" src='{% static "projects/js/project_deliberate/lib/debug.addIndicators.js" %}'></script>
 
