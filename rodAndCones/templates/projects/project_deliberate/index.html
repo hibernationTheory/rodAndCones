@@ -5,29 +5,82 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+   	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
 	<title>Deliberate Practice</title>
 </head>
+
+<style>
+
+	* {
+		padding:0;
+		margin:0;
+	}
+
+	.topic-item {
+		background:gray;
+		text-align: center;
+		width:300px;
+		height:300px;
+	}
+
+	ul {
+		list-style:none;
+	}
+
+	ul li {
+		float:left;
+	}
+
+	img {
+		display:block;
+		width:100%;
+		height:auto;
+		margin-left:auto;
+		margin-right:auto;
+		border:50px solid transparent;
+	}
+
+</style>
+
 <body>
+
+<nav class="navbar navbar-default">
+	<div class="container">
+		<div class="navbar-header">
+			<div class="navbar-brand">Core Competencies</div>
+		</div>
+	</div>
+</nav>
+
+<section>
+	<div class="jumbotron">
+		<div class="container">
+			<h1>Hello World!</h1>
+		</div>
+	</div>
+</section>
 
 <section>
 	<ul>
 		{% for topic in topics %}
-			<li class="topic-item">
-				<div class="topic-wrapper">
-					<h2>{{ topic.name }}</h2>
+		<li>
+			<div class="topic-item">
+				<div class="topic-img-container">
+					<img src='{% static "projects/images/project_deliberate/logo/" %}{{ topic.image_name }}' alt="{{ topic.name }}" style="background-color:{{ topic.color }}">
 				</div>
-			</li>
-
-			<!--
-			<li id="link-{{ forloop.counter }}" class="desktop-link">
-				<div>{{ forloop.counter }}</div>
-				<div>{{ project.title }}</div>
-			</li>
-			-->
+			</div>
+		</li>
 		{% endfor %}
 	</ul>
 </section>
 
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/masonry/3.3.0/masonry.pkgd.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+<script src='{% static "projects/images/project_deliberate/main.js" %}'></script>
 	
 </body>
 </html>
