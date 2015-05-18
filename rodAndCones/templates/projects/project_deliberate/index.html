@@ -69,7 +69,7 @@
 	</div>
 </div>
 
-<section id="subject-images" class="module">
+<section id="subject-images" class="module" ng-controller="TopicListCtrl">
 	<div class="container-fluid">
 
 		<nav class="navbar navbar-default">
@@ -102,7 +102,7 @@
 		  -->
 		      <form class="navbar-form navbar-left" role="search">
 		        <div class="form-group">
-		          <input type="text" class="form-control" placeholder="Search">
+		          <input type="text" class="form-control" placeholder="Search" ng-model="query">
 		        </div>
 		      </form>
 
@@ -122,25 +122,23 @@
 		</nav>
 
 
-		{% for topic in topics %}
-			<div class="topic-item" style="background-color:{{ topic.color }}">
-				<div class="row">
-					<div class="col-md-4">
-						<div class="topic-img-container">
-							<a href="">
-								<img src='{% static "projects/images/project_deliberate/logo/" %}{{ topic.image_name }}' alt="{{ topic.name }}" style="background-color:{{ topic.color }}">	
-							</a>
-						</div>
+		<div class="topic-item" style="background-color:[[ topic.color ]]" ng-repeat="topic in topics">
+			<div class="row">
+				<div class="col-md-4">
+					<div class="topic-img-container">
+						<a href="">
+							<img src='{% static "projects/images/project_deliberate/logo/" %}[[ topic.image_name ]]' alt="[[ topic.name ]]" style="background-color:[[ topic.color ]]">	
+						</a>
 					</div>
-					<div class="col-md-8">
-						<div class="topic-explanation">
-							<h2 class="text-uppercase text-left">{{ topic.name }}</h2>
-							<p class="text-left">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Id dicta, totam quasi repudiandae, doloremque earum hic, voluptas laborum ullam nisi aliquid harum ratione quaerat necessitatibus suscipit eligendi ipsa iste, quis!</p>
-						</div>
+				</div>
+				<div class="col-md-8">
+					<div class="topic-explanation">
+						<h2 class="text-uppercase text-left">[[ topic.name ]]</h2>
+						<p class="text-left">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Id dicta, totam quasi repudiandae, doloremque earum hic, voluptas laborum ullam nisi aliquid harum ratione quaerat necessitatibus suscipit eligendi ipsa iste, quis!</p>
 					</div>
 				</div>
 			</div>
-		{% endfor %}
+		</div>
 	</div>
 </section>
 
