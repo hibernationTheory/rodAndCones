@@ -2,57 +2,57 @@
 	{
 		"name":"3js",
 		"image_name":"logo_3js.png",
-		"color":"#fff"
+		"color":"#f1f1f1"
 	},
 	{
 		"name":"angular.js",
 		"image_name":"logo_angular.png",
-		"color":"#fff"
+		"color":"#e43137"
 	},
 	{
 		"name":"bootstrap",
 		"image_name":"logo_bootstrap.png",
-		"color":"#fff"
+		"color":"#5e3777"
 	},
 	{
 		"name":"bower",
 		"image_name":"logo_bower.png",
-		"color":"#fff"
+		"color":"#efab33"
 	},
 	{
 		"name":"cs",
 		"image_name":"logo_cs.png",
-		"color":"#fff"
+		"color":"#56fffd"
 	},
 	{
 		"name":"css3",
 		"image_name":"logo_css3_02.png",
-		"color":"#fff"
+		"color":"#1c94b4"
 	},
 	{
 		"name":"d3",
 		"image_name":"logo_d3.png",
-		"color":"#fff"
+		"color":"#ffdd3c"
 	},
 	{
 		"name":"django",
 		"image_name":"logo_django_02.png",
-		"color":"#fff"
+		"color":"#0a2f20"
 	},
 	{
 		"name":"github",
 		"image_name":"logo_github.png",
-		"color":"#fff"
+		"color":"#b16384"
 	},
 	{
 		"name":"gulp",
 		"image_name":"logo_gulp.png",
-		"color":"#fff"
+		"color":"#85283d"
 	},
 	{
 		"name":"html",
 		"image_name":"logo_html_02.png",
-		"color":"#fff"
+		"color":"#33b2ea"
 	},
 	{
 		"name":"jquery",
@@ -62,51 +62,51 @@
 	{
 		"name":"js",
 		"image_name":"logo_js_02.png",
-		"color":"#fff"
+		"color":"#eddb4f"
 	},
 	{
 		"name":"less",
 		"image_name":"logo_less.png",
-		"color":"#fff"
+		"color":"#2d4a76"
 	},
 	{
 		"name":"linux",
 		"image_name":"logo_linux.png",
-		"color":"#fff"
+		"color":"#bbbbbb"
 	},
 	{
 		"name":"node",
 		"image_name":"logo_node.png",
-		"color":"#fff"
+		"color":"#3c3c3c"
 	},
 	{
 		"name":"npm",
 		"image_name":"logo_npm.png",
-		"color":"#fff"
+		"color":"#993130"
 	},
 	{
 		"name":"python",
 		"image_name":"logo_python.png",
-		"color":"#fff"
+		"color":"#71b1c9"
 	},
 	{
 		"name":"react",
 		"image_name":"logo_react.png",
-		"color":"#fff"
+		"color":"#222222"
 	},
 	{
 		"name":"sass",
-		"image_name":"logo_sass_.png",
-		"color":"#fff"
+		"image_name":"logo_sass_02.png",
+		"color":"#fff976"
 	},
 	{
 		"name":"scrum",
 		"image_name":"logo_scrum.png",
-		"color":"#fff"
+		"color":"#1c9fab"
 	},
 	{
 		"name":"sublime",
 		"image_name":"logo_sublime.png",
-		"color":"#fff"
+		"color":"#a5a5a5"
 	}
 ]
