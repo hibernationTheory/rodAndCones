@@ -3,12 +3,28 @@ var App = angular.module('App');
 App.controller('TopicListCtrl', ['$scope', '$http', function($scope, $http) {
 	$http.get('../static/projects/js/project_deliberate/topic_data/all_data.json').success(function(data) {
 		$scope.topics = data;
-		$scope.createChart = createChart
+		$scope.createChart = createChart;
+    $scope.changeColor = changeColor;
 	});
 }]);
 
+var changeColor = function(selector) {
+  var el = document.getElementById(selector);
+  var color = el.style.backgroundColor;
+  var brightness = tinycolor(color).getBrightness();
+  console.log(brightness);
+  console.log(el);
+  if (brightness <= 128) {
+    el.style.color = "#fff";
+  } else {
+    el.style.color = "#000"
+  }
+};
+
 function createChart(hostSelector, givenData) {
+	/* this is working fine but needs to work in a way that it would clear the previous graph when updated */
 	console.log(hostSelector, givenData)
+	/*
 	var w = 150;
 	var h = 150;
 	console.log(w, h);
@@ -40,5 +56,6 @@ function createChart(hostSelector, givenData) {
     arcs.append("path")
         .attr('d', arc)
         .attr('fill', function(d){ return color(d.data);})
+    */
 }
 

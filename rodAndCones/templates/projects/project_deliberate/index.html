@@ -81,6 +81,33 @@
 
 <body>
 
+<header class="header">
+  <div class="burger">
+    <div class="burger__patty"></div>
+    <div class="burger__patty"></div>
+    <div class="burger__patty"></div>
+  </div>
+
+  <nav class="menu">
+    <div class="menu__brand">
+      <a href=""><div class="logo"></div></a>
+    </div>
+    <ul class="menu__list">
+      <li class="menu__item"><a href="" class="menu__link">Work</a></li>
+      <li class="menu__item"><a href="" class="menu__link">About</a></li>
+      <li class="menu__item">
+        <a href="https://twitter.com/ettrics" target="_blank" class="menu__link menu__link--social"><i class="fa fa-twitter"></i></a>
+      </li>
+      <li class="menu__item">
+        <a href="https://dribbble.com/ettrics" target="_blank" class="menu__link menu__link--social">
+          <i class="fa fa-dribbble"></i></a>
+      </li>
+    </ul>
+  </nav>
+</header>
+
+
+
 <section>
 	<div id="parallax-01" class="module parallax parallaxParent">
 		<div class="container-fluid">
@@ -98,8 +125,9 @@
 	</div>
 </section>
 
-<section id="subject-images" class="module" ng-controller="TopicListCtrl">
-	<div class="container-fluid">
+<!--
+<section id="subject-images" class="module" ng-controller="TopicListCtrl" >
+	<div class="container-fluid" >
 
 		<nav class="navbar navbar-default">
 		    <div class="navbar-header">
@@ -111,24 +139,7 @@
 		      </button>
 		    </div>
 		    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-			    	<!--
-			      <ul class="nav navbar-nav">
-			        <li class="active"><a href="#">Link <span class="sr-only">(current)</span></a></li>
-			        <li><a href="#">Link</a></li>
-			        <li class="dropdown">
-			          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Dropdown <span class="caret"></span></a>
-			          <ul class="dropdown-menu" role="menu">
-			            <li><a href="#">Action</a></li>
-			            <li><a href="#">Another action</a></li>
-			            <li><a href="#">Something else here</a></li>
-			            <li class="divider"></li>
-			            <li><a href="#">Separated link</a></li>
-			            <li class="divider"></li>
-			            <li><a href="#">One more separated link</a></li>
-			          </ul>
-			        </li>
-			      </ul>
-			  -->
+
 				<form class="navbar-form navbar-left" role="search">
 					<div class="form-group">
 						<input type="text" class="form-control" placeholder="Search" ng-model="query">
@@ -152,10 +163,8 @@
 				[[ selection ]]
 		    </div>
 		</nav>
-
-
-		<div class="topic-item" style="background-color:[[ topic.color ]]" ng-repeat="topic in topics | filter:query | filter:selection">
-			<div class="row">
+		<div class="topic-item" id="topic-item-[[ $index ]]" style="background-color:[[ topic.color ]]" ng-repeat="topic in topics | filter:query | filter:selection" >
+			<div class="row"  >
 				<div class="col-md-3">
 					<div class="topic-img-container">
 						<a href="">
@@ -181,12 +190,14 @@
 		</div>
 	</div>
 </section>
+-->
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js"></script>
 <script type="text/javascript" src='{% static "projects/js/project_deliberate/lib/ScrollMagic.js" %}'></script>
 <script type="text/javascript" src='{% static "projects/js/project_deliberate/lib/TweenMax.min.js" %}'></script>
 <script type="text/javascript" src='{% static "projects/js/project_deliberate/lib/animation.gsap.js" %}'></script>
 <script type="text/javascript" src='{% static "projects/js/project_deliberate/lib/debug.addIndicators.js" %}'></script>
+<script type="text/javascript" src='{% static "projects/js/project_deliberate/lib/tinycolor.js" %}'></script>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.js"></script>
