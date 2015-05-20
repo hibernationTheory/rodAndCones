@@ -8,10 +8,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
    	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+   	<link rel="stylesheet" href="{% static 'projects/css/project_deliberate/style.css' %}">
 	<title>Deliberate Practice</title>
 </head>
 
 <style>
+
+	body {
+		line-height:1.75em;
+	}
 	.parallaxParent {
 		height: 700px;
 		overflow: hidden;
@@ -33,16 +38,41 @@
 	}
 
 	.topic-item > .row {
-		width:80%;
+		width:100%;
 	}
 
 	img {
 		display:block;
-		width:100%;
+		width:70%;
 		height:auto;
 		margin-left:auto;
 		margin-right:auto;
 		border:50px solid transparent;
+	}
+
+	#introduction {
+	  position: absolute;
+	  margin-top: -670px;
+	  margin-left: 30px;
+	  padding: 30px 50px 50px 50px;
+	  width: 40%;
+	  height: 300px;
+	  background-color: rgba(250, 250, 250, 0.6);
+	  /* box-shadow: 4px 5px 20px 1px gray; */
+	}
+
+	#introduction > p {
+	  margin: 0 0 10px;
+	  _background: #fff
+	}
+
+	.node:hover {
+		fill:red;
+	}
+
+	svg circle:hover {
+		stroke:lightgray;
+		stroke-width:5px;
 	}
 
 
@@ -51,23 +81,22 @@
 
 <body>
 
-<div id="parallax-01" class="module parallax parallaxParent">
-	<div class="container-fluid">
-		<div class="row">
-			<div class="col-sm-8">
-				<div id="svg-content"></div>
-			</div>
-			<div class="col-sm-4">
-				<div class="jumbotron">
-					<h1>Hello World!</h1>
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nisi hic ducimus, cupiditate fuga blanditiis officiis laudantium, consectetur, aliquid nobis eveniet culpa similique ipsam beatae. Illo assumenda eos inventore vero sequi!</p>
+<section>
+	<div id="parallax-01" class="module parallax parallaxParent">
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-sm-12">
+					<div id="svg-content"></div>
 				</div>
 			</div>
 		</div>
 	</div>
 
+	<div id="introduction">
+			<h1 class="text-uppercase">Hello World!</h1>
+			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nisi hic ducimus, cupiditate fuga blanditiis officiis laudantium, consectetur, aliquid nobis eveniet culpa similique ipsam beatae. Illo assumenda eos inventore vero sequi!</p>
 	</div>
-</div>
+</section>
 
 <section id="subject-images" class="module" ng-controller="TopicListCtrl">
 	<div class="container-fluid">
@@ -127,22 +156,24 @@
 
 		<div class="topic-item" style="background-color:[[ topic.color ]]" ng-repeat="topic in topics | filter:query | filter:selection">
 			<div class="row">
-				<div class="col-md-4">
+				<div class="col-md-3">
 					<div class="topic-img-container">
 						<a href="">
 							<img src='{% static "projects/images/project_deliberate/logo/" %}[[ topic.image_name ]]' alt="[[ topic.name ]]" style="background-color:[[ topic.color ]]">	
 						</a>
 					</div>
 				</div>
-				<div class="col-md-6">
-					<div class="topic-explanation">
-						<h2 class="text-uppercase text-left">[[ topic.name ]]</h2>
-						<p class="text-left">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Id dicta, totam quasi repudiandae, doloremque earum hic, voluptas laborum ullam nisi aliquid harum ratione quaerat necessitatibus suscipit eligendi ipsa iste, quis!</p>
+				<div class="col-md-5">
+					<div class="topic-explanation text-left">
+						<h2 class="text-uppercase">[[ topic.name ]]</h2>
+						<p >[[ topic.description ]]</p>
+						<h3>Summary</h3>
+						<p>[[ topic.summary ]]</p>
 					</div>
 				</div>
-				<div class="col-md-2">
+				<div class="col-md-3">
 					<div class="topic-chart" id="topic-chart-[[ $index ]]" ng-bind="createChart('#topic-chart-' + [[ $index ]], topic.competency)">
-							</div>
+					</div>
 				</div>
 
 				</div>
