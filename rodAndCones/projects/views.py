@@ -44,14 +44,11 @@ def project_threejs_playground(request, var):
 	context_data = {}
 	return render_to_response("projects/project_threejs_playground/%s.html" %var, context_data)
 
-def project_deliberate(request):
-	jsonDataPath = os.path.join(CURRENT_DIR, "projects", "project_deliberate", "project_data.json")
-	with open(jsonDataPath) as jsonFile:
-		jsonData = json.load(jsonFile)
+def project_deliberate(request, name=""):
+	print("WWWOT", name)
+	if name:
+		print("YAY!!!")
+		print(name)
 
-	topicData = []
-	for i in jsonData:
-		topicData.append(i)
-
-	context_data = {"topics" :topicData}
+	context_data = {}
 	return render_to_response("projects/project_deliberate/index.html", context_data)
