@@ -1,14 +1,24 @@
 var App = angular.module('App');
 
 App.controller('TopicListCtrl', ['$scope', '$http', function($scope, $http) {
-	$http.get('../static/projects/js/project_deliberate/topic_data/all_data.json').success(function(data) {
+	$http.get('../../static/projects/js/project_deliberate/topic_data/all_data.json').success(function(data) {
 		$scope.topics = data;
 		$scope.createChart = createChart;
-    $scope.changeColor = changeColor;
 	});
 }]);
 
+App.directive('changeColor', function() {
+  return {
+    link:function($scope, element, attrs) {
+      $scope.$evalAsync(function() {
+        changeColor(element[0].id);
+      })
+    }
+  }
+});
+
 var changeColor = function(selector) {
+  console.log(selector);
   var el = document.getElementById(selector);
   var color = el.style.backgroundColor;
   var brightness = tinycolor(color).getBrightness();
