@@ -14,9 +14,52 @@
 
 <style>
 
-	body {
-		line-height:1.75em;
+	* {
+		box-sizing:border-box;
 	}
+
+	nav {
+		margin-bottom:0 !important;
+		padding:10px;
+	}
+
+	body {
+	  font-family: Georgia;
+	  font-size: large;
+	  line-height: 1.5em;
+	  color: #404040;
+	}
+
+	h1 {
+		font-family:Arial;
+		font-weight:600;
+		padding:0.75em 0 0.5em 0;
+	}
+
+	h2 {
+		font-family:Arial;
+		font-weight:600;
+		padding:0.75em 0 0.5em 0;
+	}
+
+	h3 {
+		font-family:Arial;
+		font-weight:600;
+		padding:0.75em 0 0.5em 0;
+	}
+
+	p {
+		padding-bottom:0.5em 0;
+	}
+
+	.topic-explanation {
+		padding:0.5em 0;
+	}
+
+	.topic-explanation p{
+		font-size:0.8em;
+	}
+
 	.parallaxParent {
 		height: 700px;
 		overflow: hidden;
@@ -35,6 +78,10 @@
 	.topic-item {
 		background:gray;
 		text-align: center;
+	}
+
+	.topic-item:hover {
+		border-bottom:10px solid rgba(1,1,1,0.2);
 	}
 
 	.topic-item > .row {
@@ -127,7 +174,6 @@
 
 
 <section id="subject-images" class="module" ng-controller="TopicListCtrl" >
-	<div class="container-fluid" >
 
 		<nav class="navbar navbar-default">
 		    <div class="navbar-header">
@@ -172,12 +218,10 @@
 						</a>
 					</div>
 				</div>
-				<div class="col-md-5">
+				<div class="col-md-6">
 					<div class="topic-explanation text-left">
 						<h2 class="text-uppercase">[[ topic.name ]]</h2>
 						<p >[[ topic.description ]]</p>
-						<h3>Summary</h3>
-						<p>[[ topic.summary ]]</p>
 					</div>
 				</div>
 				<div class="col-md-3">
@@ -188,7 +232,7 @@
 				</div>
 			</div>
 		</div>
-	</div>
+
 </section>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js"></script>

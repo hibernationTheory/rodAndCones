@@ -24,10 +24,10 @@ var changeColor = function(selector) {
   var brightness = tinycolor(color).getBrightness();
   console.log(brightness);
   console.log(el);
-  if (brightness <= 128) {
-    el.style.color = "#fff";
+  if (brightness <= 96) {
+    el.style.color = "#ddd";
   } else {
-    el.style.color = "#000"
+    el.style.color = "#404040"
   }
 };
 
