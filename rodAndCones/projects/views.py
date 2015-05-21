@@ -45,6 +45,19 @@ def project_threejs_playground(request, var):
 	return render_to_response("projects/project_threejs_playground/%s.html" %var, context_data)
 
 def project_deliberate(request, name=""):
+	jsonDataPath = os.path.join("static", "projects", "js", "project_deliberate", "topic_data", "all_data.json")
+	with open(jsonDataPath) as jsonFile:
+		jsonData = json.load(jsonFile)
+
+	"""
+	projectsData = []
+	for i in range(0, len(jsonData)):
+		currData = jsonData[str(i)]
+		projectsData.append(currData)
+	"""
+	print(jsonData)
+
+
 	print("WWWOT", name)
 	if name:
 		print("YAY!!!")
