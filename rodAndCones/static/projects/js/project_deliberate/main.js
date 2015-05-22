@@ -8,7 +8,7 @@ new ScrollMagic.Scene({triggerElement: "#parallax-01"})
         .addTo(controller);
 
 // bubble chart example
-/*
+
 var diameter = 960*1.5,
     format = d3.format(",d"),
     color = d3.scale.category20c();
@@ -59,7 +59,7 @@ function classes(root) {
 
 d3.select(self.frameElement).style("height", diameter + "px");
 //
-*/
+
 
 (function() {
   
