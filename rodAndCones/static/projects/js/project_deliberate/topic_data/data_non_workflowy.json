@@ -1,395 +1,134 @@
 [
-    {
-        "competency": 5, 
+    { 
         "name": "Angular.js", 
-        "short_name": "Angularjs", 
-        "tags": [
-            "Library", 
-            "Design", 
-            "Javascript"
-        ], 
+        "short_name": "Angularjs",
         "color": "#e43137", 
-        "image_name": "logo_angular.png", 
-        "summary": "Awesome", 
-        "categories": [
-            "Javascript Library", 
-            "Front-End"
-        ], 
-        "description": "Three.js is a library that makes WebGL - 3D in the browser - easy to use. While a simple cube in raw WebGL would turn out hundreds of lines of Javascript and shader code, a Three.js equivalent is only a fraction of that."
+        "image_name": "logo_angular.png"
     }, 
-    {
-        "competency": 8, 
+    { 
         "name": "Bootstrap", 
-        "short_name": "Bootstrap", 
-        "tags": [
-            "Library", 
-            "Design", 
-            "Javascript"
-        ], 
+        "short_name": "Bootstrap",
         "color": "#5e3777", 
-        "image_name": "logo_bootstrap.png", 
-        "summary": "Awesome", 
-        "categories": [
-            "Javascript Library", 
-            "Front-End"
-        ], 
-        "description": "Three.js is a library that makes WebGL - 3D in the browser - easy to use. While a simple cube in raw WebGL would turn out hundreds of lines of Javascript and shader code, a Three.js equivalent is only a fraction of that."
+        "image_name": "logo_bootstrap.png"
     }, 
-    {
-        "competency": 10, 
+    { 
         "name": "Bower", 
-        "short_name": "Bower", 
-        "tags": [
-            "Library", 
-            "Design", 
-            "Javascript"
-        ], 
+        "short_name": "Bower",
         "color": "#efab33", 
-        "image_name": "logo_bower.png", 
-        "summary": "Awesome", 
-        "categories": [
-            "Javascript Library", 
-            "Front-End"
-        ], 
-        "description": "Three.js is a library that makes WebGL - 3D in the browser - easy to use. While a simple cube in raw WebGL would turn out hundreds of lines of Javascript and shader code, a Three.js equivalent is only a fraction of that."
+        "image_name": "logo_bower.png"
     }, 
-    {
-        "competency": 5, 
+    { 
         "name": "Computer Science", 
-        "short_name": "CS", 
-        "tags": [
-            "Library", 
-            "Design", 
-            "Javascript"
-        ], 
+        "short_name": "CS",
         "color": "#56fffd", 
-        "image_name": "logo_cs.png", 
-        "summary": "Awesome", 
-        "categories": [
-            "Javascript Library", 
-            "Front-End"
-        ], 
-        "description": "Three.js is a library that makes WebGL - 3D in the browser - easy to use. While a simple cube in raw WebGL would turn out hundreds of lines of Javascript and shader code, a Three.js equivalent is only a fraction of that."
+        "image_name": "logo_cs.png"
     }, 
-    {
-        "competency": 6, 
+    { 
         "name": "CSS3", 
-        "short_name": "CSS3", 
-        "tags": [
-            "Library", 
-            "Design", 
-            "Javascript"
-        ], 
+        "short_name": "CSS3",
         "color": "#1c94b4", 
-        "image_name": "logo_css3_02.png", 
-        "summary": "Awesome", 
-        "categories": [
-            "Javascript Library", 
-            "Front-End"
-        ], 
-        "description": "Three.js is a library that makes WebGL - 3D in the browser - easy to use. While a simple cube in raw WebGL would turn out hundreds of lines of Javascript and shader code, a Three.js equivalent is only a fraction of that."
+        "image_name": "logo_css3_02.png"
     }, 
-    {
-        "competency": 7, 
+    { 
         "name": "D3.js", 
-        "short_name": "D3", 
-        "tags": [
-            "Library", 
-            "Design", 
-            "Javascript"
-        ], 
+        "short_name": "D3",
         "color": "#ffdd3c", 
-        "image_name": "logo_d3.png", 
-        "summary": "Awesome", 
-        "categories": [
-            "Javascript Library", 
-            "Front-End"
-        ], 
-        "description": "Three.js is a library that makes WebGL - 3D in the browser - easy to use. While a simple cube in raw WebGL would turn out hundreds of lines of Javascript and shader code, a Three.js equivalent is only a fraction of that."
+        "image_name": "logo_d3.png"
     }, 
-    {
-        "competency": 7, 
+    { 
         "name": "Django", 
-        "short_name": "Django", 
-        "tags": [
-            "Library", 
-            "Design", 
-            "Javascript"
-        ], 
+        "short_name": "Django",
         "color": "#0a2f20", 
-        "image_name": "logo_django_02.png", 
-        "summary": "Awesome", 
-        "categories": [
-            "Javascript Library", 
-            "Front-End"
-        ], 
-        "description": "Three.js is a library that makes WebGL - 3D in the browser - easy to use. While a simple cube in raw WebGL would turn out hundreds of lines of Javascript and shader code, a Three.js equivalent is only a fraction of that."
+        "image_name": "logo_django_02.png"
     }, 
-    {
-        "competency": 6, 
+    { 
         "name": "Github", 
-        "short_name": "Github", 
-        "tags": [
-            "Library", 
-            "Design", 
-            "Javascript"
-        ], 
+        "short_name": "Github",
         "color": "#b16384", 
-        "image_name": "logo_github.png", 
-        "summary": "Awesome", 
-        "categories": [
-            "Javascript Library", 
-            "Front-End"
-        ], 
-        "description": "Three.js is a library that makes WebGL - 3D in the browser - easy to use. While a simple cube in raw WebGL would turn out hundreds of lines of Javascript and shader code, a Three.js equivalent is only a fraction of that."
+        "image_name": "logo_github.png"
     }, 
-    {
-        "competency": 4, 
+    { 
         "name": "Gulp", 
-        "short_name": "Gulp", 
-        "tags": [
-            "Library", 
-            "Design", 
-            "Javascript"
-        ], 
+        "short_name": "Gulp",
         "color": "#85283d", 
-        "image_name": "logo_gulp.png", 
-        "summary": "Awesome", 
-        "categories": [
-            "Javascript Library", 
-            "Front-End"
-        ], 
-        "description": "Three.js is a library that makes WebGL - 3D in the browser - easy to use. While a simple cube in raw WebGL would turn out hundreds of lines of Javascript and shader code, a Three.js equivalent is only a fraction of that."
+        "image_name": "logo_gulp.png"
     }, 
-    {
-        "competency": 5, 
+    { 
         "name": "HTML5", 
-        "short_name": "HTML5", 
-        "tags": [
-            "Library", 
-            "Design", 
-            "Javascript"
-        ], 
+        "short_name": "HTML5",
         "color": "#33b2ea", 
-        "image_name": "logo_html_02.png", 
-        "summary": "Awesome", 
-        "categories": [
-            "Javascript Library", 
-            "Front-End"
-        ], 
-        "description": "Three.js is a library that makes WebGL - 3D in the browser - easy to use. While a simple cube in raw WebGL would turn out hundreds of lines of Javascript and shader code, a Three.js equivalent is only a fraction of that."
+        "image_name": "logo_html_02.png"
     }, 
     {
-        "competency": 7, 
         "name": "Jquery", 
         "short_name": "Jquery", 
-        "tags": [
-            "Library", 
-            "Design", 
-            "Javascript"
-        ], 
         "color": "#fff", 
-        "image_name": "logo_jquery_02.png", 
-        "summary": "Awesome", 
-        "categories": [
-            "Javascript Library", 
-            "Front-End"
-        ], 
-        "description": "Three.js is a library that makes WebGL - 3D in the browser - easy to use. While a simple cube in raw WebGL would turn out hundreds of lines of Javascript and shader code, a Three.js equivalent is only a fraction of that."
+        "image_name": "logo_jquery_02.png" 
     }, 
     {
-        "competency": 6, 
         "name": "Javascript", 
         "short_name": "JS", 
-        "tags": [
-            "Library", 
-            "Design", 
-            "Javascript"
-        ], 
         "color": "#eddb4f", 
-        "image_name": "logo_js_02.png", 
-        "summary": "Awesome", 
-        "categories": [
-            "Javascript Library", 
-            "Front-End"
-        ], 
-        "description": "Three.js is a library that makes WebGL - 3D in the browser - easy to use. While a simple cube in raw WebGL would turn out hundreds of lines of Javascript and shader code, a Three.js equivalent is only a fraction of that."
+        "image_name": "logo_js_02.png" 
     }, 
     {
-        "competency": 5, 
         "name": "Less", 
         "short_name": "Less", 
-        "tags": [
-            "Library", 
-            "Design", 
-            "Javascript"
-        ], 
         "color": "#2d4a76", 
-        "image_name": "logo_less.png", 
-        "summary": "Awesome", 
-        "categories": [
-            "Javascript Library", 
-            "Front-End"
-        ], 
-        "description": "Three.js is a library that makes WebGL - 3D in the browser - easy to use. While a simple cube in raw WebGL would turn out hundreds of lines of Javascript and shader code, a Three.js equivalent is only a fraction of that."
+        "image_name": "logo_less.png" 
     }, 
     {
-        "competency": 6, 
         "name": "Linux", 
         "short_name": "Linux", 
-        "tags": [
-            "Library", 
-            "Design", 
-            "Javascript"
-        ], 
         "color": "#bbbbbb", 
-        "image_name": "logo_linux.png", 
-        "summary": "Awesome", 
-        "categories": [
-            "Javascript Library", 
-            "Front-End"
-        ], 
-        "description": "Three.js is a library that makes WebGL - 3D in the browser - easy to use. While a simple cube in raw WebGL would turn out hundreds of lines of Javascript and shader code, a Three.js equivalent is only a fraction of that."
+        "image_name": "logo_linux.png" 
     }, 
     {
-        "competency": 3, 
         "name": "Node.js", 
         "short_name": "Node", 
-        "tags": [
-            "Library", 
-            "Design", 
-            "Javascript"
-        ], 
         "color": "#3c3c3c", 
-        "image_name": "logo_node.png", 
-        "summary": "Awesome", 
-        "categories": [
-            "Javascript Library", 
-            "Front-End"
-        ], 
-        "description": "Three.js is a library that makes WebGL - 3D in the browser - easy to use. While a simple cube in raw WebGL would turn out hundreds of lines of Javascript and shader code, a Three.js equivalent is only a fraction of that."
+        "image_name": "logo_node.png" 
     }, 
     {
-        "competency": 7, 
         "name": "Npm", 
         "short_name": "Npm", 
-        "tags": [
-            "Library", 
-            "Design", 
-            "Javascript"
-        ], 
         "color": "#993130", 
-        "image_name": "logo_npm.png", 
-        "summary": "Awesome", 
-        "categories": [
-            "Javascript Library", 
-            "Front-End"
-        ], 
-        "description": "Three.js is a library that makes WebGL - 3D in the browser - easy to use. While a simple cube in raw WebGL would turn out hundreds of lines of Javascript and shader code, a Three.js equivalent is only a fraction of that."
+        "image_name": "logo_npm.png" 
     }, 
     {
-        "competency": 8, 
         "name": "Python", 
         "short_name": "Python", 
-        "tags": [
-            "Programming Language"
-        ], 
         "color": "#71b1c9", 
-        "image_name": "logo_python.png", 
-        "summary": "Awesome", 
-        "categories": [
-            "Programming General"
-        ], 
-        "description": "Python is a programming language that lets you work quickly and integrate systems more effectively."
+        "image_name": "logo_python.png" 
     }, 
     {
-        "competency": 2, 
         "name": "React.js", 
-        "short_name": "React", 
-        "tags": [
-            "Library", 
-            "Design", 
-            "Javascript"
-        ], 
+        "short_name": "React",
         "color": "#222222", 
-        "image_name": "logo_react.png", 
-        "summary": "Awesome", 
-        "categories": [
-            "Javascript Library", 
-            "Front-End"
-        ], 
-        "description": "Three.js is a library that makes WebGL - 3D in the browser - easy to use. While a simple cube in raw WebGL would turn out hundreds of lines of Javascript and shader code, a Three.js equivalent is only a fraction of that."
+        "image_name": "logo_react.png" 
     }, 
     {
-        "competency": 5, 
         "name": "SASS", 
         "short_name": "SASS", 
-        "tags": [
-            "Library", 
-            "Design", 
-            "Javascript"
-        ], 
         "color": "#fff976", 
-        "image_name": "logo_sass_02.png", 
-        "summary": "Awesome", 
-        "categories": [
-            "Javascript Library", 
-            "Front-End"
-        ], 
-        "description": "Three.js is a library that makes WebGL - 3D in the browser - easy to use. While a simple cube in raw WebGL would turn out hundreds of lines of Javascript and shader code, a Three.js equivalent is only a fraction of that."
+        "image_name": "logo_sass_02.png" 
     }, 
     {
-        "competency": 5, 
         "name": "Scrum", 
         "short_name": "Scrum", 
-        "tags": [
-            "Library", 
-            "Design", 
-            "Javascript"
-        ], 
         "color": "#1c9fab", 
-        "image_name": "logo_scrum.png", 
-        "summary": "Awesome", 
-        "categories": [
-            "Javascript Library", 
-            "Front-End"
-        ], 
-        "description": "Three.js is a library that makes WebGL - 3D in the browser - easy to use. While a simple cube in raw WebGL would turn out hundreds of lines of Javascript and shader code, a Three.js equivalent is only a fraction of that."
+        "image_name": "logo_scrum.png" 
     }, 
     {
-        "competency": 5, 
         "name": "Sublime Text Editor", 
         "short_name": "Sublime", 
-        "tags": [
-            "Library", 
-            "Design", 
-            "Javascript"
-        ], 
         "color": "#a5a5a5", 
-        "image_name": "logo_sublime.png", 
-        "summary": "Awesome", 
-        "categories": [
-            "Javascript Library", 
-            "Front-End"
-        ], 
-        "description": "Three.js is a library that makes WebGL - 3D in the browser - easy to use. While a simple cube in raw WebGL would turn out hundreds of lines of Javascript and shader code, a Three.js equivalent is only a fraction of that."
+        "image_name": "logo_sublime.png" 
     }, 
     {
-        "competency": 6, 
         "name": "Three.js", 
         "short_name": "Threejs", 
-        "tags": [
-            "Library", 
-            "Design", 
-            "Javascript"
-        ], 
         "color": "#f1f1f1", 
-        "image_name": "logo_3js.png", 
-        "summary": "Awesome", 
-        "categories": [
-            "Javascript Library", 
-            "Front-End"
-        ], 
-        "description": "Three.js is a library that makes WebGL - 3D in the browser - easy to use. While a simple cube in raw WebGL would turn out hundreds of lines of Javascript and shader code, a Three.js equivalent is only a fraction of that."
+        "image_name": "logo_3js.png" 
     }
 ]
