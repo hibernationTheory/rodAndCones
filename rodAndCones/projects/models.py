@@ -31,14 +31,14 @@ class Topic(models.Model):
 	categories=models.TextField(null=True)
 	description=models.TextField(null=True)
 	competency=models.IntegerField()
-	reasoning=models.TextField(null=True)
+	reason=models.TextField(null=True)
 	rating=models.IntegerField()
 	status=models.TextField(null=True)
 	priority=models.IntegerField()
 	dependencies=models.TextField(null=True)
 	related=models.TextField(null=True)
-	tags=models.TextField(null=True)
-	resources=models.TextField(null=True);
+	resources=models.TextField(null=True)
+	links=models.TextField(null=True)
 
 
 	def __unicode__(self):
