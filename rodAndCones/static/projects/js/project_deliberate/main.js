@@ -23,7 +23,7 @@ var svg = d3.select("#svg-content").append("svg")
     .attr("height", diameter)
     .attr("class", "bubble");
 
-d3.json("../static/projects/js/project_deliberate/flare.json", function(error, root) {
+d3.json("../../static/projects/js/project_deliberate/flare.json", function(error, root) {
   var node = svg.selectAll(".node")
       .data(bubble.nodes(classes(root))
       .filter(function(d) { return !d.children; }))
