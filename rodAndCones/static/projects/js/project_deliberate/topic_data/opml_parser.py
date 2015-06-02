@@ -30,20 +30,23 @@ def read_opml(target_file):
     outline = opml.parse(target_file)
     topics = outline[0]
 
-    topic_data = {}
+    topic_data_all = []
     topic_content_subnames = ["reasoning", "description", "summary", "rating", "current_status",
                       "dependencies", "related", "tags", "resources", "further_links"] 
     for topic in topics:
         topic_title = topic.text
-        topic_data[topic_title] = {}
+        topic_data_current = {}
+        topic_data_current["name"] = topic_title
         for topic_content in topic:
             for topic_content_subname in topic_content_subnames:
                 if topic_content.text.lower() == topic_content_subname:
                     subdata = get_topic_subdata(topic_content, topic_content_subname)
-                    topic_data[topic_title][topic_content_subname] = subdata
+                    topic_data_current[topic_content_subname] = subdata
+        topic_data_all.append(topic_data_current)
+            
         break
 
-    return topic_data
+    return topic_data_all
 
 def write_opml_data(target_file_path, data):
     with open(target_file_path, "w") as target_file:
