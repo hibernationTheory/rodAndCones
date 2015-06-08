@@ -47,27 +47,38 @@ def project_threejs_playground(request, var):
 	return render_to_response("projects/project_threejs_playground/%s.html" %var, context_data)
 
 def project_deliberate(request):
-	context_data = {}
+	jsonDataPath = os.path.join(CURRENT_DIR, "projects", "project_deliberate", "data.json")
+	with open(jsonDataPath) as jsonFile:
+		jsonData = json.load(jsonFile)
+
+	jsonDataList = []
+	jsonDataListTemp = []
+
+	for item in jsonData.iteritems():
+		jsonDataListTemp.append([item[0].lower(), item[1]])
+	jsonDataListTemp.sort()
+
+	jsonDataList = [i[1] for i in jsonDataListTemp]
+
+	context_data = {"data":jsonDataList}
 	return render_to_response("projects/project_deliberate/index.html", context_data)
 
 def project_deliberate_topic(request, name=""):
-
+	jsonDataPath = os.path.join(CURRENT_DIR, "projects", "project_deliberate", "data.json")
+	with open(jsonDataPath) as jsonFile:
+		jsonData = json.load(jsonFile)
 	context_data = {}
 
 	if name:
 		if name.endswith("/"):
 			name = name[:-1]
-		try:
-			topic = Topic.objects.get(short_name=name)
-			obj_data = get_serialized_data_from_object(topic)
-			obj_data = json.loads(obj_data)
-			context_data['obj_data'] = obj_data["fields"]
-
-		except Topic.DoesNotExist:
-			print "Given object name:%s doesn't exist" %name
+		topicData = jsonData.get(name, None)
+		if topicData is None:
+			context_data = {}
+		else:
+			context_data['obj_data'] = topicData
 
 	return render_to_response("projects/project_deliberate/topicPage.html", context_data)
-
 
 def get_serialized_data_from_object(obj, **kwargs):
 	"""serializes a single object"""
