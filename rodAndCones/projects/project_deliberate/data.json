@@ -1,0 +1,265 @@
+{
+    "css3": {
+        "rating": "7", 
+        "name": "CSS3", 
+        "short_name": "css3", 
+        "tags": "Front-End Web Development, Stylesheets, Design", 
+        "color": "#1c94b4", 
+        "image_name": "logo_css3_02.png", 
+        "related": "Sass, Less, Bootstrap", 
+        "summary": "", 
+        "dependencies": "HTML", 
+        "reasoning": "CSS provides the web designer / developer with immense expressive power over the styling of the elements. When done right it really has the potential to make a significant difference in the presentation of a project. Even though the basic knowledge of CSS is easy to acquire, becoming comfortable with it requires practice.", 
+        "resources": {}, 
+        "description": ""
+    }, 
+    "jquery": {
+        "name": "Jquery", 
+        "short_name": "jquery", 
+        "color": "#fff", 
+        "image_name": "logo_jquery_02.png", 
+        "resources": {
+            "tutsplus jquery course is pretty amazing actually, I am pleasantly surprised.": []
+        }
+    }, 
+    "threejs": {
+        "color": "#f1f1f1", 
+        "name": "Three.js", 
+        "short_name": "threejs", 
+        "image_name": "logo_3js.png"
+    }, 
+    "scrum": {
+        "color": "#1c9fab", 
+        "name": "Scrum", 
+        "short_name": "scrum", 
+        "image_name": "logo_scrum.png"
+    }, 
+    "node": {
+        "color": "#3c3c3c", 
+        "name": "Node.js", 
+        "short_name": "node", 
+        "image_name": "logo_node.png"
+    }, 
+    "sass": {
+        "color": "#fff976", 
+        "name": "SASS", 
+        "short_name": "sass", 
+        "image_name": "logo_sass_02.png"
+    }, 
+    "less": {
+        "color": "#2d4a76", 
+        "name": "Less", 
+        "short_name": "less", 
+        "image_name": "logo_less.png"
+    }, 
+    "python": {
+        "name": "Python", 
+        "short_name": "python", 
+        "color": "#71b1c9", 
+        "image_name": "logo_python.png", 
+        "resources": {
+            "this book seems to be awesome, where you were referring to the sorting stuff": [
+                "Problem Solving with Algorithms and Data Structures Using Python SECOND EDITION"
+            ], 
+            "video": [
+                {
+                    "pycon 2015": [
+                        "making beautiful graphs with Python ", 
+                        "machine learning with scikit", 
+                        "bayesian statistics made simple", 
+                        "statistical inference with computational methods", 
+                        ""
+                    ]
+                }, 
+                "https://www.edx.org/course/introduction-computer-science-mitx-6-00-1x-0#.VQrsZkBDvgg", 
+                "https://www.edx.org/course/introduction-computational-thinking-data-mitx-6-00-2x-0#.VQrsWkBDvgg", 
+                {
+                    "roughly in this order:": [
+                        "hands on beginning python", 
+                        "hands on intermediate python", 
+                        "python epiphanies", 
+                        "decorators", 
+                        "computer science fundamentals for self-taught programmers", 
+                        "so you want to be a full stack developer"
+                    ]
+                }
+            ], 
+            "core python programming": [
+                "ilk 14 chapter", 
+                "anki them", 
+                {
+                    "django ile alakali konular oncelik alabilir:": [
+                        "regular expressions", 
+                        "database programming"
+                    ]
+                }
+            ], 
+            "http://www.toptal.com/python/top-10-mistakes-that-python-programmers-make": [
+                "https://news.ycombinator.com/item?id=7715349"
+            ]
+        }
+    }, 
+    "bootstrap": {
+        "name": "Bootstrap", 
+        "short_name": "bootstrap", 
+        "color": "#5e3777", 
+        "image_name": "logo_bootstrap.png", 
+        "resources": {
+            "https://www.udemy.com/learn-bootstrap-development-by-building-10-projects/?dtcode=mJa1BMI2SGyH": [], 
+            "https://www.edx.org/course/introduction-bootstrap-tutorial-microsoft-dev203x#.VQrsUEBDvgg": [], 
+            "tutsplus have two bootstrap tutorials that you have": [
+                "intro to bootstrap 3", 
+                "bootstrap for designers"
+            ]
+        }
+    }, 
+    "django": {
+        "rating": "8", 
+        "name": "Django", 
+        "short_name": "django", 
+        "tags": "Python, Back-end, Web Development", 
+        "color": "#0a2f20", 
+        "image_name": "logo_django_02.png", 
+        "related": "Express (a Node based Back-end Framework)", 
+        "summary": "", 
+        "dependencies": "Python", 
+        "reasoning": "Django is the framework that I have entered the world of web development with. To me it is a platform that gives me the opportunity to quickly deploy ideas online. Also being the baseline of my backend knowledge, it frames all the other new ideas for me as they get introduced. I eventually want to acquire more knowledge of backend tools and frameworks such as Node as they seem to currently have more prevalence. But meanwhile Django still serves as a strong platform to keep growing in.", 
+        "resources": {
+            "Books": [
+                "Lightweight Django", 
+                "Tango with Django"
+            ], 
+            "Online": [
+                "Django Rest Framework", 
+                "Angular - Django Integration"
+            ]
+        }, 
+        "description": ""
+    }, 
+    "gulp": {
+        "color": "#85283d", 
+        "name": "Gulp", 
+        "short_name": "gulp", 
+        "image_name": "logo_gulp.png"
+    }, 
+    "react": {
+        "name": "React.js", 
+        "short_name": "react", 
+        "color": "#222222", 
+        "image_name": "logo_react.png", 
+        "resources": {
+            "front end masters came up with a tutorial as well: https://frontendmasters.com/courses/react/": [], 
+            "d3 and js integration can be interesting": [], 
+            "Egghead videos are pretty awesome": []
+        }
+    }, 
+    "bower": {
+        "color": "#efab33", 
+        "name": "Bower", 
+        "short_name": "bower", 
+        "image_name": "logo_bower.png"
+    }, 
+    "html5": {
+        "color": "#33b2ea", 
+        "name": "HTML5", 
+        "short_name": "html5", 
+        "image_name": "logo_html_02.png"
+    }, 
+    "angularjs": {
+        "rating": [
+            "6.8", 
+            "Angular in my opinion seems awesome. But it is too divisive and undependable to have a higher rating. Also it is main selling point (being hip) is under attack by new contenders. Definitely not a core competency but very good to have."
+        ], 
+        "name": "Angular.js", 
+        "short_name": "angularjs", 
+        "tags": [
+            "Web development", 
+            "front-end framework", 
+            "MVC Framework", 
+            "Javascript", 
+            "Google"
+        ], 
+        "color": "#e43137", 
+        "image_name": "logo_angular.png", 
+        "related": [
+            "Backbone", 
+            "React", 
+            "Knockout"
+        ], 
+        "summary": "", 
+        "dependencies": "Javascript", 
+        "resources": {
+            "Books": [
+                {
+                    "Angularjs UI Development": [
+                        "https://www.packtpub.com/web-development/angularjs-ui-development?utm_source=Sentori&amp;utm_medium=Email&amp;utm_campaign=DotD+19th+March+2015"
+                    ]
+                }, 
+                {
+                    "Mastering Web Application Development with AngularJS": [
+                        "http://www.goodreads.com/book/show/18895765-mastering-web-application-development-with-angularjs"
+                    ]
+                }, 
+                {
+                    "D3 on Angular": [
+                        "https://leanpub.com/d3angularjs"
+                    ]
+                }
+            ], 
+            "Online": [
+                {
+                    "udemy - angularjs single page app in 1 hour": [
+                        "https://www.udemy.com/angularjs-crash-course/"
+                    ]
+                }, 
+                {
+                    "another article about d3 and angular": [
+                        "http://odiseo.net/angularjs/proper-use-of-d3-js-with-angular-directives"
+                    ]
+                }, 
+                {
+                    "an angular &amp; d3 application": [
+                        "http://www.delimited.io/blog/2014/7/16/d3-directives-in-angularjs"
+                    ]
+                }, 
+                "udemy - angularjs jumpstart with dan wahlin", 
+                "udemy - build a real time web app in node.js, angular.js and mongo.db"
+            ]
+        }, 
+        "description": ""
+    }, 
+    "linux": {
+        "name": "Linux", 
+        "short_name": "linux", 
+        "color": "#bbbbbb", 
+        "image_name": "logo_linux.png", 
+        "resources": {
+            "https://www.udemy.com/linux-command-line-volume1/?signup_success=1": [], 
+            "http://lifehacker.com/how-can-i-quickly-learn-terminal-commands-1494082178": [], 
+            "http://cli.learncodethehardway.org/book/": []
+        }, 
+        "description": ""
+    }, 
+    "npm": {
+        "color": "#993130", 
+        "name": "Npm", 
+        "short_name": "npm", 
+        "image_name": "logo_npm.png"
+    }, 
+    "d3": {
+        "color": "#ffdd3c", 
+        "name": "D3.js", 
+        "short_name": "d3", 
+        "image_name": "logo_d3.png"
+    }, 
+    "sublime": {
+        "name": "Sublime Text Editor", 
+        "short_name": "sublime", 
+        "color": "#a5a5a5", 
+        "image_name": "logo_sublime.png", 
+        "resources": {
+            "https://code.tutsplus.com/tutorials/essential-sublime-text-2-plugins-and-extensions--net-24173": [], 
+            "http://www.hongkiat.com/blog/sublime-text-plugins/": []
+        }
+    }
+}
