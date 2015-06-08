@@ -174,6 +174,7 @@
 
 
 <section id="subject-images" class="module" ng-controller="TopicListCtrl" >
+		<!-- angular part of the things is currently defunct -->
 
 		<nav class="navbar navbar-default">
 		    <div class="navbar-header">
@@ -206,33 +207,31 @@
 					     </ul>
 					</div>
 				</form>
-				[[ selection ]]
 		    </div>
 		</nav>
-		<div class="topic-item" id="topic-item-[[ $index ]]" style="background-color:[[ topic.color ]]" ng-repeat="topic in topics | filter:query | filter:selection" change-color>
-			<div class="row"  >
+		{% for topic in data %}
+		<div class="topic-item" id="topic-item-{{ forcounter }}" style="background-color:{{ topic.color }}" change-color>
+			<div class="row">
 				<div class="col-md-3">
 					<div class="topic-img-container">
-						<a href="topics/[[topic.short_name]]">
-							<img src='{% static "projects/images/project_deliberate/logo/" %}[[ topic.image_name ]]' alt="[[ topic.name ]]" style="background-color:[[ topic.color ]]">	
+						<a href="topics/{{ topic.short_name }}">
+							<img src='{% static "projects/images/project_deliberate/logo/" %}{{ topic.image_name }}' alt="{{ topic.name }}" style="background-color:{{ topic.color }}">	
 						</a>
 					</div>
 				</div>
 				<div class="col-md-6">
 					<div class="topic-explanation text-left">
-						<h2 class="text-uppercase">[[ topic.name ]]</h2>
-						<p >[[ topic.description ]]</p>
+						<h2 class="text-uppercase">{{ topic.name }}</h2>
+						<p >{{ topic.dependencies }}</p>
 					</div>
 				</div>
 				<div class="col-md-3">
-					<div class="topic-chart" id="topic-chart-[[ $index ]]">
+					<div class="topic-chart" id="topic-chart-{{ forcounter }}">
 					</div>
-				</div>
-
 				</div>
 			</div>
 		</div>
-
+		{% endfor %}
 </section>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js"></script>
