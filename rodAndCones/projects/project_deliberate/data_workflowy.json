@@ -1,10 +1,15 @@
 [
     {
+        "status": [
+            "Active", 
+            "Trying to utilize it in my projects. But also trying to avoid going too deep into it. The primary reason being the imminent launch of Angular 2.0, which is changing the framework in very fundamental ways."
+        ], 
         "rating": [
             "6.8", 
             "Angular in my opinion seems awesome. But it is too divisive and undependable to have a higher rating. Also it is main selling point (being hip) is under attack by new contenders. Definitely not a core competency but very good to have."
         ], 
         "name": "ANGULARJS", 
+        "links": "official documentation", 
         "tags": [
             "Web development", 
             "front-end framework", 
@@ -12,13 +17,28 @@
             "Javascript", 
             "Google"
         ], 
+        "index": [
+            "Description", 
+            "Reason", 
+            "Summary", 
+            "Rating", 
+            "Status", 
+            "Plan", 
+            "Dependencies", 
+            "Related", 
+            "Tags", 
+            "Resources", 
+            "Links"
+        ], 
         "related": [
             "Backbone", 
             "React", 
             "Knockout"
         ], 
-        "summary": "", 
+        "summary": "There is a strong market incentive for learning Angular. Being the hip front-end framework of late times, there are lots of projects utilizing it. Also it really makes it easy to create data bound elements removing the need for some laborious and repetitive front end coding. It can almost said to make development fun. Except that it apparently doesn't. As web applications get more demanding and complex the behind the scenes magic of Angular is said to become an impediment.", 
+        "reason": "There is a strong market incentive for learning Angular. Being the hip front-end framework of late times, there are lots of projects utilizing it. Also it really makes it easy to create data bound elements removing the need for some laborious and repetitive front end coding. It can almost said to make development fun. Except that it apparently doesn't. As web applications get more demanding and complex the behind the scenes magic of Angular is said to become an impediment.", 
         "dependencies": "Javascript", 
+        "plan": "Look into integration of Django and Angular", 
         "resources": {
             "Books": [
                 {
@@ -57,16 +77,38 @@
                 "udemy - build a real time web app in node.js, angular.js and mongo.db"
             ]
         }, 
-        "description": ""
+        "description": "AngularJS is a structural framework for dynamic web apps. It lets you use HTML as your template language and lets you extend HTML's syntax to express your application's components clearly and succinctly. Angular's data binding and dependency injection eliminate much of the code you would otherwise have to write. And it all happens within the browser, making it an ideal partner with any server technology."
     }, 
     {
+        "status": [
+            "Active. ", 
+            "I would like to refresh my old knowledge of Django and update it for the current version. I also would like to structure my further knowledge acquisition. Not planning to go too deep with it though. Just have enough of it so that it can serve as a strong foundation for front end projects. But I need to find out how to create restful websites using Django to familiarize myself with the concept."
+        ], 
         "rating": "8", 
         "name": "DJANGO", 
         "tags": "Python, Back-end, Web Development", 
+        "index": [
+            "Description", 
+            "Reason", 
+            "Summary", 
+            "Rating", 
+            "Status", 
+            "Plan", 
+            "Dependencies", 
+            "Related", 
+            "Tags", 
+            "Resources"
+        ], 
         "related": "Express (a Node based Back-end Framework)", 
         "summary": "", 
+        "reason": "Django is the framework that I have entered the world of web development with. To me it is a platform that gives me the opportunity to quickly deploy ideas online. Also being the baseline of my backend knowledge, it frames all the other new ideas for me as they get introduced. I eventually want to acquire more knowledge of backend tools and frameworks such as Node as they seem to currently have more prevalence. But meanwhile Django still serves as a strong platform to keep growing in.", 
         "dependencies": "Python", 
-        "reasoning": "Django is the framework that I have entered the world of web development with. To me it is a platform that gives me the opportunity to quickly deploy ideas online. Also being the baseline of my backend knowledge, it frames all the other new ideas for me as they get introduced. I eventually want to acquire more knowledge of backend tools and frameworks such as Node as they seem to currently have more prevalence. But meanwhile Django still serves as a strong platform to keep growing in.", 
+        "plan": [
+            "Skim 'Tango with Dango' to update your knowledge of it.", 
+            "Look into web resources for Django and Angular integration", 
+            "Go through the documentation of Django Rest Framework", 
+            "Look into 'Restful' Chapters from the book 'Lightweight Django'"
+        ], 
         "resources": {
             "Books": [
                 "Lightweight Django", 
@@ -80,6 +122,11 @@
         "description": ""
     }, 
     {
+        "index": [
+            "Reason", 
+            "Resources"
+        ], 
+        "reason": "Job requires it", 
         "name": "BOOTSTRAP", 
         "resources": {
             "https://www.udemy.com/learn-bootstrap-development-by-building-10-projects/?dtcode=mJa1BMI2SGyH": [], 
@@ -91,20 +138,51 @@
         }
     }, 
     {
-        "rating": "7", 
+        "status": [
+            "Active", 
+            "I am currently working on simple projects that require lots of CSS work. This provides the right incentives to enhance my knowledge in CSS further.", 
+            "Plan"
+        ], 
+        "rating": [
+            "7", 
+            "CSS is pretty essential and a knowledge that is assumed to be mastered for any front-end developer. Though it is not something that you can get better by just reading about, it is a skill that is developed over time."
+        ], 
         "name": "CSS3", 
-        "tags": "Front-End Web Development, Stylesheets, Design", 
-        "related": "Sass, Less, Bootstrap", 
+        "tags": [
+            "Front-End Web Development", 
+            "Stylesheets", 
+            "Design"
+        ], 
+        "index": [
+            "Description", 
+            "Reason", 
+            "Summary", 
+            "Rating", 
+            "Status", 
+            "Dependencies", 
+            "Related", 
+            "Tags", 
+            "Resources"
+        ], 
+        "related": [
+            "Sass", 
+            "Less", 
+            "Bootstrap"
+        ], 
         "summary": "", 
+        "reason": "CSS provides the web designer / developer with immense expressive power over the styling of the elements. When done right it really has the potential to make a significant difference in the presentation of a project. Even though the basic knowledge of CSS is easy to acquire, becoming comfortable with it requires practice.", 
         "dependencies": "HTML", 
-        "reasoning": "CSS provides the web designer / developer with immense expressive power over the styling of the elements. When done right it really has the potential to make a significant difference in the presentation of a project. Even though the basic knowledge of CSS is easy to acquire, becoming comfortable with it requires practice.", 
         "resources": {}, 
         "description": ""
     }, 
     {
+        "index": [], 
         "name": "GIT"
     }, 
     {
+        "index": [
+            "Resources"
+        ], 
         "name": "REACT", 
         "resources": {
             "front end masters came up with a tutorial as well: https://frontendmasters.com/courses/react/": [], 
@@ -113,9 +191,14 @@
         }
     }, 
     {
+        "index": [], 
         "name": "D3"
     }, 
     {
+        "index": [
+            "Description", 
+            "Resources"
+        ], 
         "name": "LINUX", 
         "resources": {
             "https://www.udemy.com/linux-command-line-volume1/?signup_success=1": [], 
@@ -125,9 +208,13 @@
         "description": ""
     }, 
     {
+        "index": [], 
         "name": "HTTP"
     }, 
     {
+        "index": [
+            "Resources"
+        ], 
         "name": "SUBLIME", 
         "resources": {
             "https://code.tutsplus.com/tutorials/essential-sublime-text-2-plugins-and-extensions--net-24173": [], 
@@ -135,6 +222,9 @@
         }
     }, 
     {
+        "index": [
+            "Resources"
+        ], 
         "name": "JAVASCRIPT", 
         "resources": {
             "javascript design patterns": [], 
@@ -148,9 +238,13 @@
         }
     }, 
     {
+        "index": [], 
         "name": "GULP"
     }, 
     {
+        "index": [
+            "Resources"
+        ], 
         "name": "PYTHON", 
         "resources": {
             "this book seems to be awesome, where you were referring to the sorting stuff": [
@@ -195,51 +289,71 @@
         }
     }, 
     {
+        "index": [], 
         "name": "NODE"
     }, 
     {
+        "index": [
+            "Resources"
+        ], 
         "name": "JQUERY", 
         "resources": {
             "tutsplus jquery course is pretty amazing actually, I am pleasantly surprised.": []
         }
     }, 
     {
+        "index": [], 
         "name": "THREEJS"
     }, 
     {
+        "index": [], 
         "name": "HOUDINI"
     }, 
     {
+        "index": [], 
         "name": "COMPASS"
     }, 
     {
+        "index": [], 
         "name": "SASS"
     }, 
     {
+        "index": [
+            "Resources"
+        ], 
         "name": "UX", 
         "resources": {
             "don't make me think": []
         }
     }, 
     {
+        "index": [], 
         "name": "HARVARD EXTENSION"
     }, 
     {
+        "index": [], 
         "name": "PHYSICSJS"
     }, 
     {
+        "index": [], 
         "name": "HTML5"
     }, 
     {
+        "index": [], 
         "name": "FUNCTIONAL_PROGRAMMING"
     }, 
     {
+        "index": [], 
         "name": "ALEMBIC"
     }, 
     {
+        "index": [], 
         "name": "SHADING"
     }, 
     {
+        "index": [
+            "Resources"
+        ], 
         "name": "COMPUTER_SCIENCE", 
         "resources": {
             "googles recommended resources": [
@@ -248,18 +362,23 @@
         }
     }, 
     {
+        "index": [], 
         "name": "MISC"
     }, 
     {
+        "index": [], 
         "name": "BOWER"
     }, 
     {
+        "index": [], 
         "name": "LESS"
     }, 
     {
+        "index": [], 
         "name": "NPM"
     }, 
     {
+        "index": [], 
         "name": "SCRUM"
     }
 ]

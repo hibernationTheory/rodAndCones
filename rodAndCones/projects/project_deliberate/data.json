@@ -1,19 +1,49 @@
 {
     "css3": {
-        "rating": "7", 
+        "status": [
+            "Active", 
+            "I am currently working on simple projects that require lots of CSS work. This provides the right incentives to enhance my knowledge in CSS further.", 
+            "Plan"
+        ], 
+        "rating": [
+            "7", 
+            "CSS is pretty essential and a knowledge that is assumed to be mastered for any front-end developer. Though it is not something that you can get better by just reading about, it is a skill that is developed over time."
+        ], 
         "name": "CSS3", 
         "short_name": "css3", 
-        "tags": "Front-End Web Development, Stylesheets, Design", 
+        "index": [
+            "Description", 
+            "Reason", 
+            "Summary", 
+            "Rating", 
+            "Status", 
+            "Dependencies", 
+            "Related", 
+            "Tags", 
+            "Resources"
+        ], 
         "color": "#1c94b4", 
+        "tags": [
+            "Front-End Web Development", 
+            "Stylesheets", 
+            "Design"
+        ], 
         "image_name": "logo_css3_02.png", 
-        "related": "Sass, Less, Bootstrap", 
+        "related": [
+            "Sass", 
+            "Less", 
+            "Bootstrap"
+        ], 
         "summary": "", 
+        "reason": "CSS provides the web designer / developer with immense expressive power over the styling of the elements. When done right it really has the potential to make a significant difference in the presentation of a project. Even though the basic knowledge of CSS is easy to acquire, becoming comfortable with it requires practice.", 
         "dependencies": "HTML", 
-        "reasoning": "CSS provides the web designer / developer with immense expressive power over the styling of the elements. When done right it really has the potential to make a significant difference in the presentation of a project. Even though the basic knowledge of CSS is easy to acquire, becoming comfortable with it requires practice.", 
         "resources": {}, 
         "description": ""
     }, 
     "jquery": {
+        "index": [
+            "Resources"
+        ], 
         "name": "Jquery", 
         "short_name": "jquery", 
         "color": "#fff", 
@@ -23,36 +53,44 @@
         }
     }, 
     "threejs": {
-        "color": "#f1f1f1", 
+        "index": [], 
         "name": "Three.js", 
         "short_name": "threejs", 
+        "color": "#f1f1f1", 
         "image_name": "logo_3js.png"
     }, 
     "scrum": {
-        "color": "#1c9fab", 
+        "index": [], 
         "name": "Scrum", 
         "short_name": "scrum", 
+        "color": "#1c9fab", 
         "image_name": "logo_scrum.png"
     }, 
     "node": {
-        "color": "#3c3c3c", 
+        "index": [], 
         "name": "Node.js", 
         "short_name": "node", 
+        "color": "#3c3c3c", 
         "image_name": "logo_node.png"
     }, 
     "sass": {
-        "color": "#fff976", 
+        "index": [], 
         "name": "SASS", 
         "short_name": "sass", 
+        "color": "#fff976", 
         "image_name": "logo_sass_02.png"
     }, 
     "less": {
-        "color": "#2d4a76", 
+        "index": [], 
         "name": "Less", 
         "short_name": "less", 
+        "color": "#2d4a76", 
         "image_name": "logo_less.png"
     }, 
     "python": {
+        "index": [
+            "Resources"
+        ], 
         "name": "Python", 
         "short_name": "python", 
         "color": "#71b1c9", 
@@ -100,10 +138,15 @@
         }
     }, 
     "bootstrap": {
+        "index": [
+            "Reason", 
+            "Resources"
+        ], 
         "name": "Bootstrap", 
         "short_name": "bootstrap", 
         "color": "#5e3777", 
         "image_name": "logo_bootstrap.png", 
+        "reason": "Job requires it", 
         "resources": {
             "https://www.udemy.com/learn-bootstrap-development-by-building-10-projects/?dtcode=mJa1BMI2SGyH": [], 
             "https://www.edx.org/course/introduction-bootstrap-tutorial-microsoft-dev203x#.VQrsUEBDvgg": [], 
@@ -114,16 +157,38 @@
         }
     }, 
     "django": {
+        "status": [
+            "Active. ", 
+            "I would like to refresh my old knowledge of Django and update it for the current version. I also would like to structure my further knowledge acquisition. Not planning to go too deep with it though. Just have enough of it so that it can serve as a strong foundation for front end projects. But I need to find out how to create restful websites using Django to familiarize myself with the concept."
+        ], 
         "rating": "8", 
         "name": "Django", 
         "short_name": "django", 
-        "tags": "Python, Back-end, Web Development", 
+        "index": [
+            "Description", 
+            "Reason", 
+            "Summary", 
+            "Rating", 
+            "Status", 
+            "Plan", 
+            "Dependencies", 
+            "Related", 
+            "Tags", 
+            "Resources"
+        ], 
         "color": "#0a2f20", 
+        "tags": "Python, Back-end, Web Development", 
         "image_name": "logo_django_02.png", 
         "related": "Express (a Node based Back-end Framework)", 
         "summary": "", 
+        "reason": "Django is the framework that I have entered the world of web development with. To me it is a platform that gives me the opportunity to quickly deploy ideas online. Also being the baseline of my backend knowledge, it frames all the other new ideas for me as they get introduced. I eventually want to acquire more knowledge of backend tools and frameworks such as Node as they seem to currently have more prevalence. But meanwhile Django still serves as a strong platform to keep growing in.", 
         "dependencies": "Python", 
-        "reasoning": "Django is the framework that I have entered the world of web development with. To me it is a platform that gives me the opportunity to quickly deploy ideas online. Also being the baseline of my backend knowledge, it frames all the other new ideas for me as they get introduced. I eventually want to acquire more knowledge of backend tools and frameworks such as Node as they seem to currently have more prevalence. But meanwhile Django still serves as a strong platform to keep growing in.", 
+        "plan": [
+            "Skim 'Tango with Dango' to update your knowledge of it.", 
+            "Look into web resources for Django and Angular integration", 
+            "Go through the documentation of Django Rest Framework", 
+            "Look into 'Restful' Chapters from the book 'Lightweight Django'"
+        ], 
         "resources": {
             "Books": [
                 "Lightweight Django", 
@@ -137,12 +202,16 @@
         "description": ""
     }, 
     "gulp": {
-        "color": "#85283d", 
+        "index": [], 
         "name": "Gulp", 
         "short_name": "gulp", 
+        "color": "#85283d", 
         "image_name": "logo_gulp.png"
     }, 
     "react": {
+        "index": [
+            "Resources"
+        ], 
         "name": "React.js", 
         "short_name": "react", 
         "color": "#222222", 
@@ -154,24 +223,44 @@
         }
     }, 
     "bower": {
-        "color": "#efab33", 
+        "index": [], 
         "name": "Bower", 
         "short_name": "bower", 
+        "color": "#efab33", 
         "image_name": "logo_bower.png"
     }, 
     "html5": {
-        "color": "#33b2ea", 
+        "index": [], 
         "name": "HTML5", 
         "short_name": "html5", 
+        "color": "#33b2ea", 
         "image_name": "logo_html_02.png"
     }, 
     "angularjs": {
+        "status": [
+            "Active", 
+            "Trying to utilize it in my projects. But also trying to avoid going too deep into it. The primary reason being the imminent launch of Angular 2.0, which is changing the framework in very fundamental ways."
+        ], 
         "rating": [
             "6.8", 
             "Angular in my opinion seems awesome. But it is too divisive and undependable to have a higher rating. Also it is main selling point (being hip) is under attack by new contenders. Definitely not a core competency but very good to have."
         ], 
         "name": "Angular.js", 
-        "short_name": "angularjs", 
+        "links": "official documentation", 
+        "index": [
+            "Description", 
+            "Reason", 
+            "Summary", 
+            "Rating", 
+            "Status", 
+            "Plan", 
+            "Dependencies", 
+            "Related", 
+            "Tags", 
+            "Resources", 
+            "Links"
+        ], 
+        "color": "#e43137", 
         "tags": [
             "Web development", 
             "front-end framework", 
@@ -179,15 +268,17 @@
             "Javascript", 
             "Google"
         ], 
-        "color": "#e43137", 
+        "short_name": "angularjs", 
         "image_name": "logo_angular.png", 
         "related": [
             "Backbone", 
             "React", 
             "Knockout"
         ], 
-        "summary": "", 
+        "summary": "There is a strong market incentive for learning Angular. Being the hip front-end framework of late times, there are lots of projects utilizing it. Also it really makes it easy to create data bound elements removing the need for some laborious and repetitive front end coding. It can almost said to make development fun. Except that it apparently doesn't. As web applications get more demanding and complex the behind the scenes magic of Angular is said to become an impediment.", 
+        "reason": "There is a strong market incentive for learning Angular. Being the hip front-end framework of late times, there are lots of projects utilizing it. Also it really makes it easy to create data bound elements removing the need for some laborious and repetitive front end coding. It can almost said to make development fun. Except that it apparently doesn't. As web applications get more demanding and complex the behind the scenes magic of Angular is said to become an impediment.", 
         "dependencies": "Javascript", 
+        "plan": "Look into integration of Django and Angular", 
         "resources": {
             "Books": [
                 {
@@ -226,9 +317,13 @@
                 "udemy - build a real time web app in node.js, angular.js and mongo.db"
             ]
         }, 
-        "description": ""
+        "description": "AngularJS is a structural framework for dynamic web apps. It lets you use HTML as your template language and lets you extend HTML's syntax to express your application's components clearly and succinctly. Angular's data binding and dependency injection eliminate much of the code you would otherwise have to write. And it all happens within the browser, making it an ideal partner with any server technology."
     }, 
     "linux": {
+        "index": [
+            "Description", 
+            "Resources"
+        ], 
         "name": "Linux", 
         "short_name": "linux", 
         "color": "#bbbbbb", 
@@ -241,18 +336,23 @@
         "description": ""
     }, 
     "npm": {
-        "color": "#993130", 
+        "index": [], 
         "name": "Npm", 
         "short_name": "npm", 
+        "color": "#993130", 
         "image_name": "logo_npm.png"
     }, 
     "d3": {
-        "color": "#ffdd3c", 
+        "index": [], 
         "name": "D3.js", 
         "short_name": "d3", 
+        "color": "#ffdd3c", 
         "image_name": "logo_d3.png"
     }, 
     "sublime": {
+        "index": [
+            "Resources"
+        ], 
         "name": "Sublime Text Editor", 
         "short_name": "sublime", 
         "color": "#a5a5a5", 

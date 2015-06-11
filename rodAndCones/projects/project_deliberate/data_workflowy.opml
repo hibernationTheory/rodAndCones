@@ -6,10 +6,12 @@
   <body>
     <outline text="TOPICS" >
       <outline text="ANGULARJS" >
-        <outline text="Description" />
+        <outline text="Description" >
+          <outline text="AngularJS is a structural framework for dynamic web apps. It lets you use HTML as your template language and lets you extend HTML's syntax to express your application's components clearly and succinctly. Angular's data binding and dependency injection eliminate much of the code you would otherwise have to write. And it all happens within the browser, making it an ideal partner with any server technology." /></outline>
         <outline text="Reason" >
           <outline text="There is a strong market incentive for learning Angular. Being the hip front-end framework of late times, there are lots of projects utilizing it. Also it really makes it easy to create data bound elements removing the need for some laborious and repetitive front end coding. It can almost said to make development fun. Except that it apparently doesn't. As web applications get more demanding and complex the behind the scenes magic of Angular is said to become an impediment." /></outline>
-        <outline text="Summary" />
+        <outline text="Summary" >
+          <outline text="There is a strong market incentive for learning Angular. Being the hip front-end framework of late times, there are lots of projects utilizing it. Also it really makes it easy to create data bound elements removing the need for some laborious and repetitive front end coding. It can almost said to make development fun. Except that it apparently doesn't. As web applications get more demanding and complex the behind the scenes magic of Angular is said to become an impediment." /></outline>
         <outline text="Rating" >
           <outline text="6.8" />
           <outline text="Angular in my opinion seems awesome. But it is too divisive and undependable to have a higher rating. Also it is main selling point (being hip) is under attack by new contenders. Definitely not a core competency but very good to have." /></outline>
@@ -49,10 +51,14 @@
             <outline text="udemy - angularjs jumpstart with dan wahlin" />
             <outline text="udemy - build a real time web app in node.js, angular.js and mongo.db" /></outline>
         </outline>
-        <outline text="Links" /></outline>
+        <outline text="Links" >
+          <outline text="official documentation" >
+            <outline text="https://docs.angularjs.org/guide/introduction" /></outline>
+        </outline>
+      </outline>
       <outline text="DJANGO" >
         <outline text="Description" />
-        <outline text="Reasoning" >
+        <outline text="Reason" >
           <outline text="Django is the framework that I have entered the world of web development with. To me it is a platform that gives me the opportunity to quickly deploy ideas online. Also being the baseline of my backend knowledge, it frames all the other new ideas for me as they get introduced. I eventually want to acquire more knowledge of backend tools and frameworks such as Node as they seem to currently have more prevalence. But meanwhile Django still serves as a strong platform to keep growing in." /></outline>
         <outline text="Summary" />
         <outline text="Rating" >
@@ -83,7 +89,7 @@
       <outline text="BOOTSTRAP" >
         <outline text="Current Status" >
           <outline text="This just became active since my next project files are making use of bootstrap." /></outline>
-        <outline text="Reasons" >
+        <outline text="Reason" >
           <outline text="Job requires it" /></outline>
         <outline text="Resources" >
           <outline text="https://www.udemy.com/learn-bootstrap-development-by-building-10-projects/?dtcode=mJa1BMI2SGyH" />
@@ -96,16 +102,15 @@
         <outline text="Project Ideas" /></outline>
       <outline text="CSS3" >
         <outline text="Description" />
-        <outline text="Reasoning" >
+        <outline text="Reason" >
           <outline text="CSS provides the web designer / developer with immense expressive power over the styling of the elements. When done right it really has the potential to make a significant difference in the presentation of a project. Even though the basic knowledge of CSS is easy to acquire, becoming comfortable with it requires practice." /></outline>
         <outline text="Summary" />
         <outline text="Rating" >
-          <outline text="7" >
-            <outline text="CSS is pretty essential and a knowledge that is assumed to be mastered for any front-end developer. Though it is not something that you can get better by just reading about, it is a skill that is developed over time." /></outline>
-        </outline>
+          <outline text="7" />
+          <outline text="CSS is pretty essential and a knowledge that is assumed to be mastered for any front-end developer. Though it is not something that you can get better by just reading about, it is a skill that is developed over time." /></outline>
         <outline text="Status" >
-          <outline text="Active" >
-            <outline text="I am currently working on simple projects that require lots of CSS work. This provides the right incentives to enhance my knowledge in CSS further." /></outline>
+          <outline text="Active" />
+          <outline text="I am currently working on simple projects that require lots of CSS work. This provides the right incentives to enhance my knowledge in CSS further." />
           <outline text="Plan" >
             <outline text="Try to acquire tidbits of CSS information every day. Some interesting resources are:" >
               <outline text="tutsplus - css noob to ninja - http://code.tutsplus.com/tutorials/css-noob-to-ninja--net-12186" >
@@ -130,9 +135,13 @@
         <outline text="Dependencies" >
           <outline text="HTML" /></outline>
         <outline text="Related" >
-          <outline text="Sass, Less, Bootstrap" /></outline>
+          <outline text="Sass" />
+          <outline text="Less" />
+          <outline text="Bootstrap" /></outline>
         <outline text="Tags" >
-          <outline text="Front-End Web Development, Stylesheets, Design" /></outline>
+          <outline text="Front-End Web Development" />
+          <outline text="Stylesheets" />
+          <outline text="Design" /></outline>
         <outline text="Resources" /></outline>
       <outline text="GIT" >
         <outline text="git init" >
