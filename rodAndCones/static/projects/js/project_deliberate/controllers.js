@@ -1,35 +1,50 @@
 var App = angular.module('App');
 
-App.controller('TopicListCtrl', ['$scope', '$http', function($scope, $http) {
-	$http.get('../../static/projects/js/project_deliberate/topic_data/all_data.json').success(function(data) {
-		$scope.topics = data;
-		$scope.createChart = createChart;
-	});
-}]);
-
 App.directive('changeColor', function() {
   return {
     link:function($scope, element, attrs) {
       $scope.$evalAsync(function() {
-        changeColor(element[0].id);
+        changeColor(element);
       })
     }
   }
 });
 
-var changeColor = function(selector) {
-  console.log(selector);
-  var el = document.getElementById(selector);
+App.directive('setTetrad', function() {
+  return {
+    link:function($scope, element, attrs) {
+      $scope.$evalAsync(function() {
+        setTetrad(element);
+      })
+    }
+  }
+});
+
+var changeColor = function(element) {
+  var el = element[0]
   var color = el.style.backgroundColor;
   var brightness = tinycolor(color).getBrightness();
-  console.log(brightness);
-  console.log(el);
   if (brightness <= 96) {
     el.style.color = "#ddd";
   } else {
     el.style.color = "#404040"
   }
 };
+
+var setTetrad = function(element) {
+  var el = element[0]
+  var color = el.getAttribute('data-color');
+  var colors = tinycolor(color).tetrad();
+  var complementery = complement(color).toHexString()
+  //var tetrad = colors.map(function(t) { return t.toHexString(); });
+  el.style.backgroundColor = complementery;
+}
+
+function complement(color) {
+    var hsl = tinycolor(color).toHsl();
+    hsl.h = (hsl.h + 180) % 360;
+    return tinycolor(hsl);
+}
 
 function createChart(hostSelector, givenData) {
 	/* this is working fine but needs to work in a way that it would clear the previous graph when updated */
