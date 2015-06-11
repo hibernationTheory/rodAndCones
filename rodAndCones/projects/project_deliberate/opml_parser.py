@@ -31,17 +31,22 @@ def read_opml(target_file):
     topics = outline[0]
 
     topic_data_all = []
-    topic_content_subnames = ["reasoning", "description", "summary", "rating", "current_status",
-                      "dependencies", "related", "tags", "resources", "further_links"] 
+    topic_content_subnames = ["reason", "description", "summary", "rating", "status",
+                      "plan", "dependencies", "related", "tags", "resources", "links"]
+
     for topic in topics:
         topic_title = topic.text
         topic_data_current = {}
         topic_data_current["name"] = topic_title
+        topic_content_subnames_found = []
         for topic_content in topic:
             for topic_content_subname in topic_content_subnames:
                 if topic_content.text.lower() == topic_content_subname:
                     subdata = get_topic_subdata(topic_content, topic_content_subname)
                     topic_data_current[topic_content_subname] = subdata
+                    topic_content_subnames_found.append(topic_content_subname.title())
+
+        topic_data_current["index"] = topic_content_subnames_found
         topic_data_all.append(topic_data_current)
 
     return topic_data_all
