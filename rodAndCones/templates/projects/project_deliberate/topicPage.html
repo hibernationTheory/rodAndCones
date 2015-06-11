@@ -1,152 +1,48 @@
-<!DOCTYPE html>
+{% extends 'projects/project_deliberate/base.html' %}
 
 {% load static %}
 
-<html lang="en" ng-app="App">
-<head>
-	<meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-   	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
-   	<link rel="stylesheet" href="{% static 'projects/css/project_deliberate/style.css' %}">
-	<title>Deliberate Practice</title>
-</head>
+<link rel="stylesheet" href="{% block style %}{% static 'projects/css/project_deliberate/style.css' %}{% endblock %}">
+<title>{% block title %} - {{ obj_data.name }}{% endblock %}</title>
 
-<style>
-
-	* {
-		box-sizing:border-box;
-	}
-
-	nav {
-		margin-bottom:0 !important;
-		padding:10px;
-	}
-
-	body {
-	  font-family: Georgia;
-	  font-size: large;
-	  line-height: 1.5em;
-	  color: #404040;
-	}
-
-	h1 {
-		font-family:Arial;
-		font-weight:600;
-		padding:0.75em 0 0.5em 0;
-	}
-
-	h2 {
-		font-family:Arial;
-		font-weight:600;
-		padding:0.75em 0 0.5em 0;
-	}
-
-	h3 {
-		font-family:Arial;
-		font-weight:600;
-		padding:0.75em 0 0.5em 0;
-	}
-
-	p {
-		padding-bottom:0.75em;
-	}
-
-	.topic-explanation {
-		padding:0.5em 0;
-	}
-
-	.topic-explanation p{
-		font-size:0.8em;
-	}
-
-	.parallaxParent {
-		height: 700px;
-		overflow: hidden;
-	}
-	.parallaxParent > * {
-		padding-top: 150px;
-		height: 200%;
-		position: relative;
-		top: -100%;
-	}
-	section#subject-images {
-		background-color: rgb(232, 232, 232);
-		box-shadow: 0px 0px 50px 1px rgb(181, 181, 181);
-		z-index: 20;
-	}
-	.topic-item {
-		background:gray;
-		text-align: center;
-	}
-
-	.topic-item:hover {
-		border-bottom:10px solid rgba(1,1,1,0.2);
-	}
-
-	.topic-item > .row {
-		width:100%;
-	}
-
-	img {
-		display:block;
-		width:70%;
-		height:auto;
-		margin-left:auto;
-		margin-right:auto;
-		border:50px solid transparent;
-	}
-
-	#introduction {
-	  position: absolute;
-	  margin-top: -670px;
-	  margin-left: 30px;
-	  padding: 30px 50px 50px 50px;
-	  width: 40%;
-	  height: 300px;
-	  background-color: rgba(250, 250, 250, 0.6);
-	  /* box-shadow: 4px 5px 20px 1px gray; */
-	}
-
-	#introduction > p {
-	  margin: 0 0 10px;
-	  _background: #fff
-	}
-
-	.node:hover {
-		fill:red;
-	}
-
-	svg circle:hover {
-		stroke:lightgray;
-		stroke-width:5px;
-	}
-
-
-
-</style>
-
-<body style="background-color:{{ obj_data.color }};">
+<body ng-app="App">
 
 <section>
-	<div class="row">
-		<div class="col-sm-4">
-			<img src='{% static "projects/images/project_deliberate/logo/" %}{{ obj_data.image_name }}' alt="{{ obj_data.name }}" style="background-color:{{ obj_data.color }}">
-			<div class="">
-					<ul>
-						<li>Title - Status(maybe under the image)</li>
-						<li>Description - Categories</li>
-						<li>Related</li>
-						<li>Dependencies</li>
-						<li>Reason</li>
-						<li>Summary</li>
-						<li>Rating</li>
-						<li>Resources</li>
-						<li>Tags</li>
-					</ul>
+	{% block parallax-header %}
+	<div id="parallax-01" class="module parallax parallaxParent" style="background-color:{{ obj_data.color }};">
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-sm-12">
+					<img class="image-bg" src='{% static "projects/images/project_deliberate/logo/" %}{{ obj_data.image_name }}' alt="{{ obj_data.name }}" style="background-color:{{ obj_data.color }}">
+					<div id="svg-content"></div>
+				</div>
 			</div>
 		</div>
-		<div class="col-sm-8">
+	</div>
+
+	<div id="introduction">
+			<h1 class="text-uppercase">{{ obj_data.name }}</h1>
+			<p>{{ obj_data.description }}</p>
+	</div>
+	{% endblock %}
+</section>
+
+{% block main-content %}
+<section>
+	<div class="row">
+		<div class="col-sm-2">
+			<div class="topic-index">
+				<ul>
+					{% for item in obj_data.index %}
+						{% if not item == 'Description' %}
+						<li><a href="#topic-{{ item }}">{{ item }}</a></li>
+						{% endif %}
+					{% endfor %}
+				</ul>
+			</div>
+		</div>
+		<div class="col-sm-10">
+			<!--
 			<section>
 				<h1>
 					{{ obj_data.name }}
@@ -155,34 +51,65 @@
 					{{ obj_data }}
 				</h3>
 			</section>
-			<section>
-				<div>
-					<h2>Reason</h2>
-					<p> {{ obj_data.reasoning }}</p>
-				</div>
-				<div>
-					<h2>Summary</h2>
+			-->
+			<article>
+
+				{% if obj_data.reason %}
+				<section class="obj-info">
+					<h2 id="topic-Reason" data-color="{{ obj_data.color }}" set-tetrad change-color>Reason</h2>
+					<p> {{ obj_data.reason }}</p>
+				</section>
+				{% endif %}
+
+				{% if obj_data.summary %}
+				<section class="obj-info">
+					<h2 id="topic-Summary" data-color="{{ obj_data.color }}" set-tetrad change-color>Summary</h2>
 					<p> {{ obj_data.summary }}</p>
-					<div>{{ obj_data.rating }}</div>
-				</div>
-			</section>
+				</section>
+				{% endif %}
+
+				{% if obj_data.rating %}
+				<section class="obj-info">
+					<h2 id="topic-Rating" data-color="{{ obj_data.color }}" set-tetrad change-color>Rating <span class="badge">{{ obj_data.rating.0 }}</span></h2>
+					<p> {{ obj_data.rating.1 }}</p>
+				</section>
+				{% endif %}
+
+				{% if obj_data.status %}
+				<section class="obj-info">
+					<h2 id="topic-Status" data-color="{{ obj_data.color }}" set-tetrad change-color>Status <span class="badge">{{ obj_data.status.0 }}</span></h2>
+					<p> {{ obj_data.rating.1 }}</p>
+				</section>
+				{% endif %}
+
+				{% if obj_data.plan %}
+				<section class="obj-info">
+					<h2 id="topic-Plan" data-color="{{ obj_data.color }}" set-tetrad change-color>Plan</h2>
+					<p> {{ obj_data.plan }}</p>
+				</section>
+				{% endif %}
+
+				{% if obj_data.dependencies %}
+				<section class="obj-info">
+					<h2 id="topic-Dependencies" data-color="{{ obj_data.color }}" set-tetrad change-color>Dependencies</h2>
+					<p>{{ obj_data.dependencies }}</p>
+				</section>
+				{% endif %}
+
+				{% if obj_data.tags %}
+				<section class="obj-info">
+					<h2 id="topic-Tags" data-color="{{ obj_data.color }}" set-tetrad change-color>Tags</h2>
+					<ul>
+						{% for i in obj_data.tags %}
+						<li> {{ i }}</li>
+						{% endfor %}
+					</ul>
+				</section>
+				{% endif %}
+
+
+			</article>
 		</div>
 	</div>
 </section>
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js"></script>
-<script type="text/javascript" src='{% static "projects/js/project_deliberate/lib/ScrollMagic.js" %}'></script>
-<script type="text/javascript" src='{% static "projects/js/project_deliberate/lib/TweenMax.min.js" %}'></script>
-<script type="text/javascript" src='{% static "projects/js/project_deliberate/lib/animation.gsap.js" %}'></script>
-<script type="text/javascript" src='{% static "projects/js/project_deliberate/lib/debug.addIndicators.js" %}'></script>
-<script type="text/javascript" src='{% static "projects/js/project_deliberate/lib/tinycolor.js" %}'></script>
-
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
-<script src='{% static "projects/js/project_deliberate/main.js" %}'></script>
-<script src='{% static "projects/js/project_deliberate/app.js" %}'></script>
-<script src='{% static "projects/js/project_deliberate/controllers.js" %}'></script>
-
-</body>
-</html>
+{% endblock %}

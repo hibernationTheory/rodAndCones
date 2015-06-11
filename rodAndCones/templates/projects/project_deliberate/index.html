@@ -1,161 +1,12 @@
-<!DOCTYPE html>
+{% extends 'projects/project_deliberate/base.html' %}
 
 {% load static %}
 
-<html lang="en" ng-app="App">
-<head>
-	<meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-   	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
-   	<link rel="stylesheet" href="{% static 'projects/css/project_deliberate/style.css' %}">
-	<title>Deliberate Practice</title>
-</head>
-
-<style>
-
-	* {
-		box-sizing:border-box;
-	}
-
-	nav {
-		margin-bottom:0 !important;
-		padding:10px;
-	}
-
-	body {
-	  font-family: Georgia;
-	  font-size: large;
-	  line-height: 1.5em;
-	  color: #404040;
-	}
-
-	h1 {
-		font-family:Arial;
-		font-weight:600;
-		padding:0.75em 0 0.5em 0;
-	}
-
-	h2 {
-		font-family:Arial;
-		font-weight:600;
-		padding:0.75em 0 0.5em 0;
-	}
-
-	h3 {
-		font-family:Arial;
-		font-weight:600;
-		padding:0.75em 0 0.5em 0;
-	}
-
-	p {
-		padding-bottom:0.75em;
-	}
-
-	.topic-explanation {
-		padding:0.5em 0;
-	}
-
-	.topic-explanation p{
-		font-size:0.8em;
-	}
-
-	.parallaxParent {
-		height: 700px;
-		overflow: hidden;
-	}
-	.parallaxParent > * {
-		padding-top: 150px;
-		height: 200%;
-		position: relative;
-		top: -100%;
-	}
-	section#subject-images {
-		background-color: rgb(232, 232, 232);
-		box-shadow: 0px 0px 50px 1px rgb(181, 181, 181);
-		z-index: 20;
-	}
-	.topic-item {
-		background:gray;
-		text-align: center;
-	}
-
-	.topic-item:hover {
-		border-bottom:10px solid rgba(1,1,1,0.2);
-	}
-
-	.topic-item > .row {
-		width:100%;
-	}
-
-	img {
-		display:block;
-		width:70%;
-		height:auto;
-		margin-left:auto;
-		margin-right:auto;
-		border:50px solid transparent;
-	}
-
-	#introduction {
-	  position: absolute;
-	  margin-top: -670px;
-	  margin-left: 30px;
-	  padding: 30px 50px 50px 50px;
-	  width: 40%;
-	  height: 300px;
-	  background-color: rgba(250, 250, 250, 0.6);
-	  /* box-shadow: 4px 5px 20px 1px gray; */
-	}
-
-	#introduction > p {
-	  margin: 0 0 10px;
-	  _background: #fff
-	}
-
-	.node:hover {
-		fill:red;
-	}
-
-	svg circle:hover {
-		stroke:lightgray;
-		stroke-width:5px;
-	}
-
-
-
-</style>
-
-<body>
-
-<header class="header">
-  <div class="burger">
-    <div class="burger__patty"></div>
-    <div class="burger__patty"></div>
-    <div class="burger__patty"></div>
-  </div>
-
-  <nav class="menu">
-    <div class="menu__brand">
-      <a href=""><div class="logo"></div></a>
-    </div>
-    <ul class="menu__list">
-      <li class="menu__item"><a href="" class="menu__link">Work</a></li>
-      <li class="menu__item"><a href="" class="menu__link">About</a></li>
-      <li class="menu__item">
-        <a href="https://twitter.com/ettrics" target="_blank" class="menu__link menu__link--social"><i class="fa fa-twitter"></i></a>
-      </li>
-      <li class="menu__item">
-        <a href="https://dribbble.com/ettrics" target="_blank" class="menu__link menu__link--social">
-          <i class="fa fa-dribbble"></i></a>
-      </li>
-    </ul>
-  </nav>
-</header>
-
-
+<link rel="stylesheet" href="{% block style %}{% static 'projects/css/project_deliberate/style.css' %}{% endblock %}">
+<title>{% block title %} - Main{% endblock %}</title>
 
 <section>
+	{% block parallax-header %}
 	<div id="parallax-01" class="module parallax parallaxParent">
 		<div class="container-fluid">
 			<div class="row">
@@ -170,10 +21,11 @@
 			<h1 class="text-uppercase">Hello World!</h1>
 			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nisi hic ducimus, cupiditate fuga blanditiis officiis laudantium, consectetur, aliquid nobis eveniet culpa similique ipsam beatae. Illo assumenda eos inventore vero sequi!</p>
 	</div>
+	{% endblock %}
 </section>
 
-
-<section id="subject-images" class="module" ng-controller="TopicListCtrl" >
+{% block main-content %}
+<section id="subject-images" class="module">
 		<!-- angular part of the things is currently defunct -->
 
 		<nav class="navbar navbar-default">
@@ -210,7 +62,7 @@
 		    </div>
 		</nav>
 		{% for topic in data %}
-		<div class="topic-item" id="topic-item-{{ forcounter }}" style="background-color:{{ topic.color }}" change-color>
+		<div class="topic-item" id="topic-item-{{ forloop.counter }}" style="background-color:{{ topic.color }}" change-color>
 			<div class="row">
 				<div class="col-md-3">
 					<div class="topic-img-container">
@@ -222,7 +74,7 @@
 				<div class="col-md-6">
 					<div class="topic-explanation text-left">
 						<h2 class="text-uppercase">{{ topic.name }}</h2>
-						<p >{{ topic.dependencies }}</p>
+						<p >{{ topic.description_ }}</p>
 					</div>
 				</div>
 				<div class="col-md-3">
@@ -233,20 +85,4 @@
 		</div>
 		{% endfor %}
 </section>
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js"></script>
-<script type="text/javascript" src='{% static "projects/js/project_deliberate/lib/ScrollMagic.js" %}'></script>
-<script type="text/javascript" src='{% static "projects/js/project_deliberate/lib/TweenMax.min.js" %}'></script>
-<script type="text/javascript" src='{% static "projects/js/project_deliberate/lib/animation.gsap.js" %}'></script>
-<script type="text/javascript" src='{% static "projects/js/project_deliberate/lib/debug.addIndicators.js" %}'></script>
-<script type="text/javascript" src='{% static "projects/js/project_deliberate/lib/tinycolor.js" %}'></script>
-
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
-<script src='{% static "projects/js/project_deliberate/main.js" %}'></script>
-<script src='{% static "projects/js/project_deliberate/app.js" %}'></script>
-<script src='{% static "projects/js/project_deliberate/controllers.js" %}'></script>
-
-</body>
-</html>
+{% endblock %}
