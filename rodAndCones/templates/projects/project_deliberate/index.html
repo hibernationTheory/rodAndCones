@@ -26,63 +26,61 @@
 
 {% block main-content %}
 <section id="subject-images" class="module">
-		<!-- angular part of the things is currently defunct -->
 
-		<nav class="navbar navbar-default">
-		    <div class="navbar-header">
-		      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-		        <span class="sr-only">Toggle navigation</span>
-		        <span class="icon-bar"></span>
-		        <span class="icon-bar"></span>
-		        <span class="icon-bar"></span>
-		      </button>
-		    </div>
-		    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+	<nav class="navbar navbar-default">
+	    <div class="navbar-header">
+	      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+	        <span class="sr-only">Toggle navigation</span>
+	        <span class="icon-bar"></span>
+	        <span class="icon-bar"></span>
+	        <span class="icon-bar"></span>
+	      </button>
+	    </div>
+	    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 
-				<form class="navbar-form navbar-left" role="search">
-					<div class="form-group">
-						<input type="text" class="form-control" placeholder="Search" ng-model="query">
-					</div>
-				</form>
-
-				<form class="navbar-form navbar-left" role="menu">
-					<div class="form-group">
-					    <ul class="nav navbar-nav navbar-left">
-							<select class="form-control" role="menu" ng-model="selection">
-								<option><a href="#">Front-End Development</a></option>
-								<option><a href="#">Back-End Development</a></option>
-								<option><a href="#">Programming General</a></option>
-								<option><a href="#">Design</a></option>
-								<option><a href="#">Project Management</a></option>
-								<option><a href="#">All</a></option>
-							</select>
-					     </ul>
-					</div>
-				</form>
-		    </div>
-		</nav>
-		{% for topic in data %}
-		<div class="topic-item" id="topic-item-{{ forloop.counter }}" style="background-color:{{ topic.color }}" change-color>
-			<div class="row">
-				<div class="col-md-3">
-					<div class="topic-img-container">
-						<a href="topics/{{ topic.short_name }}">
-							<img src='{% static "projects/images/project_deliberate/logo/" %}{{ topic.image_name }}' alt="{{ topic.name }}" style="background-color:{{ topic.color }}">	
-						</a>
-					</div>
+			<form class="navbar-form navbar-left" role="search">
+				<div class="form-group">
+					<input type="text" class="form-control" placeholder="Search" ng-model="query">
 				</div>
-				<div class="col-md-6">
-					<div class="topic-explanation text-left">
-						<h2 class="text-uppercase">{{ topic.name }}</h2>
-						<p >{{ topic.description_ }}</p>
-					</div>
+			</form>
+
+			<form class="navbar-form navbar-left" role="menu">
+				<div class="form-group">
+				    <ul class="nav navbar-nav navbar-left">
+						<select class="form-control" role="menu" ng-model="selection">
+							{% for category in categories %}
+								<option><a href="#">{{ category }}</a></option>
+							{% endfor %}
+						</select>
+				     </ul>
 				</div>
-				<div class="col-md-3">
-					<div class="topic-chart" id="topic-chart-{{ forcounter }}">
-					</div>
+			</form>
+	    </div>
+	</nav>
+	{% for topic in data %}
+	<div class="topic-item" id="topic-item-{{ forloop.counter }}" style="background-color:{{ topic.color }}" data-item-name="{{ topic.name }}" data-item-category=" {{ topic.category }}" data-item-priority="{{ topic.priority }}" data-item-competency="{{ topic.competency }}" data-item-rating="{{ topic.rating.0 }}" change-color ng-controller="searchFilter as filter" ng-hide= "query && filter.category.indexOf(query) == -1 ? true : false ">
+		<div class="row">
+			<div class="hidden-xs col-sm-3">
+				<div class="topic-img-container">
+					<a href="topics/{{ topic.short_name }}">
+						<img src='{% static "projects/images/project_deliberate/logo/" %}{{ topic.image_name }}' alt="{{ topic.name }}" style="background-color:{{ topic.color }}">	
+					</a>
+				</div>
+			</div>
+			<div class="visible-xs col-xs-2"></div>
+			<div class="col-xs-8 col-sm-6 col-md-6">
+				<div class="topic-explanation text-left">
+					<h2 class="text-uppercase">{{ topic.name }}</h2>
+					<p shorten-text>{{ topic.description }}</p>
+				</div>
+			</div>
+			<div class="col-sm-3">
+				<div class="topic-chart" id="topic-chart-{{ forcounter }}">
+					[[ filter.category ]]
 				</div>
 			</div>
 		</div>
-		{% endfor %}
+	</div>
+	{% endfor %}
 </section>
 {% endblock %}
