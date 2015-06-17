@@ -1,82 +1,114 @@
 // init controller
-var controller = new ScrollMagic.Controller({globalSceneOptions: {triggerHook: "onEnter", duration: "200%"}});
+var controller_parallax = new ScrollMagic.Controller({globalSceneOptions: {triggerHook: "onEnter", duration: "200%"}});
+var controller_darken = new ScrollMagic.Controller();
 
 // build scenes
 new ScrollMagic.Scene({triggerElement: "#parallax-01"})
         .setTween("#parallax-01 > div", {y: "80%", ease: Linear.easeNone})
         //.addIndicators()
-        .addTo(controller);
+        .addTo(controller_parallax);
 
-/* PACKED BUBBLES */
 
-var PackedBubbles = function(data) {
-    this.diameter = data.diameter;
-    this.color = data.color;
-    this.format = data.format;
-    this.chartClass = data.chartClass; 
-}
+var scene = new ScrollMagic.Scene({
+                            triggerElement: "#main-body", duration:500
+                        })
+                        .setTween("#parallax-01", {opacity: "0.1"}) // trigger a TweenMax.to tween
+                        .addTo(controller_darken);
 
-PackedBubbles.prototype.createShapeBase = function(baseSelector) {
-    var width = this.diameter;
-    var height = this.diameter;
+/* ZOOM BUBBLES */
+
+var ZoomBubbles = function(initData) {
+    this.width = initData.width;
+    this.height = initData.height;
+    this.diameter = initData.diameter || d3.min([window.innerWidth, window.innerHeight]);
+    this.margin = initData.margin || 0;
+    this.padding = initData.padding || 0;
+    this.color = initData.color || d3.scale.category10();
+    this.format = initData.format || d3.format(",d");
+    this.chartClass = initData.chartClass || "temp-class"; 
+    }
+
+ZoomBubbles.prototype.createShapeBase = function(baseSelector) {
+    var width = this.width;
+    var height = this.height;
     var chartClass = this.chartClass;
 
     var svg = d3.select(baseSelector).append("svg")
         .attr("width", width)
         .attr("height", height)
         .attr("class", chartClass)
-
+        .append("g")
+        .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
+        
     return svg;
 }
 
-PackedBubbles.prototype.drawShape = function(base, data) {
+ZoomBubbles.prototype.drawShape = function(base, data) {
+    var margin = this.margin;
     var diameter = this.diameter;
     var self = this;
 
     var pack = d3.layout.pack()
-        .sort(null)
-        .size([diameter, diameter])
+        .padding(2)
+        .size([diameter - margin, diameter - margin])
         .value(function(d) { return d.size; })
 
-    var g = base.append("g");
+    var focus = data,
+        nodes = pack.nodes(data),
+        view;
 
-    var shape = g.datum(data)
-        .selectAll(".node")
-        .data(pack.nodes)
-        .enter().append("g")
-        .attr("class", function(d) { return d.children ? "node" : "leaf node"; })
-        .attr("transform", function(d) { return "translate(" + d.x + "," + d.y + ")"; });
-
-    shape.append("title")
-        .text(function(d) { return d.name + (d.children ? "" : ": " + self.format(d.size)); });
-
-    shape.append("circle")
-        .attr("r", function(d) { return d.r; })
+    var shape = base.selectAll("circle")
+        .data(nodes)
+        .enter().append("circle")
+        .attr("class", function(d) { return d.parent ? d.children ? "node" : "node node--leaf" : "node node--root"; })
         .style("fill", function(d) { 
-            return (d.children ? self.color(d.name) : d.color); 
+            return d.children ? null : d.color; 
         })
-        .attr("stroke", function(d) {
-            return d3.rgb(d.color).darker();  
-        });
+        //.attr("stroke", function(d) {
+        //    return d3.rgb(d.color).darker();  
+        //})
+        .on("click", function(d) { if (focus !== d) zoom(d), d3.event.stopPropagation(); });
 
-    shape.filter(function(d) { return !d.children; })
-        .append("text")
-        .attr("dy", ".3em")
-        .style("text-anchor", "middle")
-        .text(function(d) { return d.name.substring(0, d.r / 3); })
-        .attr("fill", function(d) {
-            var hsl = d3.hsl(d.color);
-            if (hsl["l"] < 0.5) {
-                return d3.rgb(d.color).brighter(2);
-            } else {
-                return d3.rgb(d.color).darker(2); 
-            }  
-        });
-    
-    return shape;
+    var text = base.selectAll("text")
+        .data(nodes)
+        .enter().append("text")
+        .attr("class", "label")
+        .style("fill-opacity", function(d) { return d.parent === data ? 1 : 0; })
+        .style("display", function(d) { return d.parent === data ? null : "none"; })
+        .text(function(d) { return d.name; });
+
+    var node = base.selectAll("circle,text");
+
+    d3.select("body")
+        .on("click", function() { zoom(data); });
+
+    zoomTo([data.x, data.y, data.r * 2 + margin]);
+
+    function zoom(d) {
+      var focus0 = focus; focus = d;
+
+      var transition = d3.transition()
+          .duration(d3.event.altKey ? 7500 : 750)
+          .tween("zoom", function(d) {
+            var i = d3.interpolateZoom(view, [focus.x, focus.y, focus.r * 2 + margin]);
+            return function(t) { zoomTo(i(t)); };
+          });
+
+      transition.selectAll("text")
+        .filter(function(d) { return d.parent === focus || this.style.display === "inline"; })
+          .style("fill-opacity", function(d) { return d.parent === focus ? 1 : 0; })
+          .each("start", function(d) { if (d.parent === focus) this.style.display = "inline"; })
+          .each("end", function(d) { if (d.parent !== focus) this.style.display = "none"; });
+    }
+
+    function zoomTo(v) {
+      var k = diameter / v[2]; view = v;
+      node.attr("transform", function(d) { return "translate(" + (d.x - v[0]) * k + "," + (d.y - v[1]) * k + ")"; });
+      shape.attr("r", function(d) { return d.r * k; });
+    }
 }
 
-PackedBubbles.prototype.createAndDrawShape = function (baseSelector, data) {
+ZoomBubbles.prototype.createAndDrawShape = function (baseSelector, data) {
     var shape, base;
     var self = this;
     base = this.createShapeBase(baseSelector);
@@ -85,14 +117,21 @@ PackedBubbles.prototype.createAndDrawShape = function (baseSelector, data) {
     });
 }
 
-/* PACKED BUBBLES END */
+var color = d3.scale.linear()
+    .domain([-1, 5])
+    .range(["hsl(51,91%,62%)", "hsl(228,30%,40%)"])
+    .interpolate(d3.interpolateHcl);
 
 var initData = {
-    "diameter":1000,
+    "width":1700,
+    "height":1500,
+    "diameter":700,
     "format":d3.format(",d"),
-    "color":d3.scale.category20c(),
+    "color": d3.scale.category20(),
     "chartClass":"test"
 }
 
-bubbles = new PackedBubbles(initData);
-bubbles.createAndDrawShape("#svg-content")
+zoomBubbles = new ZoomBubbles(initData);
+zoomBubbles.createAndDrawShape("#svg-content")
+
+
