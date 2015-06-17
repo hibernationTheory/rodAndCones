@@ -106,10 +106,49 @@ def merge_json_data(data_01, data_02):
 
     return data_merge
 
-def get_viz_data(data):
+def prepare_packed_circle_viz_data(data):
+    viz_data_all = {}
+    viz_data_all["name"] = "Core Competencies"
+    viz_data_all["children"] = [];
+    vizCategories = viz_data_all["children"]
+
+    for key_value in data.iteritems():
+        key = key_value[0]
+        value = key_value[1]
+        catName = value.get("category")
+        found = False
+        for child in vizCategories:
+            if catName == child["name"]:
+                found = True
+
+        if found or not catName:
+            continue
+
+        catObject = {}
+        catObject["name"] = catName
+        catObject["children"] = []
+        catObjectChildren = catObject["children"]
+        vizCategories.append(catObject)
+
+        for key_value_02 in data.iteritems():
+            key_02 = key_value_02[0]
+            value_02 = key_value_02[1]
+
+            if value_02.get("category") == catName:
+                newObject = {}
+                newObject["category"] = value_02["category"]
+                newObject["priority"] = value_02["priority"]
+                newObject["competency"] = value_02.get("competency", 1)
+                newObject["name"] = value_02["name"]
+                newObject["color"] = value_02["color"]
+                newObject["size"] = value_02["priority"]
+                catObjectChildren.append(newObject)
+
+    return viz_data_all 
+
+def prepare_viz_data(data):
     viz_data_all = []
     for key_value in data.iteritems():
-        print(key_value)
         value = key_value[1]
         viz_data = {}
         viz_data["category"] = value["category"]
@@ -129,15 +168,21 @@ def main():
     OUTPUT_FILE = os.path.join(CURRENT_DIR, "data.json")
     VIZ_OUTPUT_FILE = os.path.abspath(os.path.join(CURRENT_DIR, os.pardir, os.pardir, 
                       "static", "projects", "js", "project_deliberate", "data.json"))
+    PACKED_VIZ_OUTPUT_FILE = os.path.abspath(os.path.join(CURRENT_DIR, os.pardir, os.pardir, 
+                      "static", "projects", "js", "project_deliberate", "data_packed.json"))
 
     merged_data = merge_json_data(TARGET_FILE_01, TARGET_FILE_02)
     with open(OUTPUT_FILE, "w") as output:
         json.dump(merged_data, output, indent=4)
 
-    viz_data = get_viz_data(merged_data)
+    viz_data = prepare_viz_data(merged_data)
 
     with open(VIZ_OUTPUT_FILE, "w") as output:
         json.dump(viz_data, output, indent=4)
+
+    packed_circle_viz_data = prepare_packed_circle_viz_data(merged_data)
+    with open(PACKED_VIZ_OUTPUT_FILE, "w") as output:
+        json.dump(packed_circle_viz_data, output, indent=4)
 
 if __name__ == "__main__":
     main()
