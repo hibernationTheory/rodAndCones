@@ -59,8 +59,11 @@ def project_deliberate(request):
 	jsonDataListTemp.sort()
 
 	jsonDataList = [i[1] for i in jsonDataListTemp]
+	categories = list(set([i["category"] for i in jsonDataList]))
+	categories.sort()
+	print(categories)
 
-	context_data = {"data":jsonDataList}
+	context_data = {"data":jsonDataList, "categories":categories}
 	return render_to_response("projects/project_deliberate/index.html", context_data)
 
 def project_deliberate_topic(request, name=""):
