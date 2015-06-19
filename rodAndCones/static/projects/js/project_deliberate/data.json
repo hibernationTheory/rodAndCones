@@ -21,11 +21,11 @@
         "competency": 6.0
     }, 
     {
-        "category": "General Skill", 
-        "priority": 22, 
-        "name": "Scrum", 
-        "color": "#1c9fab", 
-        "competency": 5.0
+        "category": "Programming Language", 
+        "priority": 6, 
+        "name": "Javascript", 
+        "color": "#eddb4f", 
+        "competency": 6.5
     }, 
     {
         "category": "Back-End Framework", 
@@ -61,6 +61,13 @@
         "name": "Bootstrap", 
         "color": "#5e3777", 
         "competency": 8.0
+    }, 
+    {
+        "category": "General Skill", 
+        "priority": 22, 
+        "name": "Scrum", 
+        "color": "#1c9fab", 
+        "competency": 5.0
     }, 
     {
         "category": "Back-End Framework", 

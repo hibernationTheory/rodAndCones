@@ -2,19 +2,19 @@
     {
         "category": "Front-End Framework", 
         "competency": 5.0, 
-        "name": "ANGULARJS", 
+        "description": "AngularJS is a structural framework for dynamic web apps. It lets you use HTML as your template language and lets you extend HTML's syntax to express your application's components clearly and succinctly. Angular's data binding and dependency injection eliminate much of the code you would otherwise have to write. And it all happens within the browser, making it an ideal partner with any server technology.", 
         "links": "official documentation", 
         "rating": [
             "6.8", 
-            "In my opinion Angular seems awesome. But it is too polarizing and undependable to have a higher rating. Also it's popularity in decline due to new contenders and drastic changes that Angular 2.0 is bringing to the table. Definitely not a core competency but very good to have due to wealth of projects out there that is utilizing it."
+            "Angular seems awesome. But it is too polarizing and undependable to have a higher rating. Also it's popularity in decline due to new contenders in the MVC playfield and drastic changes that Angular 2.0 is bringing to the table. Definitely not a core competency but very good to have due to wealth of projects out there that is utilizing it."
         ], 
         "index": [
             "Category", 
             "Competency", 
+            "Rating", 
             "Description", 
             "Reason", 
             "Summary", 
-            "Rating", 
             "Status", 
             "Plan", 
             "Dependencies", 
@@ -37,7 +37,7 @@
         ], 
         "summary": "To Be Summarized. We thrive because of our immersive proposition and best-of-breed team player culture. We aim to conservatively connect our cloud by globally monetizing our actionable mobile dot-bombs. Going forward, our wholesale silo will deliver value to visibilities. Going forward, our best-in-class synergy will deliver value to market foci.", 
         "priority": 1, 
-        "reason": "There is a strong market incentive for learning Angular. Being the trendy front-end framework of late times, there are lots of projects out there utilizing it. Also it really makes it easy to create data bound elements removing the need for some laborious and repetitive front end coding. It can almost said to make development fun. Except that it apparently doesn't. As web applications get more demanding and complex the behind the scenes magic of Angular is said to become an impediment.", 
+        "reason": "There is a strong market incentive for learning Angular. Being the trendy front-end framework of late times, there are lots of projects out there utilizing it. Also it really makes it easy to create data bound elements removing the need for some laborious and repetitive front end coding.", 
         "dependencies": "Javascript", 
         "status": [
             "Active", 
@@ -82,36 +82,42 @@
                 "udemy - build a real time web app in node.js, angular.js and mongo.db"
             ]
         }, 
-        "description": "AngularJS is a structural framework for dynamic web apps. It lets you use HTML as your template language and lets you extend HTML's syntax to express your application's components clearly and succinctly. Angular's data binding and dependency injection eliminate much of the code you would otherwise have to write. And it all happens within the browser, making it an ideal partner with any server technology."
+        "name": "ANGULARJS"
     }, 
     {
         "category": "Front-End Framework", 
         "competency": 3.0, 
-        "name": "REACT", 
+        "description": "React, sometimes styled React.js or ReactJS, is an open-source JavaScript library for creating user interfaces that aims to address challenges encountered in developing single-page applications. It is maintained by Facebook, Instagram and a community of individual developers and corporations.", 
+        "rating": [
+            "8", 
+            ""
+        ], 
         "index": [
             "Category", 
             "Competency", 
+            "Rating", 
             "Description", 
             "Reason", 
             "Resources"
         ], 
         "priority": 2, 
-        "reason": "React is ", 
+        "reason": "", 
         "resources": {
             "front end masters came up with a tutorial as well: https://frontendmasters.com/courses/react/": [], 
             "d3 and js integration can be interesting": [], 
             "Egghead videos are pretty awesome": []
         }, 
-        "description": "React, sometimes styled React.js or ReactJS, is an open-source JavaScript library for creating user interfaces that aims to address challenges encountered in developing single-page applications. It is maintained by Facebook, Instagram and a community of individual developers and corporations."
+        "name": "REACT"
     }, 
     {
         "category": "Back-End Framework", 
         "competency": 7.0, 
-        "name": "DJANGO", 
+        "description": "Django is a free and open source web application framework, written in Python, which follows the model\u2013view\u2013controller (MVC) architectural pattern. It is maintained by the Django Software Foundation (DSF), an independent organization established as a 501(c)(3) non-profit.", 
         "rating": "8", 
         "index": [
             "Category", 
             "Competency", 
+            "Rating", 
             "Description", 
             "Reason", 
             "Summary", 
@@ -149,12 +155,12 @@
                 "Angular - Django Integration"
             ]
         }, 
-        "description": "Django is a free and open source web application framework, written in Python, which follows the model\u2013view\u2013controller (MVC) architectural pattern. It is maintained by the Django Software Foundation (DSF), an independent organization established as a 501(c)(3) non-profit."
+        "name": "DJANGO"
     }, 
     {
         "category": "Programming Language", 
         "competency": 7.0, 
-        "name": "CSS3", 
+        "description": "Cascading Style Sheets (CSS) is a style sheet language used for describing the look and formatting of a document written in a markup language.", 
         "rating": [
             "7", 
             "CSS is pretty essential and a knowledge that is assumed to be mastered for any front-end developer. Though it is not something that you can get better by just reading about, it is a skill that is developed over time."
@@ -162,6 +168,7 @@
         "index": [
             "Category", 
             "Competency", 
+            "Rating", 
             "Description", 
             "Reason", 
             "Summary", 
@@ -192,7 +199,7 @@
             "Plan"
         ], 
         "resources": {}, 
-        "description": "Cascading Style Sheets (CSS) is a style sheet language used for describing the look and formatting of a document written in a markup language."
+        "name": "CSS3"
     }, 
     {
         "category": "Javascript Library", 
@@ -200,7 +207,7 @@
         "name": "D3", 
         "rating": [
             "8", 
-            "Apart from being the go-to library for creating data driven visualizations D3 has also have a huge community for support, lots of examples and tutorials to learn from. Besides the initial learning curve is not that steep and most usage cases are not too technically demanding."
+            "Apart from being the go-to library for creating data driven visualizations D3 has also have a huge community for support, lots of examples and tutorials to learn from. Besides the initial learning curve is not that steep and most usage cases are not too technically demanding. The only downside with D3 is that the skill set doesn't seem to possess too much market value."
         ], 
         "index": [
             "Category", 
@@ -220,7 +227,7 @@
             "SVG"
         ], 
         "priority": 5, 
-        "reason": "D3 is a low level library that allows for creating visualizations that you have lots of control over. This feature makes D3 to be an excellent playground of programming and data visualizations. Integrating with other libraries and API's, you can easily create useful Web Apps that visualize data to inform and educate people. Certainly a useful and fun tool to learn more about.", 
+        "reason": "D3 is a low level library that allows for creating visualizations that you have lots of control over. This feature makes D3 to be an excellent playground of both programming and data visualizations. Integrating with other libraries and API's, you can easily create useful Web Apps that visualize data to inform and educate people. Certainly a useful and fun tool to learn more about.", 
         "dependencies": "Javascript", 
         "status": [
             "Active", 
@@ -288,10 +295,15 @@
         "category": "Programming Language", 
         "competency": 6.0, 
         "name": "HTML5", 
+        "rating": [
+            "9", 
+            ""
+        ], 
         "index": [
             "Category", 
             "Description", 
-            "Competency"
+            "Competency", 
+            "Rating"
         ], 
         "priority": 7, 
         "description": "HyperText Markup Language, commonly referred to as HTML, is the standard markup language used to create web pages."
@@ -300,10 +312,15 @@
         "category": "Front-End Framework", 
         "competency": 8.0, 
         "name": "BOOTSTRAP", 
+        "rating": [
+            "7.8", 
+            ""
+        ], 
         "index": [
             "Category", 
             "Description", 
             "Competency", 
+            "Rating", 
             "Reason", 
             "Resources"
         ], 
@@ -322,10 +339,15 @@
     {
         "category": "Programming Language", 
         "competency": 8.0, 
-        "name": "PYTHON", 
+        "description": "Python is a widely used general-purpose, high-level programming language. Its design philosophy emphasizes code readability, and its syntax allows programmers to express concepts in fewer lines of code than would be possible in languages such as C++ or Java. The language provides constructs intended to enable clear programs on both a small and large scale.", 
+        "rating": [
+            "8", 
+            ""
+        ], 
         "index": [
             "Category", 
             "Competency", 
+            "Rating", 
             "Description", 
             "Resources"
         ], 
@@ -371,15 +393,20 @@
                 "https://news.ycombinator.com/item?id=7715349"
             ]
         }, 
-        "description": "Python is a widely used general-purpose, high-level programming language. Its design philosophy emphasizes code readability, and its syntax allows programmers to express concepts in fewer lines of code than would be possible in languages such as C++ or Java. The language provides constructs intended to enable clear programs on both a small and large scale."
+        "name": "PYTHON"
     }, 
     {
         "category": "General Skill", 
         "competency": 4.0, 
+        "rating": [
+            "10", 
+            ""
+        ], 
         "name": "COMPUTER SCIENCE", 
         "index": [
             "Category", 
             "Competency", 
+            "Rating", 
             "Resources"
         ], 
         "priority": 10, 
@@ -391,19 +418,29 @@
     }, 
     {
         "category": "Development Tool", 
-        "index": [
-            "Category"
+        "rating": [
+            "9", 
+            ""
         ], 
+        "priority": 11, 
         "name": "GIT", 
-        "priority": 11
+        "index": [
+            "Category", 
+            "Rating"
+        ]
     }, 
     {
         "category": "Development Tool", 
         "competency": 5.0, 
-        "name": "LINUX", 
+        "description": "", 
+        "rating": [
+            "9", 
+            ""
+        ], 
         "index": [
             "Category", 
             "Competency", 
+            "Rating", 
             "Description", 
             "Resources"
         ], 
@@ -413,15 +450,20 @@
             "http://lifehacker.com/how-can-i-quickly-learn-terminal-commands-1494082178": [], 
             "http://cli.learncodethehardway.org/book/": []
         }, 
-        "description": ""
+        "name": "LINUX"
     }, 
     {
         "category": "Development Tool", 
         "competency": 6.0, 
+        "rating": [
+            "8", 
+            ""
+        ], 
         "name": "SUBLIME", 
         "index": [
             "Category", 
             "Competency", 
+            "Rating", 
             "Resources"
         ], 
         "priority": 13, 
@@ -433,30 +475,45 @@
     {
         "category": "Development Tool", 
         "competency": 2.0, 
-        "priority": 14, 
+        "rating": [
+            "7", 
+            ""
+        ], 
         "name": "GULP", 
         "index": [
             "Category", 
-            "Competency"
-        ]
+            "Competency", 
+            "Rating"
+        ], 
+        "priority": 14
     }, 
     {
         "category": "Back-End Framework", 
         "competency": 3.0, 
-        "priority": 15, 
+        "rating": [
+            "8", 
+            ""
+        ], 
         "name": "NODE", 
         "index": [
             "Category", 
-            "Competency"
-        ]
+            "Competency", 
+            "Rating"
+        ], 
+        "priority": 15
     }, 
     {
         "category": "Javascript Library", 
         "competency": 7.0, 
-        "name": "JQUERY", 
+        "description": "jQuery is a cross-platform JavaScript library designed to simplify the client-side scripting of HTML. jQuery is the most popular JavaScript library in use today. jQuery is free, open-source software licensed under the MIT License.", 
+        "rating": [
+            "6.8", 
+            ""
+        ], 
         "index": [
             "Category", 
             "Competency", 
+            "Rating", 
             "Description", 
             "Resources"
         ], 
@@ -464,72 +521,102 @@
         "resources": {
             "tutsplus jquery course is pretty amazing actually, I am pleasantly surprised.": []
         }, 
-        "description": "jQuery is a cross-platform JavaScript library designed to simplify the client-side scripting of HTML. jQuery is the most popular JavaScript library in use today. jQuery is free, open-source software licensed under the MIT License."
+        "name": "JQUERY"
     }, 
     {
         "category": "Javascript Library", 
         "competency": 6.0, 
-        "name": "THREEJS", 
+        "rating": [
+            "8.5", 
+            ""
+        ], 
+        "description": "Three.js is a lightweight cross-browser JavaScript library/API used to create and display animated 3D computer graphics on a Web browser. Three.js uses WebGL.", 
         "index": [
             "Category", 
             "Competency", 
+            "Rating", 
             "Description"
         ], 
         "priority": 17, 
-        "description": "Three.js is a lightweight cross-browser JavaScript library/API used to create and display animated 3D computer graphics on a Web browser. Three.js uses WebGL."
+        "name": "THREEJS"
     }, 
     {
         "category": "CSS Preprocessor", 
         "competency": 6.0, 
-        "priority": 18, 
+        "rating": [
+            "7.5", 
+            ""
+        ], 
         "name": "SASS", 
         "index": [
             "Category", 
-            "Competency"
-        ]
+            "Competency", 
+            "Rating"
+        ], 
+        "priority": 18
     }, 
     {
         "category": "Development Tool", 
         "competency": 7.0, 
-        "name": "BOWER", 
+        "rating": [
+            "8.3", 
+            ""
+        ], 
+        "description": "Bower is a package management system for client-side programming on the World Wide Web. It depends on Node.js and npm. It works with git and GitHub repositories.", 
         "index": [
             "Category", 
             "Competency", 
+            "Rating", 
             "Description"
         ], 
         "priority": 19, 
-        "description": "Bower is a package management system for client-side programming on the World Wide Web. It depends on Node.js and npm. It works with git and GitHub repositories."
+        "name": "BOWER"
     }, 
     {
         "category": "CSS Preprocessor", 
         "competency": 6.0, 
-        "priority": 20, 
+        "rating": [
+            "5.6", 
+            ""
+        ], 
         "name": "LESS", 
         "index": [
             "Category", 
-            "Competency"
-        ]
+            "Competency", 
+            "Rating"
+        ], 
+        "priority": 20
     }, 
     {
         "category": "Development Tool", 
         "competency": 7.0, 
-        "priority": 21, 
+        "rating": [
+            "6.1", 
+            ""
+        ], 
         "name": "NPM", 
         "index": [
             "Category", 
-            "Competency"
-        ]
+            "Competency", 
+            "Rating"
+        ], 
+        "priority": 21
     }, 
     {
         "category": "General Skill", 
         "competency": 5.0, 
-        "name": "SCRUM", 
+        "rating": [
+            "8.8", 
+            ""
+        ], 
+        "description": "Scrum is an iterative and incremental agile software development methodology for managing product development. It defines \"a flexible, holistic product development strategy where a development team works as a unit to reach a common goal\", challenges assumptions of the \"traditional, sequential approach\" to product development, and enables teams to self-organize by encouraging physical co-location or close online collaboration of all team members, as well as daily face-to-face communication among all team members and disciplines in the project.", 
         "index": [
             "Category", 
-            "Description", 
-            "Competency"
+            "Competency", 
+            "Rating", 
+            "Description"
         ], 
         "priority": 22, 
-        "description": "Scrum is an iterative and incremental agile software development methodology for managing product development. It defines \"a flexible, holistic product development strategy where a development team works as a unit to reach a common goal\", challenges assumptions of the \"traditional, sequential approach\" to product development, and enables teams to self-organize by encouraging physical co-location or close online collaboration of all team members, as well as daily face-to-face communication among all team members and disciplines in the project."
+        "name": "SCRUM"
     }
 ]
