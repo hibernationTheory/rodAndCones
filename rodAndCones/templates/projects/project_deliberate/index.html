@@ -17,15 +17,16 @@
 		</div>
 	</div>
 
-	<div id="introduction">
-			<h1 class="text-uppercase">Hello World!</h1>
-			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nisi hic ducimus, cupiditate fuga blanditiis officiis laudantium, consectetur, aliquid nobis eveniet culpa similique ipsam beatae. Illo assumenda eos inventore vero sequi!</p>
+	<div id="introduction-main" class="introduction-area">
+			<h1 class="text-uppercase">Core Competencies</h1>
+			<h2>Display Your Skill Acquisition History &amp; Roadmap </h2>
+			<p>In the field of technology, there is so much to learn and yet there is always so little time. Given the constraints and conditions, it is a necessity for you to strategize your path of skill acquisition to optimize your personal development. Below is a list of competencies that are important to your growth as a web developer. Use this as a reminder of your already existing skills and a roadmap for the ones to be acquired. </p>
 	</div>
 	{% endblock %}
 </section>
 
 {% block main-content %}
-<section id="subject-images" class="module">
+<section id="main-body" class="module" ng-controller="itemContainer" >
 
 	<nav class="navbar navbar-default">
 	    <div class="navbar-header">
@@ -40,14 +41,15 @@
 
 			<form class="navbar-form navbar-left" role="search">
 				<div class="form-group">
-					<input type="text" class="form-control" placeholder="Search" ng-model="query">
+					<input id="search-form" type="text" class="form-control" placeholder="Search" ng-model="query">
 				</div>
 			</form>
 
 			<form class="navbar-form navbar-left" role="menu">
 				<div class="form-group">
 				    <ul class="nav navbar-nav navbar-left">
-						<select class="form-control" role="menu" ng-model="selection">
+						<select id="category-form" class="form-control" role="menu" ng-model="selection">
+							<option value= ""><a href="#" >All</a></option>
 							{% for category in categories %}
 								<option><a href="#">{{ category }}</a></option>
 							{% endfor %}
@@ -58,7 +60,7 @@
 	    </div>
 	</nav>
 	{% for topic in data %}
-	<div class="topic-item" id="topic-item-{{ forloop.counter }}" style="background-color:{{ topic.color }}" data-item-name="{{ topic.name }}" data-item-category=" {{ topic.category }}" data-item-priority="{{ topic.priority }}" data-item-competency="{{ topic.competency }}" data-item-rating="{{ topic.rating.0 }}" change-color ng-controller="searchFilter as filter" ng-hide= "query && filter.category.indexOf(query) == -1 ? true : false ">
+	<div class="topic-item" id="topic-item-{{ forloop.counter }}" style="background-color:{{ topic.color }}" data-item-name="{{ topic.name }}" data-item-category=" {{ topic.category }}" data-item-priority="{{ topic.priority }}" data-item-competency="{{ topic.competency }}" data-item-rating="{{ topic.rating.0 }}" change-color ng-controller="searchFilter as filter" ng-show="result = showElement(query, selection, 'topic-item-{{ forloop.counter }}')">
 		<div class="row">
 			<div class="hidden-xs col-sm-3">
 				<div class="topic-img-container">
@@ -70,17 +72,29 @@
 			<div class="visible-xs col-xs-2"></div>
 			<div class="col-xs-8 col-sm-6 col-md-6">
 				<div class="topic-explanation text-left">
-					<h2 class="text-uppercase">{{ topic.name }}</h2>
+					<h2 class="text-uppercase">{{ topic.name }} <sup>({{ topic.category }})</sup></h2>
 					<p shorten-text>{{ topic.description }}</p>
 				</div>
 			</div>
-			<div class="col-sm-3">
-				<div class="topic-chart" id="topic-chart-{{ forcounter }}">
-					[[ filter.category ]]
+			<div class="col-sm-3 hidden-xs hidden-sm">
+				<div class="topic-chart" id="topic-chart-{{ forloop.counter }}">
+					<p>{{ topic.rating.0 }}</p>
 				</div>
 			</div>
 		</div>
 	</div>
 	{% endfor %}
 </section>
+
+<footer>
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="footer-content">
+        <p><a href="http://www.enginarslan.com">oh hai!</a></p>
+      </div>
+    </div>
+  </div>
+</footer>
+
 {% endblock %}
+

@@ -14,13 +14,12 @@
 			<div class="row">
 				<div class="col-sm-12">
 					<img class="image-bg" src='{% static "projects/images/project_deliberate/logo/" %}{{ obj_data.image_name }}' alt="{{ obj_data.name }}" style="background-color:{{ obj_data.color }}">
-					<div id="svg-content"></div>
 				</div>
 			</div>
 		</div>
 	</div>
 
-	<div id="introduction">
+	<div id="introduction" class="introduction-area">
 			<h1 class="text-uppercase">{{ obj_data.name }}</h1>
 			<p>{{ obj_data.description }}</p>
 	</div>
@@ -28,10 +27,10 @@
 </section>
 
 {% block main-content %}
-<section>
+<section id="main-body">
 	<div class="row">
-		<div class="col-sm-2">
-			<div class="topic-index">
+		<div class="col-sm-3">
+			<div class="topic-index shift">
 				<ul>
 					{% for item in obj_data.index %}
 						{% if not item == 'Description' %}
@@ -41,67 +40,77 @@
 				</ul>
 			</div>
 		</div>
-		<div class="col-sm-10">
-			<!--
-			<section>
-				<h1>
-					{{ obj_data.name }}
-				</h1>
-				<h3>
-					{{ obj_data }}
-				</h3>
-			</section>
-			-->
+		<div class="col-sm-9">
 			<article>
-
 				{% if obj_data.reason %}
 				<section class="obj-info">
-					<h2 id="topic-Reason" data-color="{{ obj_data.color }}" set-tetrad change-color>Reason</h2>
+					<h2 id="topic-Reason" data-color="{{ obj_data.color }}" brighten-color>Reason</h2>
 					<p> {{ obj_data.reason }}</p>
 				</section>
 				{% endif %}
 
 				{% if obj_data.summary %}
 				<section class="obj-info">
-					<h2 id="topic-Summary" data-color="{{ obj_data.color }}" set-tetrad change-color>Summary</h2>
+					<h2 id="topic-Summary" data-color="{{ obj_data.color }}" brighten-color>Summary</h2>
 					<p> {{ obj_data.summary }}</p>
 				</section>
 				{% endif %}
 
 				{% if obj_data.rating %}
 				<section class="obj-info">
-					<h2 id="topic-Rating" data-color="{{ obj_data.color }}" set-tetrad change-color>Rating <span class="badge">{{ obj_data.rating.0 }}</span></h2>
+					<h2 id="topic-Rating" data-color="{{ obj_data.color }}" brighten-color>Rating <span class="badge">{{ obj_data.rating.0 }}</span></h2>
 					<p> {{ obj_data.rating.1 }}</p>
 				</section>
 				{% endif %}
 
 				{% if obj_data.status %}
 				<section class="obj-info">
-					<h2 id="topic-Status" data-color="{{ obj_data.color }}" set-tetrad change-color>Status <span class="badge">{{ obj_data.status.0 }}</span></h2>
+					<h2 id="topic-Status" data-color="{{ obj_data.color }}" brighten-color>Status <span class="badge">{{ obj_data.status.0 }}</span></h2>
 					<p> {{ obj_data.rating.1 }}</p>
 				</section>
 				{% endif %}
 
 				{% if obj_data.plan %}
 				<section class="obj-info">
-					<h2 id="topic-Plan" data-color="{{ obj_data.color }}" set-tetrad change-color>Plan</h2>
+					<h2 id="topic-Plan" data-color="{{ obj_data.color }}" brighten-color>Plan</h2>
 					<p> {{ obj_data.plan }}</p>
 				</section>
 				{% endif %}
 
 				{% if obj_data.dependencies %}
 				<section class="obj-info">
-					<h2 id="topic-Dependencies" data-color="{{ obj_data.color }}" set-tetrad change-color>Dependencies</h2>
+					<h2 id="topic-Dependencies" data-color="{{ obj_data.color }}" brighten-color>Dependencies</h2>
 					<p>{{ obj_data.dependencies }}</p>
 				</section>
 				{% endif %}
 
 				{% if obj_data.tags %}
 				<section class="obj-info">
-					<h2 id="topic-Tags" data-color="{{ obj_data.color }}" set-tetrad change-color>Tags</h2>
+					<h2 id="topic-Tags" data-color="{{ obj_data.color }}" brighten-color>Tags</h2>
 					<ul>
 						{% for i in obj_data.tags %}
 						<li> {{ i }}</li>
+						{% endfor %}
+					</ul>
+				</section>
+				{% endif %}
+
+				{% if obj_data.resources %}
+				<section class="obj-info">
+					<h2 id="topic-Resources" data-color="{{ obj_data.color }}" brighten-color>Resources</h2>
+					<ul>
+						{% for category, categoryData in obj_data.resources.items %}
+						<h3> {{ category }}</h3>
+							{% for datum in categoryData %}
+								{% for key,value in datum.items %}
+								<p>{{ key }}</p>
+								<ul>
+									{% for singleVal in value %}
+									<li>{{ singleVal }}</li>
+									{% endfor %}
+								</ul>
+								{% endfor %}
+							{% endfor %}
 						{% endfor %}
 					</ul>
 				</section>
