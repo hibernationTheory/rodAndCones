@@ -1,6 +1,12 @@
+var init = function() {
+
+/* SCROLL MAGIC STUFF */
+
 // init controller
 var controller_parallax = new ScrollMagic.Controller({globalSceneOptions: {triggerHook: "onEnter", duration: "200%"}});
 var controller_darken = new ScrollMagic.Controller();
+var controller_fadeIn = new ScrollMagic.Controller();
+var controller_pin = new ScrollMagic.Controller();
 
 // build scenes
 new ScrollMagic.Scene({triggerElement: "#parallax-01"})
@@ -14,6 +20,58 @@ var scene = new ScrollMagic.Scene({
                         })
                         .setTween("#parallax-01", {opacity: "0.1"}) // trigger a TweenMax.to tween
                         .addTo(controller_darken);
+
+var $topicCharts = $(".topic-chart");
+var chartsLength = $topicCharts.length;
+var triggerEl;
+for (var i = 1; i <= chartsLength; i++) {
+    var currentTopic = "#" + "topic-chart-" + i;
+    triggerEl = currentTopic;
+    var topicChartAnim = new ScrollMagic.Scene({triggerElement:triggerEl, duration:300})
+                            .setTween(currentTopic, {opacity:"1"})
+                            .addTo(controller_fadeIn)};
+
+/* SCROLL MAGIC STUFF END */
+
+function scroolToTop(target, duration, ratio) {
+    if (duration == undefined) {
+        duration = 1000;
+    }
+
+    if (ratio == undefined) {
+        ratio = 1;
+    }
+    $('html,body').animate({
+      scrollTop: target.offset().top / ratio
+    }, duration);
+    return false;
+}
+
+$(function() {
+  $('a[href*=#]:not([href=#])').click(function() {
+    if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
+      var target = $(this.hash);
+      target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
+      if (target.length) {
+        scroolToTop(target);
+      }
+    }
+  });
+});
+
+/* SEARCH FORM FOCUS */
+
+$("#search-form").on("focus", function() {
+    var target = $(this);
+    scroolToTop(target, 800, 1);
+})
+
+$("#category-form").on("focus", function() {
+    var target = $(this);
+    scroolToTop(target, 800, 1);
+})
+
+
 
 /* ZOOM BUBBLES */
 
@@ -131,7 +189,15 @@ var initData = {
     "chartClass":"test"
 }
 
-zoomBubbles = new ZoomBubbles(initData);
-zoomBubbles.createAndDrawShape("#svg-content")
+var svgSelector = "#svg-content"
+var svgContent = $(svgSelector);
+if (svgContent.length) {
+  zoomBubbles = new ZoomBubbles(initData);
+  zoomBubbles.createAndDrawShape(svgSelector)  
+}
+
+}
+
+document.onLoad = init();
 
 
