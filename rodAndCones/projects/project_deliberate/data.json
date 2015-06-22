@@ -8,12 +8,6 @@
         ], 
         "description": "Cascading Style Sheets (CSS) is a style sheet language used for describing the look and formatting of a document written in a markup language.", 
         "short_name": "css3", 
-        "tags": [
-            "Front-End Web Development", 
-            "Stylesheets", 
-            "Design"
-        ], 
-        "color": "#1c94b4", 
         "index": [
             "Category", 
             "Competency", 
@@ -25,9 +19,9 @@
             "Status", 
             "Dependencies", 
             "Related", 
-            "Tags", 
             "Resources"
         ], 
+        "color": "#1c94b4", 
         "image_name": "logo_css3_02.png", 
         "related": [
             "Sass", 
@@ -59,15 +53,11 @@
             "Category", 
             "Competency", 
             "Rating", 
-            "Description", 
-            "Resources"
+            "Description"
         ], 
         "color": "#fff", 
         "image_name": "logo_jquery_02.png", 
         "priority": 16, 
-        "resources": {
-            "tutsplus jquery course is pretty amazing actually, I am pleasantly surprised.": []
-        }, 
         "name": "Jquery"
     }, 
     "threejs": {
@@ -93,28 +83,22 @@
     "javascript": {
         "category": "Programming Language", 
         "competency": 6.5, 
-        "name": "Javascript", 
+        "rating": [
+            "9", 
+            ""
+        ], 
+        "description": "JavaScript, also known as ECMAScript (the untrademarked name used for the standard), is a dynamic programming language. It is most commonly used as part of web browsers, whose implementations allow client-side scripts to interact with the user, control the browser, communicate asynchronously, and alter the document content that is displayed", 
         "short_name": "javascript", 
         "index": [
             "Category", 
             "Competency", 
-            "Description", 
-            "Resources"
+            "Rating", 
+            "Description"
         ], 
         "color": "#eddb4f", 
         "image_name": "logo_js_02.png", 
         "priority": 6, 
-        "resources": {
-            "VIDEO": [
-                "Codeschool - Javascript Roadtrip", 
-                "JavaScript the Good Parts", 
-                "TutsPlus - Advanced JavaScript Fundamentals", 
-                "Frontend Masters - Hardcore Functional Programming in JavaScript"
-            ], 
-            "javascript design patterns": [], 
-            "object oriented JS.": []
-        }, 
-        "description": "JavaScript, also known as ECMAScript (the untrademarked name used for the standard), is a dynamic programming language. It is most commonly used as part of web browsers, whose implementations allow client-side scripts to interact with the user, control the browser, communicate asynchronously, and alter the document content that is displayed"
+        "name": "Javascript"
     }, 
     "node": {
         "category": "Back-End Framework", 
@@ -183,53 +167,11 @@
             "Category", 
             "Competency", 
             "Rating", 
-            "Description", 
-            "Resources"
+            "Description"
         ], 
         "color": "#71b1c9", 
         "image_name": "logo_python.png", 
         "priority": 9, 
-        "resources": {
-            "this book seems to be awesome, where you were referring to the sorting stuff": [
-                "Problem Solving with Algorithms and Data Structures Using Python SECOND EDITION"
-            ], 
-            "video": [
-                {
-                    "pycon 2015": [
-                        "making beautiful graphs with Python ", 
-                        "machine learning with scikit", 
-                        "bayesian statistics made simple", 
-                        "statistical inference with computational methods", 
-                        ""
-                    ]
-                }, 
-                "https://www.edx.org/course/introduction-computer-science-mitx-6-00-1x-0#.VQrsZkBDvgg", 
-                "https://www.edx.org/course/introduction-computational-thinking-data-mitx-6-00-2x-0#.VQrsWkBDvgg", 
-                {
-                    "roughly in this order:": [
-                        "hands on beginning python", 
-                        "hands on intermediate python", 
-                        "python epiphanies", 
-                        "decorators", 
-                        "computer science fundamentals for self-taught programmers", 
-                        "so you want to be a full stack developer"
-                    ]
-                }
-            ], 
-            "core python programming": [
-                "ilk 14 chapter", 
-                "anki them", 
-                {
-                    "django ile alakali konular oncelik alabilir:": [
-                        "regular expressions", 
-                        "database programming"
-                    ]
-                }
-            ], 
-            "http://www.toptal.com/python/top-10-mistakes-that-python-programmers-make": [
-                "https://news.ycombinator.com/item?id=7715349"
-            ]
-        }, 
         "name": "Python"
     }, 
     "bootstrap": {
@@ -245,22 +187,11 @@
             "Category", 
             "Description", 
             "Competency", 
-            "Rating", 
-            "Reason", 
-            "Resources"
+            "Rating"
         ], 
         "color": "#5e3777", 
         "image_name": "logo_bootstrap.png", 
         "priority": 8, 
-        "reason": "Job requires it", 
-        "resources": {
-            "https://www.udemy.com/learn-bootstrap-development-by-building-10-projects/?dtcode=mJa1BMI2SGyH": [], 
-            "https://www.edx.org/course/introduction-bootstrap-tutorial-microsoft-dev203x#.VQrsUEBDvgg": [], 
-            "tutsplus have two bootstrap tutorials that you have": [
-                "intro to bootstrap 3", 
-                "bootstrap for designers"
-            ]
-        }, 
         "description": "Bootstrap is a free and open-source collection of tools for creating websites and web applications. It contains HTML- and CSS-based design templates for typography, forms, buttons, navigation and other interface components, as well as optional JavaScript extensions. The bootstrap framework aims to ease web development."
     }, 
     "scrum": {
@@ -289,38 +220,27 @@
         "rating": "8", 
         "description": "Django is a free and open source web application framework, written in Python, which follows the model\u2013view\u2013controller (MVC) architectural pattern. It is maintained by the Django Software Foundation (DSF), an independent organization established as a 501(c)(3) non-profit.", 
         "short_name": "django", 
-        "tags": "Python, Back-end, Web Development", 
-        "color": "#0a2f20", 
         "index": [
             "Category", 
             "Competency", 
             "Rating", 
             "Description", 
-            "Reason", 
             "Summary", 
             "Rating", 
             "Status", 
-            "Plan", 
             "Dependencies", 
             "Related", 
-            "Tags", 
             "Resources"
         ], 
+        "color": "#0a2f20", 
         "image_name": "logo_django_02.png", 
         "related": "Express (a Node based Back-end Framework)", 
         "summary": "", 
         "priority": 3, 
-        "reason": "Django is the framework that I have entered the world of web development with. To me it is a platform that gives me the opportunity to quickly deploy ideas online. Also being the baseline of my backend knowledge, it frames all the other new ideas for me as they get introduced. I eventually want to acquire more knowledge of backend tools and frameworks such as Node as they seem to currently have more prevalence. But meanwhile Django still serves as a strong platform to keep growing in.", 
         "dependencies": "Python", 
         "status": [
             "Active. ", 
             "I would like to refresh my old knowledge of Django and update it for the current version. I also would like to structure my further knowledge acquisition. Not planning to go too deep with it though. Just have enough of it so that it can serve as a strong foundation for front end projects. But I need to find out how to create restful websites using Django to familiarize myself with the concept."
-        ], 
-        "plan": [
-            "Skim 'Tango with Dango' to update your knowledge of it.", 
-            "Look into web resources for Django and Angular integration", 
-            "Go through the documentation of Django Rest Framework", 
-            "Look into 'Restful' Chapters from the book 'Lightweight Django'"
         ], 
         "resources": {
             "Books": [
@@ -366,18 +286,12 @@
             "Competency", 
             "Rating", 
             "Description", 
-            "Reason", 
-            "Resources"
+            "Reason"
         ], 
         "color": "#222222", 
         "image_name": "logo_react.png", 
         "priority": 2, 
         "reason": "", 
-        "resources": {
-            "front end masters came up with a tutorial as well: https://frontendmasters.com/courses/react/": [], 
-            "d3 and js integration can be interesting": [], 
-            "Egghead videos are pretty awesome": []
-        }, 
         "name": "React.js"
     }, 
     "bower": {
@@ -515,24 +429,16 @@
             "9", 
             ""
         ], 
-        "description": "", 
+        "name": "Linux", 
         "short_name": "linux", 
         "index": [
             "Category", 
             "Competency", 
-            "Rating", 
-            "Description", 
-            "Resources"
+            "Rating"
         ], 
         "color": "#bbbbbb", 
         "image_name": "logo_linux.png", 
-        "priority": 12, 
-        "resources": {
-            "https://www.udemy.com/linux-command-line-volume1/?signup_success=1": [], 
-            "http://lifehacker.com/how-can-i-quickly-learn-terminal-commands-1494082178": [], 
-            "http://cli.learncodethehardway.org/book/": []
-        }, 
-        "name": "Linux"
+        "priority": 12
     }, 
     "npm": {
         "category": "Development Tool", 
@@ -574,10 +480,8 @@
             "Reason", 
             "Rating", 
             "Status", 
-            "Plan", 
             "Dependencies", 
-            "Tags", 
-            "Resources"
+            "Tags"
         ], 
         "image_name": "logo_d3.png", 
         "priority": 5, 
@@ -587,39 +491,6 @@
             "Active", 
             "Utilize D3 in side projects that you are working on to some degree. Allows for creating a context where you can create visualizations while using other tools that you want to learn more about such as : D3 + Angular, D3 + React, D3 + Three.JS. You can put acquiring further D3 language into backburner and let it happen organically as you are working with it in the context of other projects."
         ], 
-        "plan": [
-            "D3 + React integration", 
-            "Using D3 to "
-        ], 
-        "resources": {
-            "Online": [
-                {
-                    "This is an awesome website that has tons of great examples for D3 and also for integration of D3 with other frameworks such as angular.": [
-                        "http://www.delimited.io/"
-                    ]
-                }, 
-                {
-                    "A great hackernews topic that points to must-read resources on D3for a deeper understanding": [
-                        "https://news.ycombinator.com/item?id=8607366"
-                    ]
-                }, 
-                {
-                    "Another good topic on quora for useful D3 resources": [
-                        "http://stackoverflow.com/questions/16930748/a-good-book-for-learning-d3-js"
-                    ]
-                }, 
-                {
-                    "Frontend Masters has a comprehensive D3 course": [
-                        "https://frontendmasters.com/courses/interactive-data-visualization-d3-js/"
-                    ]
-                }, 
-                {
-                    "Tutsplus D3 course is pretty successful as well": [
-                        "http://code.tutsplus.com/courses/beautiful-data-with-d3"
-                    ]
-                }
-            ]
-        }, 
         "description": "D3.js (or just D3 for Data-Driven Documents) is a JavaScript library for producing dynamic, interactive data visualizations in web browsers. It makes use of the widely implemented SVG, HTML5, and CSS standards."
     }, 
     "sublime": {
@@ -634,15 +505,10 @@
         "index": [
             "Category", 
             "Competency", 
-            "Rating", 
-            "Resources"
+            "Rating"
         ], 
         "color": "#a5a5a5", 
         "image_name": "logo_sublime.png", 
-        "priority": 13, 
-        "resources": {
-            "https://code.tutsplus.com/tutorials/essential-sublime-text-2-plugins-and-extensions--net-24173": [], 
-            "http://www.hongkiat.com/blog/sublime-text-plugins/": []
-        }
+        "priority": 13
     }
 }

@@ -73,7 +73,7 @@
         <outline text="Reason" />
         <outline text="Current Status" >
           <outline text="Semi - Active" /></outline>
-        <outline text="Resources" >
+        <outline text="_Resources" >
           <outline text="Egghead videos are pretty awesome" />
           <outline text="front end masters came up with a tutorial as well: https://frontendmasters.com/courses/react/" />
           <outline text="d3 and js integration can be interesting" /></outline>
@@ -90,7 +90,7 @@
           <outline text="" /></outline>
         <outline text="Description" >
           <outline text="Django is a free and open source web application framework, written in Python, which follows the model–view–controller (MVC) architectural pattern. It is maintained by the Django Software Foundation (DSF), an independent organization established as a 501(c)(3) non-profit." /></outline>
-        <outline text="Reason" >
+        <outline text="_Reason" >
           <outline text="Django is the framework that I have entered the world of web development with. To me it is a platform that gives me the opportunity to quickly deploy ideas online. Also being the baseline of my backend knowledge, it frames all the other new ideas for me as they get introduced. I eventually want to acquire more knowledge of backend tools and frameworks such as Node as they seem to currently have more prevalence. But meanwhile Django still serves as a strong platform to keep growing in." /></outline>
         <outline text="Summary" />
         <outline text="Rating" >
@@ -98,7 +98,7 @@
         <outline text="Status" >
           <outline text="Active. " />
           <outline text="I would like to refresh my old knowledge of Django and update it for the current version. I also would like to structure my further knowledge acquisition. Not planning to go too deep with it though. Just have enough of it so that it can serve as a strong foundation for front end projects. But I need to find out how to create restful websites using Django to familiarize myself with the concept." /></outline>
-        <outline text="Plan" >
+        <outline text="_Plan" >
           <outline text="Skim 'Tango with Dango' to update your knowledge of it." />
           <outline text="Look into web resources for Django and Angular integration" />
           <outline text="Go through the documentation of Django Rest Framework" />
@@ -107,7 +107,7 @@
           <outline text="Python" /></outline>
         <outline text="Related" >
           <outline text="Express (a Node based Back-end Framework)" /></outline>
-        <outline text="Tags" >
+        <outline text="_Tags" >
           <outline text="Python, Back-end, Web Development" /></outline>
         <outline text="Resources" >
           <outline text="Books" >
@@ -164,7 +164,7 @@
           <outline text="Sass" />
           <outline text="Less" />
           <outline text="Bootstrap" /></outline>
-        <outline text="Tags" >
+        <outline text="_Tags" >
           <outline text="Front-End Web Development" />
           <outline text="Stylesheets" />
           <outline text="Design" /></outline>
@@ -184,7 +184,7 @@
         <outline text="Status" >
           <outline text="Active" />
           <outline text="Utilize D3 in side projects that you are working on to some degree. Allows for creating a context where you can create visualizations while using other tools that you want to learn more about such as : D3 + Angular, D3 + React, D3 + Three.JS. You can put acquiring further D3 language into backburner and let it happen organically as you are working with it in the context of other projects." /></outline>
-        <outline text="Plan" >
+        <outline text="_Plan" >
           <outline text="D3 + React integration" />
           <outline text="Using D3 to " /></outline>
         <outline text="Dependencies" >
@@ -193,7 +193,7 @@
           <outline text="Data Visualization" />
           <outline text="Javascript Library" />
           <outline text="SVG" /></outline>
-        <outline text="Resources" >
+        <outline text="_Resources" >
           <outline text="Online" >
             <outline text="This is an awesome website that has tons of great examples for D3 and also for integration of D3 with other frameworks such as angular." >
               <outline text="http://www.delimited.io/" /></outline>
@@ -218,13 +218,13 @@
           <outline text="" /></outline>
         <outline text="Description" >
           <outline text="JavaScript, also known as ECMAScript (the untrademarked name used for the standard), is a dynamic programming language. It is most commonly used as part of web browsers, whose implementations allow client-side scripts to interact with the user, control the browser, communicate asynchronously, and alter the document content that is displayed" /></outline>
-        <outline text="Current Status" >
+        <outline text="_Current Status" >
           <outline text="did start functional programming in JS but this kind of hit a wall as subjects escaleted quickly. need to look into currying for python to build a better understanding on the functional aspects of things" />
           <outline text="other thant that you have the basic understanding of the basics and even intermediate stuff. You just need to practice." /></outline>
-        <outline text="Reasons" >
+        <outline text="_Reasons" >
           <outline text="It is pretty fundemental, relevant to your active projects and will help you make a shift t oCS51 with the functional aspect of it." />
           <outline text="It is now your primary language." /></outline>
-        <outline text="Resources" >
+        <outline text="_Resources" >
           <outline text="VIDEO" >
             <outline text="Codeschool - Javascript Roadtrip" />
             <outline text="JavaScript the Good Parts" />
@@ -232,7 +232,7 @@
             <outline text="Frontend Masters - Hardcore Functional Programming in JavaScript" /></outline>
           <outline text="javascript design patterns" />
           <outline text="object oriented JS." /></outline>
-        <outline text="Interest Points" >
+        <outline text="_Interest Points" >
           <outline text="See D3.JS, Three.JS and Node.JS" /></outline>
       </outline>
       <outline text="HTML5" >
@@ -245,7 +245,7 @@
         <outline text="Rating" >
           <outline text="9" />
           <outline text="" /></outline>
-        <outline text="grid systems" >
+        <outline text="_grid systems" >
           <outline text="http://webdesign.tutsplus.com/articles/build-a-freshly-squeezed-responsive-grid-system--webdesign-14888" />
           <outline text="http://j4n.co/blog/Creating-your-own-css-grid-system" />
           <outline text="https://css-tricks.com/dont-overthink-it-grids/" />
@@ -262,11 +262,11 @@
         <outline text="Rating" >
           <outline text="7.8" />
           <outline text="" /></outline>
-        <outline text="Current Status" >
+        <outline text="_Current Status" >
           <outline text="This just became active since my next project files are making use of bootstrap." /></outline>
-        <outline text="Reason" >
+        <outline text="_Reason" >
           <outline text="Job requires it" /></outline>
-        <outline text="Resources" >
+        <outline text="_Resources" >
           <outline text="https://www.udemy.com/learn-bootstrap-development-by-building-10-projects/?dtcode=mJa1BMI2SGyH" />
           <outline text="https://www.edx.org/course/introduction-bootstrap-tutorial-microsoft-dev203x#.VQrsUEBDvgg" />
           <outline text="tutsplus have two bootstrap tutorials that you have" >
@@ -285,7 +285,7 @@
           <outline text="" /></outline>
         <outline text="Description" >
           <outline text="Python is a widely used general-purpose, high-level programming language. Its design philosophy emphasizes code readability, and its syntax allows programmers to express concepts in fewer lines of code than would be possible in languages such as C++ or Java. The language provides constructs intended to enable clear programs on both a small and large scale." /></outline>
-        <outline text="Resources" >
+        <outline text="_Resources" >
           <outline text="core python programming" >
             <outline text="ilk 14 chapter" />
             <outline text="anki them" />
@@ -332,13 +332,13 @@
         <outline text="Rating" >
           <outline text="10" />
           <outline text="" /></outline>
-        <outline text="this looks interesting, a bit similar to cs51 but taught in c++ : https://www.udemy.com/cs-106b-programming-abstractions/ " >
+        <outline text="_this looks interesting, a bit similar to cs51 but taught in c++ : https://www.udemy.com/cs-106b-programming-abstractions/ " >
           <outline text="and here is the syllabius for it might be a good way to get into c++ : http://web.stanford.edu/class/cs106b/lectures.shtml" /></outline>
-        <outline text="resources" >
+        <outline text="_resources" >
           <outline text="googles recommended resources" >
             <outline text="https://www.google.com/about/careers/students/guide-to-technical-development.html" /></outline>
         </outline>
-        <outline text="HARVARD EXTENSION" >
+        <outline text="_HARVARD EXTENSION" >
           <outline text="CS050 - Intensive Introduction to Computer Science" >
             <outline text="Course Videos / Website" >
               <outline text="http://cs50.tv/2014/fall/" /></outline>
@@ -410,7 +410,7 @@
               <outline text="Algorithm Design (Tardos)" /></outline>
           </outline>
         </outline>
-        <outline text="FUNCTIONAL_PROGRAMMING" >
+        <outline text="_FUNCTIONAL_PROGRAMMING" >
           <outline text="https://www.edx.org/course/delftx/delftx-fp101x-introduction-functional-2126#.VFFYAEBDvgg" />
           <outline text="http://stackoverflow.com/questions/1017621/why-isnt-python-very-good-for-functional-programming" />
           <outline text="https://docs.python.org/2/tutorial/datastructures.html#functional-programming-tools" />
@@ -422,7 +422,7 @@
         <outline text="Rating" >
           <outline text="9" />
           <outline text="" /></outline>
-        <outline text="git init" >
+        <outline text="_git init" >
           <outline text="create a new git repo." />
           <outline text="it can be used to convert an existing, unversioned project to a git repo or initialize an empty one." />
           <outline text="usually the first command you would run in a new project." />
@@ -436,20 +436,20 @@
               <outline text="repos that are created by the git init --bare command have the .git suffix at the end." /></outline>
           </outline>
         </outline>
-        <outline text="git clone" >
+        <outline text="_git clone" >
           <outline text="copies an existing Git repo. " />
           <outline text="also for your convenience cloning operation creates a remote connection called origin pointing back to the original repo. This makes it very easy to interact with central repo." />
           <outline text="git clone &amp;lt;repo&amp;gt;" />
           <outline text="git clone &amp;lt;repo&amp;gt; &amp;lt;directory&amp;gt;" >
             <outline text="creates a clone on the target dir." /></outline>
         </outline>
-        <outline text="git config" />
-        <outline text="git add" >
+        <outline text="_git config" />
+        <outline text="_git add" >
           <outline text="adds a change in the working directory to staging area, though changes are not saved until 'git commit'" />
           <outline text="git add &amp;lt;file&amp;gt;" />
           <outline text="git add &amp;lt;directory&amp;gt;" />
           <outline text="splitting your commits to logical pieces - creating atomic commits - so it is easy to track down bugs and revert changes with minimal impact is important." /></outline>
-        <outline text="git commit" >
+        <outline text="_git commit" >
           <outline text="git commit " >
             <outline text="commits the staged snapshot, launches a text editor for you to enter a message" /></outline>
           <outline text="git commit -m &quot;&amp;lt;message&amp;gt;&quot;" >
@@ -460,10 +460,10 @@
           <outline text="git doesn't commit 'differences' it commits the entire file in each commit. this makes git much faster since files are not assembled from its diffs." />
           <outline text="so the followed convention for git messages is that first line is a sumamry of the commit in less than 50 chars, leave a blank new line and then detail the changes with dashes in front of each of them." />
           <outline text="many devs like to use present tense in their commit messages which makes commits read more like actions  and which makes history re-writing actions more intuitive." /></outline>
-        <outline text="git status" >
+        <outline text="_git status" >
           <outline text="displays the status of the working dir and the staging area." />
           <outline text=".gitignore is the file where you can ignore things." /></outline>
-        <outline text="git log" >
+        <outline text="_git log" >
           <outline text="displays the status of the committed history." />
           <outline text="git log" >
             <outline text="space to scroll, q to exit" /></outline>
@@ -481,10 +481,10 @@
         <outline text="Rating" >
           <outline text="9" />
           <outline text="" /></outline>
-        <outline text="Description" />
-        <outline text="Current Status" >
+        <outline text="_Description" />
+        <outline text="_Current Status" >
           <outline text="I am planning on doing this for an hour on the weekend. Maybe watch the video, so that you can have basic understanding of it. Then you can build on it gradually." /></outline>
-        <outline text="Resources" >
+        <outline text="_Resources" >
           <outline text="https://www.udemy.com/linux-command-line-volume1/?signup_success=1" />
           <outline text="http://cli.learncodethehardway.org/book/" />
           <outline text="http://lifehacker.com/how-can-i-quickly-learn-terminal-commands-1494082178" /></outline>
@@ -497,15 +497,15 @@
         <outline text="Rating" >
           <outline text="8" />
           <outline text="" /></outline>
-        <outline text="Current Status" >
+        <outline text="_Current Status" >
           <outline text="Active." /></outline>
-        <outline text="Reasons" >
+        <outline text="_Reasons" >
           <outline text="Getting efficient in your text editor can have a huge payoff." /></outline>
-        <outline text="Resources" >
+        <outline text="_Resources" >
           <outline text="http://www.hongkiat.com/blog/sublime-text-plugins/" />
           <outline text="https://code.tutsplus.com/tutorials/essential-sublime-text-2-plugins-and-extensions--net-24173" /></outline>
-        <outline text="Interest Points" />
-        <outline text="Project Ideas" /></outline>
+        <outline text="_Interest Points" />
+        <outline text="_Project Ideas" /></outline>
       <outline text="GULP" >
         <outline text="Category" >
           <outline text="Development Tool" /></outline>
@@ -534,12 +534,12 @@
           <outline text="" /></outline>
         <outline text="Description" >
           <outline text="jQuery is a cross-platform JavaScript library designed to simplify the client-side scripting of HTML. jQuery is the most popular JavaScript library in use today. jQuery is free, open-source software licensed under the MIT License." /></outline>
-        <outline text="Reasons" >
+        <outline text="_Reasons" >
           <outline text="It is pretty fundemantal, almost essential knowledge." />
           <outline text="it feeds into JS but also helps with your project." /></outline>
-        <outline text="Resources" >
+        <outline text="_Resources" >
           <outline text="tutsplus jquery course is pretty amazing actually, I am pleasantly surprised." /></outline>
-        <outline text="Current Status" >
+        <outline text="_Current Status" >
           <outline text="this kind of hit a wall, I think I have mastered the basics but moving forward will be slower. Need practice." />
           <outline text="You have well understanding of the basics." /></outline>
       </outline>
@@ -553,10 +553,10 @@
           <outline text="" /></outline>
         <outline text="Description" >
           <outline text="Three.js is a lightweight cross-browser JavaScript library/API used to create and display animated 3D computer graphics on a Web browser. Three.js uses WebGL." /></outline>
-        <outline text="learning paths" >
+        <outline text="_learning paths" >
           <outline text="dat udacity (or edx?) course on interactive 3d graphics" />
           <outline text="pluralsight course" /></outline>
-        <outline text="reference" >
+        <outline text="_reference" >
           <outline text="#awesome http://idflood.github.io/ThreeNodes.js/index_optimized.html#" />
           <outline text="#awesome https://github.com/idflood/ThreePlanet.js" />
           <outline text="#awesome - http://www.ianww.com/" /></outline>
