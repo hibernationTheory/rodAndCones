@@ -1,12 +1,13 @@
 var init = function() {
 
+/* FADE IN IMAGE AFTER LOAD*/
+
+
 /* SCROLL MAGIC STUFF */
 
 // init controller
 var controller_parallax = new ScrollMagic.Controller({globalSceneOptions: {triggerHook: "onEnter", duration: "200%"}});
-var controller_darken = new ScrollMagic.Controller();
-var controller_fadeIn = new ScrollMagic.Controller();
-var controller_pin = new ScrollMagic.Controller();
+var controller = new ScrollMagic.Controller();
 
 // build scenes
 new ScrollMagic.Scene({triggerElement: "#parallax-01"})
@@ -14,12 +15,11 @@ new ScrollMagic.Scene({triggerElement: "#parallax-01"})
         //.addIndicators()
         .addTo(controller_parallax);
 
-
 var scene = new ScrollMagic.Scene({
                             triggerElement: "#main-body", duration:500
                         })
                         .setTween("#parallax-01", {opacity: "0.1"}) // trigger a TweenMax.to tween
-                        .addTo(controller_darken);
+                        .addTo(controller);
 
 var $topicCharts = $(".topic-chart");
 var chartsLength = $topicCharts.length;
@@ -29,7 +29,7 @@ for (var i = 1; i <= chartsLength; i++) {
     triggerEl = currentTopic;
     var topicChartAnim = new ScrollMagic.Scene({triggerElement:triggerEl, duration:300})
                             .setTween(currentTopic, {opacity:"1"})
-                            .addTo(controller_fadeIn)};
+                            .addTo(controller)};
 
 /* SCROLL MAGIC STUFF END */
 
@@ -65,13 +65,6 @@ $("#search-form").on("focus", function() {
     var target = $(this);
     scroolToTop(target, 800, 1);
 })
-
-$("#category-form").on("focus", function() {
-    var target = $(this);
-    scroolToTop(target, 800, 1);
-})
-
-
 
 /* ZOOM BUBBLES */
 
@@ -198,6 +191,6 @@ if (svgContent.length) {
 
 }
 
-document.onLoad = init();
+document.ready = init();
 
 
