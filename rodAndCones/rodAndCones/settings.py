@@ -8,6 +8,13 @@ TEMPLATE_PATH = os.path.join(PROJECT_PATH, "templates")
 STATIC_PATH = os.path.join(PROJECT_PATH, "static")
 DATABASE_PATH = os.path.join(PROJECT_PATH, "database", "database.db")
 
+### BLOG TEMPLATE AND STATIC
+
+STATIC_PATH_BLOG = os.path.join(PROJECT_PATH, "blog", "static")
+TEMPLATE_PATH_BLOG = os.path.join(PROJECT_PATH, "blog", "templates")
+
+###
+
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 
@@ -80,7 +87,7 @@ STATICFILES_DIRS = (
     # Put strings here, like "/home/html/static" or "C:/www/django/static".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
-    STATIC_PATH,
+    STATIC_PATH, STATIC_PATH_BLOG
 )
 
 # List of finder classes that know how to find static files in
@@ -129,6 +136,7 @@ TEMPLATE_DIRS = (
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
     TEMPLATE_PATH,
+    TEMPLATE_PATH_BLOG
 )
 
 INSTALLED_APPS = (
@@ -142,6 +150,7 @@ INSTALLED_APPS = (
     'compressor',
     'startpage',
     'projects',
+    'blog',
     # Uncomment the next line to enable the admin:
     'django.contrib.admin',
     # Uncomment the next line to enable admin documentation:
