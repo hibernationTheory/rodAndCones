@@ -6,9 +6,6 @@ that is imported from data_workflowy
 import json
 import os
 
-import opml_parser
-
-
 import json
 import os
 import opml
@@ -41,6 +38,10 @@ def get_topic_subdata(topic_content, name):
     return subData
 
 def read_opml(target_file):
+    '''parses the opml file starting from the top most header
+    assumes there is only one top node and it is h1
+    '''
+
     outline = opml.parse(target_file)
     topics = outline[0]
 
@@ -71,6 +72,7 @@ def read_opml(target_file):
         topic_data_all.append(topic_data_current)
 
     return topic_data_all
+    
 
 def write_opml_data(target_file_path, data):
     with open(target_file_path, "w") as target_file:
@@ -162,6 +164,7 @@ def prepare_viz_data(data):
 def main():
     process_opml_data()
 
+    
     CURRENT_DIR = os.path.dirname(__file__)
     TARGET_FILE_01 = os.path.join(CURRENT_DIR, "data_workflowy.json")
     TARGET_FILE_02 = os.path.join(CURRENT_DIR, "data_non_workflowy.json")
@@ -183,6 +186,69 @@ def main():
     packed_circle_viz_data = prepare_packed_circle_viz_data(merged_data)
     with open(PACKED_VIZ_OUTPUT_FILE, "w") as output:
         json.dump(packed_circle_viz_data, output, indent=4)
+    
 
 if __name__ == "__main__":
     main()
+
+def __temp_method():
+    '''just an attempt at trying to read opml files in a different way, currently not in use'''
+    opml_parse = opml.parse(target_file)
+    header_node = opml_parse[0]
+    header_text = header_node.text
+
+    topic_nodes = [ i for i in header_node]
+    for topic_node in topic_nodes:
+        #print(topic_node.getparent)
+        topic_header = topic_node.text
+        #print topic_header
+
+    def flattenOpmlData(node, parentNode=None, parentAmount=0):
+        childrenData = []
+        if len(node) > 0:
+            isRootNode = True
+        else:
+            isRootNode = False
+        if not isRootNode:
+            return [{
+                    "text":node.text, 
+                    "parent_text": parentNode.text,
+                    "depth": parentAmount
+                    }]
+        else:
+            parentAmount = parentAmount + 1
+            for child in node:
+                child_opml_data = flattenOpmlData(child, node, parentAmount)
+                childrenData.append(
+                    {
+                        "text":node.text,
+                        "child":child_opml_data
+                    })
+
+        return childrenData
+
+    x = flattenOpmlData(header_node[0])
+    depth = 0
+    print(x)
+    print("\n")
+
+    hier_data = {}
+    def buildDataFromFlatOpmlData(flat_data, hier_data):
+        is_parent_node = flat_data.get("child", None)
+        currentNodeName = flat_data["text"]
+
+        if not is_parent_node:
+            parent_name = flat_data["parent_text"]
+            hier_data.append(currentNodeName)
+            return hier_data
+        else:
+            childNodes = flat_data["child"]
+            for child in childNodes:
+                has_child = child.get("child", None)
+                if not hier_data.get(currentNodeName, None):
+                    if has_child:
+                        hier_data[currentNodeName] = {}
+                    else:
+                        hier_data[currentNodeName] = []
+                buildDataFromFlatOpmlData(child, hier_data[currentNodeName])
+        return hier_data

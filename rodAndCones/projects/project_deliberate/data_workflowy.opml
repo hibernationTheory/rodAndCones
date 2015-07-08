@@ -90,16 +90,17 @@
           <outline text="" /></outline>
         <outline text="Description" >
           <outline text="Django is a free and open source web application framework, written in Python, which follows the model–view–controller (MVC) architectural pattern. It is maintained by the Django Software Foundation (DSF), an independent organization established as a 501(c)(3) non-profit." /></outline>
-        <outline text="_Reason" >
-          <outline text="Django is the framework that I have entered the world of web development with. To me it is a platform that gives me the opportunity to quickly deploy ideas online. Also being the baseline of my backend knowledge, it frames all the other new ideas for me as they get introduced. I eventually want to acquire more knowledge of backend tools and frameworks such as Node as they seem to currently have more prevalence. But meanwhile Django still serves as a strong platform to keep growing in." /></outline>
-        <outline text="Summary" />
+        <outline text="Reason" >
+          <outline text="Django is one of the capable frameworks that makes web development accessible for Python programmers. Branding itself as the framework 'for perfectionists with deadlines' it allows for quick realization of web application ideas online. Even though some other backend frameworks seems to gather more prominence lately (such as express built on Node.js) Django still delivers a great development experience. At a very fundamental level it represents baseline of a back-end knowledge for developers that started out with it and hence it puts all other new ideas in context as they get introduced." /></outline>
+        <outline text="Summary" >
+          <outline text="To be Summarized" /></outline>
         <outline text="Rating" >
           <outline text="8" /></outline>
         <outline text="Status" >
           <outline text="Active. " />
-          <outline text="I would like to refresh my old knowledge of Django and update it for the current version. I also would like to structure my further knowledge acquisition. Not planning to go too deep with it though. Just have enough of it so that it can serve as a strong foundation for front end projects. But I need to find out how to create restful websites using Django to familiarize myself with the concept." /></outline>
-        <outline text="_Plan" >
-          <outline text="Skim 'Tango with Dango' to update your knowledge of it." />
+          <outline text="Use Django to quickly realize your front-end heavy projects." /></outline>
+        <outline text="Plan" >
+          <outline text="Look into 'Tango with Django' to refresh your knowledge." />
           <outline text="Look into web resources for Django and Angular integration" />
           <outline text="Go through the documentation of Django Rest Framework" />
           <outline text="Look into 'Restful' Chapters from the book 'Lightweight Django'" /></outline>
@@ -107,8 +108,10 @@
           <outline text="Python" /></outline>
         <outline text="Related" >
           <outline text="Express (a Node based Back-end Framework)" /></outline>
-        <outline text="_Tags" >
-          <outline text="Python, Back-end, Web Development" /></outline>
+        <outline text="Tags" >
+          <outline text="Python" />
+          <outline text="Back-end" />
+          <outline text="Web Development" /></outline>
         <outline text="Resources" >
           <outline text="Books" >
             <outline text="Lightweight Django" />
@@ -255,17 +258,32 @@
       <outline text="BOOTSTRAP" >
         <outline text="Category" >
           <outline text="Front-End Framework" /></outline>
-        <outline text="Description" >
-          <outline text="Bootstrap is a free and open-source collection of tools for creating websites and web applications. It contains HTML- and CSS-based design templates for typography, forms, buttons, navigation and other interface components, as well as optional JavaScript extensions. The bootstrap framework aims to ease web development." /></outline>
         <outline text="Competency" >
           <outline text="8" /></outline>
         <outline text="Rating" >
           <outline text="7.8" />
-          <outline text="" /></outline>
-        <outline text="_Current Status" >
-          <outline text="This just became active since my next project files are making use of bootstrap." /></outline>
-        <outline text="_Reason" >
-          <outline text="Job requires it" /></outline>
+          <outline text="..." /></outline>
+        <outline text="Description" >
+          <outline text="Bootstrap is a free and open-source collection of tools for creating websites and web applications. It contains HTML and CSS-based design templates for typography, forms, buttons, navigation and other interface components, as well as optional JavaScript extensions. The bootstrap framework aims to ease web development." /></outline>
+        <outline text="Reason" >
+          <outline text="Bootstrap is one of the most prevalent front-end frameworks out there. This makes it learning Bootstrap an almost necessity since it is very likely that you would end up working on a project that uses Bootstrap. Besides the prevalence argument Bootstrap also makes it really easy to create responsive websites which would explain it is predominance." /></outline>
+        <outline text="Summary" >
+          <outline text="To Be Summarized. We thrive because of our immersive proposition and best-of-breed team player culture. We aim to conservatively connect our cloud by globally monetizing our actionable mobile dot-bombs. Going forward, our wholesale silo will deliver value to visibilities. Going forward, our best-in-class synergy will deliver value to market foci." /></outline>
+        <outline text="Status" >
+          <outline text="Active" />
+          <outline text="Solidify your knowledge of the grid system that Bootstrap offers. Looks to see if there is any useful knowledge to be acquired over there." /></outline>
+        <outline text="Plan" >
+          <outline text="It is relatively easy to acquire the foundation knowledge in Bootstrap. It almost relies on your ability to recall correct class names from memory rather than understanding intricate ideas or concepts. Practice would make you better in deriving what might be the best practices while working with it. If any time is to be spent to develop a deeper understanding of the framework one should primarily focus on the 'grid system' it provides since that proves to be the most useful aspect of it. You should also watch couple of conference videos to understand the higher level concepts, practices or concerns that surrounds Bootstrap. Since applying Bootstrap knowledge is so much reliant of memorizing rather than learning, one should carefully assess which parts of the framework is actually worth learning and holds value in terms of knowledge." /></outline>
+        <outline text="Dependencies" >
+          <outline text="HTML" />
+          <outline text="CSS" />
+          <outline text="Javascript" /></outline>
+        <outline text="Tags" >
+          <outline text="Web Development" />
+          <outline text="Web Design" />
+          <outline text="Responsive" />
+          <outline text="Front End Framework" />
+          <outline text="Twitter" /></outline>
         <outline text="_Resources" >
           <outline text="https://www.udemy.com/learn-bootstrap-development-by-building-10-projects/?dtcode=mJa1BMI2SGyH" />
           <outline text="https://www.edx.org/course/introduction-bootstrap-tutorial-microsoft-dev203x#.VQrsUEBDvgg" />
@@ -273,8 +291,7 @@
             <outline text="intro to bootstrap 3" />
             <outline text="bootstrap for designers" /></outline>
         </outline>
-        <outline text="Interest Points" />
-        <outline text="Project Ideas" /></outline>
+      </outline>
       <outline text="PYTHON" >
         <outline text="Category" >
           <outline text="Programming Language" /></outline>
@@ -290,8 +307,7 @@
             <outline text="ilk 14 chapter" />
             <outline text="anki them" />
             <outline text="django ile alakali konular oncelik alabilir:" >
-              <outline text="regular expressions" />
-              <outline _complete="true" text="database programming" /></outline>
+              <outline text="regular expressions" /></outline>
           </outline>
           <outline text="http://www.toptal.com/python/top-10-mistakes-that-python-programmers-make" >
             <outline text="https://news.ycombinator.com/item?id=7715349" /></outline>
