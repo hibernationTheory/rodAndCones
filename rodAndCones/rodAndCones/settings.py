@@ -1,6 +1,7 @@
 # Django settings for rodAndCones project.
 
 import os
+
 SETTINGS_DIR = os.path.dirname(__file__)
 PROJECT_PATH = os.path.join(SETTINGS_DIR, os.pardir)
 PROJECT_PATH = os.path.abspath(PROJECT_PATH)
@@ -10,8 +11,14 @@ DATABASE_PATH = os.path.join(PROJECT_PATH, "database", "database.db")
 
 ### BLOG TEMPLATE AND STATIC
 
-STATIC_PATH_BLOG = os.path.join(PROJECT_PATH, "blog", "static")
-TEMPLATE_PATH_BLOG = os.path.join(PROJECT_PATH, "blog", "templates")
+BLOG_PAGES_PATH = os.path.join(PROJECT_PATH, 'blog', 'pages')
+BLOG_STATIC_PATH = os.path.join(PROJECT_PATH, "blog", "static")
+BLOG_TEMPLATE_PATH = os.path.join(PROJECT_PATH, "blog", "templates", "blog")
+BLOG_DEPLOY_DIR = os.path.join(PROJECT_PATH, "blog", "deploy")
+BLOG_DEPLOY_STATIC_DIR = os.path.join(BLOG_DEPLOY_DIR, "static")
+
+STATIC_ROOT_PATH = os.path.join(PROJECT_PATH, 'deploy')
+
 
 ###
 
@@ -76,7 +83,7 @@ MEDIA_URL = ''
 # Don't put anything in this directory yourself; store your static files
 # in apps' "static/" subdirectories and in STATICFILES_DIRS.
 # Example: "/var/www/example.com/static/"
-STATIC_ROOT = ''
+STATIC_ROOT = STATIC_ROOT_PATH
 
 # URL prefix for static files.
 # Example: "http://example.com/static/", "http://static.example.com/"
@@ -87,7 +94,7 @@ STATICFILES_DIRS = (
     # Put strings here, like "/home/html/static" or "C:/www/django/static".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
-    STATIC_PATH, STATIC_PATH_BLOG
+    STATIC_PATH, BLOG_STATIC_PATH
 )
 
 # List of finder classes that know how to find static files in
@@ -136,7 +143,7 @@ TEMPLATE_DIRS = (
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
     TEMPLATE_PATH,
-    TEMPLATE_PATH_BLOG
+    BLOG_TEMPLATE_PATH
 )
 
 INSTALLED_APPS = (
