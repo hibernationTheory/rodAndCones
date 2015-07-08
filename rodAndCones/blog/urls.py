@@ -2,7 +2,11 @@ from django.conf.urls import patterns, include, url
 from blog import views
 
 urlpatterns = patterns('',
-	url(r"^$", views.index, name="index"),
-	url(r"^(?P<name>\w+/$)", views.page, name="page"),
+	url(r"^$", views.index, name="blog-index"),
+	url(r"^pages/$", views.index),
+	url(r"^pages/(?P<pagenum>[0-9]+)/$", views.index, name="blog-pages"),
+	url(r"^(?P<title>[\w./-]+/$)", views.post_page, name="blog-post"),
+	
+
     #url(r"^topics/(?P<name>\w+/$)", views.blog_topic, name="blog_topic"),
 )

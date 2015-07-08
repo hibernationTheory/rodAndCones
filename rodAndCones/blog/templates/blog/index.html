@@ -1,73 +1,94 @@
-<!DOCTYPE html>
+{% extends "blog/base.html" %}
 
 {% load staticfiles %}
 
-<html lang="en">
-<head>
-	<meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Document</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
-	<link rel="stylesheet" href="{% static 'blog/css/style.css' %}">
-</head>
+{% block title %} {{ block.super }} | Main {% endblock %}
 
-<style>
-	body {
-		background-color:lightgray;
-	}
-
-	.post {
-	  margin-bottom: 32px;
-	  height: 170px;
-	  padding-top: 10px;
-	  padding-left: 35px;
-	  padding-right: 35px;
-	  padding-bottom: 10px;
-	  background-color: white;
-	  color: #666;
-      border-bottom: 2px solid rgba(0, 0, 0, 0.25);
-	}
-
-	.side-panel {
-		background-color:white;
-	}
-</style>
-<body>
-	<header></header>
-
-	<section>
-		<div class="container">
-			<div class="row">
-
-				<div class="col-sm-2">
-					<div class="side-panel">
-						Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit magni, error natus illum laboriosam soluta, maxime maiores ipsa quae ipsam alias enim facilis delectus distinctio, molestiae nostrum explicabo labore eligendi.
+{% block body %}
+<section>
+	<div class="body-container">
+		<div class="row">
+			<div class="col-sm-3 hidden-xs">
+				<div class="sidebar">
+					<div class="logo-container">
+						<img id="logo-main" src="{% static 'blog/images/logo.png' %}" alt="">
 					</div>
+					
+					<ul>
+						{{ page_data.object_list.categories }}
+						{% for item in page_data.object_list.categories %}
+						<li>
+							{{ item }}
+						</li>
+						{% endfor %}
+					</ul>
+					
 				</div>
-
-				<div class="col-sm-10">
+			</div>
+			<div class="col-sm-9">
+				<div class="posts-container">
 					<div class="row">
-
-						{% for item in page_data %}
+						{% for item in page_data.object_list %}
 						<div class="col-sm-10 col-sm-offset-1">
-							<div class="post">
-								{% autoescape off %}
-								{{ item.content }}
-								{% endautoescape %}
+							<a class="post-link" href="/blog/{{ item.name }}">
+							{% if item.category == 'quote' %}
+							<div class="post-main-page content-container-style quote" shorten-child-p-text>
+							{% elif item.category == 'passage' %}
+							<div class="post-main-page content-container-style passage" shorten-child-p-text>
+							{% else %}
+							<div class="post-main-page content-container-style" shorten-child-p-text>
+							{% endif %}
+								<div class="post-content">
+									{% autoescape off %}
+									{{ item.content }}
+									{% endautoescape %}
+								</div>
+								{% if item.category == 'opinion' %}
+									<div class="post-bottom"></div>
+								{% endif %}
 							</div>
+							</a>
 						</div>
 						{% endfor %}
+						
+						<div class="col-sm-10 col-sm-offset-1">
+							<div class="paginate">
+						        <span class="prev">
+						        	{% if page_data.has_previous %}
+						        	<a class="content-container-style" href="/blog/pages/{{ contacts.previous_page_number }}">&lt;</a>
+						        	{% endif %}
+						        </span>
+						        <span class="next">
+						        	{% if page_data.has_next %}
+						        	<a class="content-container-style" href="/blog/pages/{{ page_data.next_page_number }}">&gt;</a>
+							        {% endif %}
+						        </span>
+							    <!--
+							    <span class="step-links">
+							        {% if page_data.has_previous %}
+							            <a href="?page={{ contacts.previous_page_number }}">previous</a>
+							        {% endif %}
+
+							        <span class="current">
+							            Page {{ page_data.number }} of {{ page_data.paginator.num_pages }}.
+							        </span>
+
+							        {% if page_data.has_next %}
+							            <a href="../../pages/{{ page_data.next_page_number }}">next</a>
+							        {% endif %}
+							    </span>
+								-->
+							</div>
+						</div>
+
 
 					</div>
 				</div>
 
 				
+
 			</div>
 		</div>
-	</section>
-
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
-</body>
-</html>
+	</div>
+</section>
+{% endblock %}

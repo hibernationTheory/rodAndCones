@@ -1,3 +1,3 @@
-## this is the test post 01 - beginning ##
+# This is Test Post!
 
-Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut eos, eum excepturi odit harum reiciendis eligendi impedit neque tempore dolores delectus, sequi est consectetur reprehenderit ullam nostrum debitis animi. Ea.
+Lorem ipsum **dolor sit amet** consectetur adipisicing elit. Ut eos, eum excepturi odit harum reiciendis eligendi impedit neque tempore dolores delectus, sequi est consectetur reprehenderit ullam nostrum debitis animi. Ea.
