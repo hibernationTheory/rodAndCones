@@ -1,9 +1,11 @@
+import datetime
 import json
 import markdown
 import os
 import sys
 import time
 from HTMLParser import HTMLParser
+from django.core.urlresolvers import reverse
 
 
 CURRENT_DIR = os.getcwdu()
@@ -16,25 +18,26 @@ if PARENT_DIR not in sys.path:
 from django.conf import settings
 os.environ['DJANGO_SETTINGS_MODULE'] = 'rodAndCones.settings'
 
+from django.contrib.staticfiles.templatetags.staticfiles import static
 from django.core import serializers
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.http import Http404
 from django.template import RequestContext
 from django.shortcuts import render_to_response
 
-
-
 from bs4 import BeautifulSoup
 
 PAGES_DIR = settings.BLOG_PAGES_PATH
 PAGE_DATA_FILE = os.path.join(PAGES_DIR, 'page_data.json')
 
-def get_all_pages(pages_dir, page_data_file):
+def get_sorted_files_names_from_path(pages_dir):
 	unsorted_file_names = os.listdir(pages_dir)
 	unsorted_file_names_full_path = [os.path.join(pages_dir, file_path) for file_path in unsorted_file_names]
 	file_names = sorted(unsorted_file_names_full_path, key=os.path.getctime)
+	return file_names
 
-	categories = {}
+def get_all_pages(pages_dir, page_data_file, category='all'):
+	file_names = get_sorted_files_names_from_path(pages_dir)
 
 	allowed_extensions = ['.md']
 	content = []
@@ -47,17 +50,30 @@ def get_all_pages(pages_dir, page_data_file):
 		content_data = generate_page_data(name, page_data_file, pages_dir)
 		content.append(content_data)
 
-		category_name = content_data["category"]
+	return content
 
+def filter_pages_by_category(page_data, category='all'):
+	if category == 'all':
+		return page_data
+	content = []
+	for content_data in page_data:
+		if content_data['category'] != category:
+			continue
+		else:
+			content.append(content_data)
+
+	return content
+
+def get_all_categories(pages_data):
+	categories = {}
+
+	for datum in pages_data:
+		category_name = datum['category']
 		if not categories.get(category_name, None):
 			categories[category_name] = []
-		categories[category_name].append({"name":content_data["name"], "title":content_data["title"]})
+		categories[category_name].append({'name':datum['name'], 'title':datum['title']})
 
-
-
-	content.append(categories)
-	print(content)
-	return content
+	return categories
 
 def convert_filename_to_title(name):
 	title = name.replace('_', ' ').title()
@@ -76,6 +92,7 @@ def determine_post_category(name):
 	return category
 
 def generate_page_data(name, page_data_file, pages_dir):
+
 	"""get or generate all the data for the view"""
 	featured = False
 	content_data = {}
@@ -89,10 +106,16 @@ def generate_page_data(name, page_data_file, pages_dir):
 		featured = True
 
 	page_content = get_page_content_or_404(name, pages_dir)
+	header_image_path = get_header_image_path(page_content)
+	if header_image_path:
+		content_data['header_image'] = header_image_path
+		page_content = remove_header_image_line(page_content)
 	content_data['name'] = nameBase
 	content_data['category'] = determine_post_category(nameBase)
 	content_data['content'] = page_content
-	content_data['date'] = time.ctime(os.path.getctime(file_full_path))
+	file_time = time.ctime(os.path.getctime(file_full_path))
+	file_time_formatted = datetime.datetime.strptime(file_time,  "%a %b %d %H:%M:%S %Y")
+	content_data['date'] = file_time_formatted
 	content_data['title'] = extract_html_text_from_content(page_content, 'h1')
 	content_data['subtitle'] = extract_html_text_from_content(page_content, 'h2')
 	if featured:
@@ -133,15 +156,92 @@ def get_page_content_or_404(name, pages_dir):
 		page_string = f.read()
 
 	html = markdown.markdown(page_string)
+	html = fix_html_img_tags_static_path(html)
 	return html
 
-def index(request, pagenum=1, pages_dir=PAGES_DIR, page_data_file=PAGE_DATA_FILE):
-	page_data = get_all_pages(pages_dir, page_data_file)
-	#print(page_data)
-	paginated_page_data = Paginator(page_data, 3)
-	page = paginated_page_data.page(pagenum)
+def get_header_image(html):
+	firstLine = html.splitlines()[0]
+	if firstLine.find("<img") != -1:
+		return firstLine
+	else:
+		return None
 
-	content = {'page_data':page}
+def get_header_image_path(html):
+	"""
+	it is assumed that if the first line of the content is an image file
+	than it is intended to be a header image, 
+	that image is treated differently in the layout
+	so the src for it is fetched here
+	"""
+	firstLine = get_header_image(html)
+	if not firstLine:
+		return None
+	target_str = 'src="'
+	target_end_str = '" /></p>'
+	len_target_str = len(target_str)
+
+	pos = firstLine.find(target_str)
+	end_pos = firstLine.find(target_end_str)
+	url = firstLine[pos+len_target_str:end_pos]
+	return url
+
+def remove_header_image_line(html):
+	"""
+	it is assumed that if the first line of the content is an image file
+	than it is intended to be a header image, 
+	if that image exists, removes it from the content
+	"""
+	firstLine = get_header_image(html)
+	if not firstLine:
+		return None
+	new_html = ''
+	counter = 0
+	for line in html.splitlines():
+		if counter > 0:
+			new_html += line
+		counter += 1
+	return new_html
+
+def fix_html_img_tags_static_path(html):
+	new_html = ''
+	target_str = 'src="'
+	len_target_str = len(target_str)
+
+	if html.find('<img') != -1:
+		for line in html.splitlines():
+			if line.find('<img') != -1:
+				pos = line.find(target_str)
+				line = line[:pos+len_target_str] + static('') + line[pos+len_target_str:]
+			new_html += line + '\n'
+		return new_html
+	else:
+		return html
+
+def index(request, pagenum=1, category='all', pages_dir=PAGES_DIR, page_data_file=PAGE_DATA_FILE):
+	category_names = ['quote', 'passage', 'opinion', 'all']
+	if category not in category_names:
+		raise Http404('Page Not Found')
+
+	url = reverse('blog-pages')
+	print(url)
+	if category != 'all':
+		url = reverse('blog-categories', kwargs={'category':category})
+
+	page_data = get_all_pages(pages_dir, page_data_file, category)
+	filtered_page_data = filter_pages_by_category(page_data, category)
+	categories = get_all_categories(page_data)
+
+	paginated_page_data = Paginator(filtered_page_data, 3)
+	try:
+		page = paginated_page_data.page(pagenum)
+	except PageNotAnInteger:
+		# If page is not an integer, deliver first page.
+		page = paginated_page_data.page(1)
+	except EmptyPage:
+		# If page is out of range (e.g. 9999), deliver last page of results.
+		raise Http404('Page Not Found')
+
+	content = {'page_data':page, 'categories':categories, 'url':url}
 	return render_to_response('blog/index.html', content)
 
 def post_page(request, title, pages_dir=PAGES_DIR, page_data_file=PAGE_DATA_FILE):
@@ -150,5 +250,4 @@ def post_page(request, title, pages_dir=PAGES_DIR, page_data_file=PAGE_DATA_FILE
 	file_title = '{}.md'.format(title)
 	page_content = generate_page_data(file_title, page_data_file, pages_dir)
 	data = {'data':page_content}
-	print(data)
 	return render_to_response('blog/post_page.html', data)
