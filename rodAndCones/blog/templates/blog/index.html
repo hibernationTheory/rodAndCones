@@ -8,7 +8,7 @@
 <section>
 	<div class="body-container">
 		<div class="row">
-			<div class="col-sm-3 hidden-xs">
+			<div class="col-sm-3 pull-xs-12">
 				<div class="sidebar">
 					<div class="logo-container">
 						<a href="/blog">
@@ -16,7 +16,7 @@
 						</a>
 					</div>
 					
-					<div class="categories">
+					<div class="categories hidden-xs">
 						{% if categories.opinion %}
 						<a href="/blog/categories/opinion">
 							<h5 class="category-header">Opinion</h5>
@@ -45,6 +45,7 @@
 					
 				</div>
 			</div>
+
 			<div class="col-sm-9">
 				<div class="posts-container">
 					<div class="row">
@@ -96,9 +97,6 @@
 
 					</div>
 				</div>
-
-				
-
 			</div>
 		</div>
 	</div>
