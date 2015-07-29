@@ -32,6 +32,10 @@
 		max-width:100%;
 	}
 
+	p {
+		margin-bottom:20px;
+	}
+
 	#logo-main {
 	  padding-top: 10%;
 	  padding-bottom: 5%;
