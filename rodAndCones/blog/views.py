@@ -28,7 +28,6 @@ from django.shortcuts import render_to_response
 from bs4 import BeautifulSoup
 
 PAGES_DIR = settings.BLOG_PAGES_PATH
-PAGE_DATA_FILE = os.path.join(PAGES_DIR, 'page_data.json')
 
 def get_sorted_files_names_from_path(pages_dir):
 	unsorted_file_names = os.listdir(pages_dir)
@@ -36,7 +35,7 @@ def get_sorted_files_names_from_path(pages_dir):
 	file_names = sorted(unsorted_file_names_full_path, key=os.path.getctime)
 	return file_names
 
-def get_all_pages(pages_dir, page_data_file, category='all'):
+def get_all_pages(pages_dir, category='all'):
 	file_names = get_sorted_files_names_from_path(pages_dir)
 
 	allowed_extensions = ['.md']
@@ -47,7 +46,7 @@ def get_all_pages(pages_dir, page_data_file, category='all'):
 		if nameExtension not in allowed_extensions:
 			continue
 		file_path = os.path.join(pages_dir, name)
-		content_data = generate_page_data(name, page_data_file, pages_dir)
+		content_data = generate_page_data(name, pages_dir)
 		content.append(content_data)
 
 	return content
@@ -91,19 +90,13 @@ def determine_post_category(name):
 			category = 'opinion'
 	return category
 
-def generate_page_data(name, page_data_file, pages_dir):
+def generate_page_data(name, pages_dir):
 
 	"""get or generate all the data for the view"""
 	featured = False
 	content_data = {}
 	nameBase = os.path.splitext(name)[0]
 	file_full_path = os.path.join(pages_dir, name)
-
-	with open(page_data_file, 'r') as pageDataFile:
-		pageData = json.load(pageDataFile)
-
-	if pageData["featured"] == nameBase:
-		featured = True
 
 	page_content = get_page_content_or_404(name, pages_dir)
 	header_image_path = get_header_image_path(page_content)
@@ -217,7 +210,7 @@ def fix_html_img_tags_static_path(html):
 	else:
 		return html
 
-def index(request, pagenum=1, category='all', pages_dir=PAGES_DIR, page_data_file=PAGE_DATA_FILE):
+def index(request, pagenum=1, category='all', pages_dir=PAGES_DIR):
 	category_names = ['quote', 'passage', 'opinion', 'all']
 	if category not in category_names:
 		raise Http404('Page Not Found')
@@ -227,7 +220,7 @@ def index(request, pagenum=1, category='all', pages_dir=PAGES_DIR, page_data_fil
 	if category != 'all':
 		url = reverse('blog-categories', kwargs={'category':category})
 
-	page_data = get_all_pages(pages_dir, page_data_file, category)
+	page_data = get_all_pages(pages_dir, category)
 	filtered_page_data = filter_pages_by_category(page_data, category)
 	categories = get_all_categories(page_data)
 
@@ -244,10 +237,10 @@ def index(request, pagenum=1, category='all', pages_dir=PAGES_DIR, page_data_fil
 	content = {'page_data':page, 'categories':categories, 'url':url}
 	return render_to_response('blog/index.html', content)
 
-def post_page(request, title, pages_dir=PAGES_DIR, page_data_file=PAGE_DATA_FILE):
+def post_page(request, title, pages_dir=PAGES_DIR):
 	if title.endswith('/'):
 		title = title[:-1]
 	file_title = '{}.md'.format(title)
-	page_content = generate_page_data(file_title, page_data_file, pages_dir)
+	page_content = generate_page_data(file_title, pages_dir)
 	data = {'data':page_content}
 	return render_to_response('blog/post_page.html', data)
