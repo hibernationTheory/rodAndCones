@@ -85,32 +85,31 @@ App.controller('itemContainer', function($scope, $element) {
 
 
 var shortenChildPText = function(element) {
-  var el;
+  // defunct and is not in use, doing this in backend now
+  // keeping it for reference purposes in case a directive
+  // that alters text is needed.
+  var $el, blockquote, $title, $paragraph;
   var nodeContentType;
   var parentEl = element[0];
-  var childNodes = parentEl.childNodes;
-  var limitWord;
+  var $parentEl = $(parentEl);
+  var $postContent = $parentEl.find(".post-content");
+  var $newContent;
 
-  for (var i = 0; i < childNodes.length; i++) {
-    var childNode = childNodes[i];
-    if (childNode.className && childNode.className.indexOf('post-content') != -1 ) {
-      candidateEl = childNode;
-      var grandChildNodes = candidateEl.childNodes;
-      for (var j = 0 ; j < grandChildNodes.length; j++ ) {
-        var grandChildNode = grandChildNodes[j];
-        nodeContentType = grandChildNode.nodeName;
-        if (grandChildNode && 
-          (nodeContentType === 'P' || nodeContentType === 'BLOCKQUOTE' )) {
-          el = grandChildNode;
-          break;
-        }
-      }
-    }
-  }
+  var $firstChild = $postContent.children().first();
+  var nodeName = $firstChild.get(0).nodeName;
 
-  if (!el) {
+  if (nodeName === "BLOCKQUOTE") {
+    blockquote = true;
+    $el = $firstChild;
+  } else if (nodeName === "H1") {
+    $title = $firstChild;
+    $paragraph = $postContent.children().first('p');
+    $el = $paragraph;
+  } else {
     return false;
   }
+  console.log($el);
+  var el = $el.get(0);
 
   var text = el.innerText;
   console.log(text)
@@ -126,6 +125,14 @@ var shortenChildPText = function(element) {
   } else {
     return null;
   }
-  el.innerText = newText; 
+
+  if (blockquote) {
+      $newContent = $("<blockquote>A</blockquote>");
+    } else if ($title) {
+      $newContent = $("<h1>A</h1>");
+      $newContent.append($("<p>" + newText + "</p>"));
+  }
+
+  $parentEl.html($newContent.get(0).outerHTML);
 }
 

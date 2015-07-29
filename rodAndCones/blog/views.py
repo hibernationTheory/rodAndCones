@@ -93,7 +93,6 @@ def determine_post_category(name):
 def generate_page_data(name, pages_dir):
 
 	"""get or generate all the data for the view"""
-	featured = False
 	content_data = {}
 	nameBase = os.path.splitext(name)[0]
 	file_full_path = os.path.join(pages_dir, name)
@@ -111,12 +110,33 @@ def generate_page_data(name, pages_dir):
 	content_data['date'] = file_time_formatted
 	content_data['title'] = extract_html_text_from_content(page_content, 'h1')
 	content_data['subtitle'] = extract_html_text_from_content(page_content, 'h2')
-	if featured:
-		content_data['featured'] = 'true'
-		content_data['title_featured'] = content_data['title']
-		content_data['subtitle_featured'] = content_data['subtitle']
+	first_paragraph = extract_html_text_from_content(page_content, 'p')
+
+	content_data['first_paragraph'] = shorten_text(first_paragraph, 30)
+	content_data['short_content'] = construct_front_page_post_content(content_data['category'], 
+										content_data['title'], 
+										content_data['first_paragraph'])
  
 	return content_data
+
+def construct_front_page_post_content(content_type, title, first_paragraph):
+	quote_types = ["quote", "passage"]
+	if content_type not in quote_types:
+		new_title = "<h1>" + title + "</h1>"
+		new_paragraph = "<p>" + first_paragraph + "</p>"
+		content = new_title + new_paragraph
+	else:
+		content = "<blockquote>" + first_paragraph + "</blockquote>"
+	return content
+
+
+def shorten_text(text, word_limit):
+	"""given the text, limit it to amount of words that are below or equal to given word limit"""
+	word_data = text.split(" ")
+	if len(word_data) > word_limit:
+		word_data = word_data[:word_limit]
+		text = " ".join(word_data) + "..."
+	return text
 
 def extract_html_text_from_content(content, element):
 	soup = BeautifulSoup(content)
