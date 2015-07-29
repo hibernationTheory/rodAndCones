@@ -50,7 +50,6 @@ CACHE
 backup
 misc
 deploy
-rodAndCones/blog/pages
 
 #sass related
 .sass-cache
