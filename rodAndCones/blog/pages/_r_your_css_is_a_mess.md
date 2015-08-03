@@ -18,24 +18,20 @@ In this talk, he mentions how unwieldy CSS gets when multiple people start worki
 
 He believes that any CSS code that you write can be considered under one of these five main categories:
 
-- Base
-Like CSS Reset. Defines what your elements look like at it's core.
-- Layout
-Main layout elements that makeup the page in very general terms. Like Header, Body, Footer.
-- Modules
-Content pieces that goes inside a layout. Like a search dialog box. Modules can contain other modules (Think of a modal dialog box)
-- State
-Variations of the modules due to mostly JS related state changes such as 'disabled state, active state' etc.
-- Theme
-User configuration on top of the base style.
+- **Base**  : Like CSS Reset. Defines what your elements look like at it's core.
+- **Layout** : Main layout elements that makeup the page in very general terms. Like Header, Body, Footer.
+- **Modules** : Content pieces that goes inside a layout. Like a search dialog box. Modules can contain other modules (Think of a modal dialog box)
+- **State** : Variations of the modules due to mostly JS related state changes such as 'disabled state, active state' etc.
+- **Theme** : User configuration on top of the base style.
 
-The idea behind categorization is the separation and isolation of CSS and HTML elements. This is an attempt in adapting the 'Single Responsibility Principle' in CSS and to be able to separate concerns. It is a way of aiming to have your CSS and HTML “do one thing and one thing only” by modularizing it.
+The idea behind categorization is the separation and isolation of CSS and HTML elements. This is an attempt in adapting the 'Single Responsibility Principle' in CSS and to be able to separate concerns. It is a way of aiming to have your CSS and HTML "do one thing and one thing only" by modularizing it.
 
 If you can have self-contained CSS and HTML it can be so much easier to test things in isolation and move them around freely - which makes them suitable for templating usages as well. One implication of this rule is that you need to have modules that can exist in isolation. For example a `<li>` element can't exist in isolation since it depends on the existence of a parent ul.
 
 As a general rule one other thing to remember is to keep the specificity of your selector's low. Don't use an ID when a class would do. It is okay to have them for JS purposes but usually it is an overkill for constructing your CSS. This advice seems to be a recurring theme in the CSS related talks I have listened to so far.
 
 Naming is important in your CSS architecture as well. The particular naming system you end up choosing (like BEM) doesn't matter too much as long as you go with something that has a way of identifying these following parts of your markup:
+
 - Root Element
 - Sub Modules
 - Sub Components.
