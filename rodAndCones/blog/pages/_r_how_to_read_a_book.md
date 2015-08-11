@@ -1,10 +1,10 @@
 # How to Read a Book
 
-### Review of the book "How to Read a Book"
+### Review of the book ["How to Read a Book"](http://www.amazon.com/How-Read-Book-Intelligent-Touchstone/dp/0671212095/ref=sr_1_1?s=books&ie=UTF8&qid=1439257206&sr=1-1&keywords=how+to+read+a+book) 
 
 #### tl;dr  
 
-["How to Read a Book"](http://www.amazon.com/How-Read-Book-Intelligent-Touchstone/dp/0671212095/ref=sr_1_1?s=books&ie=UTF8&qid=1439257206&sr=1-1&keywords=how+to+read+a+book) is an exhaustive account on different levels of reading that one can perform when reading a non fiction book to be able acquire the knowledge that the author of the book intended to convey.
+"How to Read a Book" is an exhaustive account on different levels of reading that one can perform when reading a non fiction book to be able acquire the knowledge that the author of the book intended to convey.
 
 #### Summary
 
