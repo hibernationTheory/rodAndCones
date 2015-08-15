@@ -6,76 +6,79 @@
 
 {% block body %}
 <section>
-	<div class="body-container">
+	<div class="container-fluid">
 		<div class="row">
-			<div class="col-sm-3 pull-xs-12">
-				<div class="sidebar">
-					<div class="logo-container">
+
+			<div class="col-xs-12 col-sm-3 sidebar">
+					<div class="sidebar__logo-area">
 						<a href="/blog">
-							<img id="logo-main" src="{% static 'blog/images/logo.png' %}" alt="">
+							<img class="sidebar__logo-image" src="{% static 'blog/images/logo.png' %}" alt="">
 						</a>
 					</div>
 					
-					<div class="categories hidden-xs">
+					<div class="sidebar__categories hidden-xs">
 						{% if categories.opinion %}
-						<a href="/blog/categories/opinion">
-							<h5 class="category-header">Opinion</h5>
+						<a class="sidebar__categories__link" href="/blog/categories/opinion">
+							<h5 class="sidebar__categories__header">Opinion</h5>
 						</a>
-						<ul>
+						<ul class="sidebar__categories__list">
 							{% for item in categories.opinion %}
 							<li>
-								<a href="/blog/{{ item.name }}"><p>{{ item.title }}</p></a>
+								<a class="sidebar__categories__link" href="/blog/{{ item.name }}">
+									<div class="sidebar__categories__link__text">{{ item.title }}</div>
+								</a>
 							</li>
 							{% endfor %}
 						</ul>
 						{% endif %}
 
 						{% if categories.passage %}
-						<a href="/blog/categories/passage">
-							<h5 class="category-header">Passage</h5>
+						<a class="sidebar__categories__link" href="/blog/categories/passage">
+							<h5 class="sidebar__categories__header">Passage</h5>
 						</a>
 						{% endif %}
 
 						{% if categories.quote %}
-						<a href="/blog/categories/quote">
-							<h5 class="category-header">Quote</h5>
+						<a class="sidebar__categories__link" href="/blog/categories/quote">
+							<h5 class="sidebar__categories__header">Quote</h5>
 						</a>
 						{% endif %}
 					</div>
-					
-				</div>
 			</div>
 
-			<div class="col-sm-9">
+			<div class="col-xs-12 col-sm-9 col-sm-offset-3">
 				<div class="posts-container">
 					<div class="row">
+
 						{% for item in page_data.object_list %}
 						<div class="col-sm-10 col-sm-offset-1 ng-cloak">
-							<a class="post-link" href="/blog/{{ item.name }}">
-							{% if item.category == 'quote' %}
-							<div class="post-main-page content-container-style quote">
-							{% elif item.category == 'passage' %}
-							<div class="post-main-page content-container-style passage">
-							{% else %}
-							<div class="post-main-page content-container-style" >
-							{% endif %}
-								{% if item.header_image %}
-								<div class="post-image">
-									<img src="{{ item.header_image }}" alt="">
-								</div>
-								{% endif %}
-								<div class="post-content">
-									{% autoescape off %}
-									{{ item.short_content }}
-									{% endautoescape %}
-								</div>
-								{% if item.category == 'opinion' %}
-									<div class="post-bottom" style="display:none;">
-										{{ item.date | date:"F j, Y"}}
+							<div class="posts-container__post">
+								<a class="posts-container__post__link" href="/blog/{{ item.name }}">
+									{% if item.category == 'quote' %}
+									<div class="posts-container__post__link content-container-style quote">
+									{% elif item.category == 'passage' %}
+									<div class="posts-container__post__link content-container-style passage">
+									{% else %}
+									<div class="posts-container__post__link content-container-style" >
+									{% endif %}
+										{% if item.header_image %}
+										<div class="post-image">
+											<img src="{{ item.header_image }}" alt="">
+										</div>
+										{% endif %}
+										<div class="post-content">
+											{% autoescape off %}
+											{{ item.short_content }}
+											{% endautoescape %}
+										</div>
+										{% if item.category == 'opinion' %}
+											<div class="post-bottom" style="display:none;">
+												{{ item.date | date:"F j, Y"}}
+											</div>
+										{% endif %}
 									</div>
-								{% endif %}
+								</a>
 							</div>
-							</a>
 						</div>
 						{% endfor %}
 						
@@ -98,6 +101,7 @@
 					</div>
 				</div>
 			</div>
+
 		</div>
 	</div>
 </section>

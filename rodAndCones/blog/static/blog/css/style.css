@@ -36,18 +36,20 @@
 		margin-bottom:20px;
 	}
 
-	#logo-main {
+	.sidebar__logo-image {
 	  padding-top: 10%;
 	  padding-bottom: 5%;
 	  width: 60%;
 	}
 
-	.logo-container {
-		text-align: center;
+	@media (max-width:768px) {
+		.sidebar__logo-image {
+			padding-top:10px;
+			width:30%;
+		}
 	}
 
 	.sidebar {
-		width: 100%;
 		background-color: black;
 		color: white;
 		position: absolute;
@@ -58,18 +60,22 @@
 		.sidebar {
 			height:100px;
 		}
-
-		#logo-main {
-			padding-top:10px;
-			width:30%;
-		}
-		
 	}
 
-	a.post-link {
+	.sidebar__logo-area {
+		text-align:center;
+	}
+
+	.posts-container__post__link {
 		text-decoration:inherit !important;
 		color:inherit;
 	}
+
+	.posts-container__post__link:hover {
+	  box-shadow: 0 20px 25px rgba(0, 0, 0, 0.15);
+	  -webkit-box-shadow: 0 20px 25px rgba(0, 0, 0, 0.15);
+	  transform: scale(1.01);
+	} 
 
 	.featured-title {
 		text-align: center;
@@ -86,7 +92,7 @@
 		border-bottom: 2px solid rgba(0, 0, 0, 0.25);
 	}
 
-	.post-main-page {
+	.posts-container__post__link {
 		position:relative;
 		margin-bottom: 32px;
 		height: 200px;
@@ -95,22 +101,18 @@
 	}
 
 	@media (max-width:768px) {
-		.post-main-page {
+		.posts-container__post__link {
 			min-height:300px;
-		}
-
-		.posts-container {
-			margin-top:100px;
 		}
 	}
 
 	@media (max-width:1200px) {
-		.post-main-page {
+		.posts-container__post__link {
 			min-height:250px;
 		}
 	}
 
-	.post-link .post-main-page:hover {
+	.post-main-page:hover {
 	  box-shadow: 0 20px 25px rgba(0, 0, 0, 0.15);
 	  -webkit-box-shadow: 0 20px 25px rgba(0, 0, 0, 0.15);
 	  transform: scale(1.01);
@@ -133,6 +135,12 @@
 
 	.posts-container {
 		padding-top:40px;
+	}
+
+	@media (max-width:768px) {
+		.posts-container {
+			margin-top:100px;
+		}
 	}
 
 	.posts-container img {
@@ -282,28 +290,28 @@
 
 	/* CATEGORIES */
 
-	.categories {
+	.sidebar__categories {
 		padding-left: 80px;
 		padding-right: 20px;
 	}
 
-	.categories a {
+	.sidebar__categories__link {
 		text-decoration: none;
 		color:white;
 	}
 
-	.categories p {
+	.sidebar__categories__link__text {
 		font-size:0.9em;
 		margin:0px;
 		color:rgb(203, 25, 201);
 	}
 
-	.categories ul {
+	.sidebar__categories__list {
 		list-style: none;
 		padding-left:20px;
 
 	}
 
-	.category-header {
+	.sidebar__categories__header {
 		color:rgb(213, 213, 213);
 	}
