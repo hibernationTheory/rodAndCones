@@ -17,5 +17,5 @@ urlpatterns = patterns('',
     # url(r'^$', 'startpage.views.index', name='index'),
     url(r'^main$', 'startpage.views.main', name='main'),
     url(r'^projects/', include('projects.urls')),
-    url(r'^blog/', include('blog.urls')),
+    url(r'^blog/', include('blog.rodAndCones__blog.blog.urls')),
 )
