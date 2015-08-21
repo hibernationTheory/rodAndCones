@@ -241,7 +241,7 @@ def fix_html_img_tags_static_path(html):
 		return html
 
 def index(request, pagenum=1, category='all', pages_dir=PAGES_DIR):
-	print(index)
+	page_amount = 5
 	category_names = ['quote', 'passage', 'opinion', 'all']
 	if category not in category_names:
 		raise Http404('Page Not Found')
@@ -255,7 +255,7 @@ def index(request, pagenum=1, category='all', pages_dir=PAGES_DIR):
 	filtered_page_data = filter_pages_by_category(page_data, category)
 	categories = get_all_categories(page_data)
 
-	paginated_page_data = Paginator(filtered_page_data, 3)
+	paginated_page_data = Paginator(filtered_page_data, 5)
 	try:
 		page = paginated_page_data.page(pagenum)
 	except PageNotAnInteger:
@@ -266,7 +266,7 @@ def index(request, pagenum=1, category='all', pages_dir=PAGES_DIR):
 		raise Http404('Page Not Found')
 
 	content = {'page_data':page, 'categories':categories, 'url':url}
-	return render_to_response('index.html', content)
+	return render_to_response('blog/index.html', content)
 
 def post_page(request, title, pages_dir=PAGES_DIR):
 	print("post_page")
@@ -277,4 +277,4 @@ def post_page(request, title, pages_dir=PAGES_DIR):
 	file_title = '{}.md'.format(title)
 	page_content = generate_page_data(file_title, pages_dir)
 	data = {'data':page_content}
-	return render_to_response('post_page.html', data)
+	return render_to_response('blog/post_page.html', data)
