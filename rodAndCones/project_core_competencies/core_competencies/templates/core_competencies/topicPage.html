@@ -1,0 +1,124 @@
+{% extends 'core_competencies/base.html' %}
+
+{% load static %}
+
+<link rel="stylesheet" href="{% block style %}{% static 'core_competencies/css/style.css' %}{% endblock %}">
+<title>{% block title %} - {{ obj_data.name }}{% endblock %}</title>
+
+<body ng-app="App">
+
+<section>
+	{% block parallax-header %}
+	<div id="parallax-01" class="module parallax parallaxParent" style="background-color:{{ obj_data.color }};">
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-sm-12">
+					<img class="image-bg" src='{% static "core_competencies/images/logo/" %}{{ obj_data.image_name }}' alt="{{ obj_data.name }}" style="background-color:{{ obj_data.color }}">
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div id="introduction" class="introduction-area">
+			<h1 class="text-uppercase">{{ obj_data.name }}</h1>
+			<p>{{ obj_data.description }}</p>
+	</div>
+	{% endblock %}
+</section>
+
+{% block main-content %}
+<section id="main-body">
+	<div class="row">
+		<div class="col-sm-3">
+			<div class="topic-index shift">
+				<ul>
+					{% for item in obj_data.index %}
+						{% if not item == 'Description' %}
+						<li><a href="#topic-{{ item }}">{{ item }}</a></li>
+						{% endif %}
+					{% endfor %}
+				</ul>
+			</div>
+		</div>
+		<div class="col-sm-9">
+			<article>
+				{% if obj_data.reason %}
+				<section class="obj-info">
+					<h2 id="topic-Reason" data-color="{{ obj_data.color }}" brighten-color>Reason</h2>
+					<p> {{ obj_data.reason }}</p>
+				</section>
+				{% endif %}
+
+				{% if obj_data.summary %}
+				<section class="obj-info">
+					<h2 id="topic-Summary" data-color="{{ obj_data.color }}" brighten-color>Summary</h2>
+					<p> {{ obj_data.summary }}</p>
+				</section>
+				{% endif %}
+
+				{% if obj_data.rating %}
+				<section class="obj-info">
+					<h2 id="topic-Rating" data-color="{{ obj_data.color }}" brighten-color>Rating <span class="badge">{{ obj_data.rating.0 }}</span></h2>
+					<p> {{ obj_data.rating.1 }}</p>
+				</section>
+				{% endif %}
+
+				{% if obj_data.status %}
+				<section class="obj-info">
+					<h2 id="topic-Status" data-color="{{ obj_data.color }}" brighten-color>Status <span class="badge">{{ obj_data.status.0 }}</span></h2>
+					<p> {{ obj_data.rating.1 }}</p>
+				</section>
+				{% endif %}
+
+				{% if obj_data.plan %}
+				<section class="obj-info">
+					<h2 id="topic-Plan" data-color="{{ obj_data.color }}" brighten-color>Plan</h2>
+					<p> {{ obj_data.plan }}</p>
+				</section>
+				{% endif %}
+
+				{% if obj_data.dependencies %}
+				<section class="obj-info">
+					<h2 id="topic-Dependencies" data-color="{{ obj_data.color }}" brighten-color>Dependencies</h2>
+					<p>{{ obj_data.dependencies }}</p>
+				</section>
+				{% endif %}
+
+				{% if obj_data.tags %}
+				<section class="obj-info">
+					<h2 id="topic-Tags" data-color="{{ obj_data.color }}" brighten-color>Tags</h2>
+					<ul>
+						{% for i in obj_data.tags %}
+						<li> {{ i }}</li>
+						{% endfor %}
+					</ul>
+				</section>
+				{% endif %}
+
+				{% if obj_data.resources %}
+				<section class="obj-info">
+					<h2 id="topic-Resources" data-color="{{ obj_data.color }}" brighten-color>Resources</h2>
+					<ul>
+						{% for category, categoryData in obj_data.resources.items %}
+						<h3> {{ category }}</h3>
+							{% for datum in categoryData %}
+								{% for key,value in datum.items %}
+								<p>{{ key }}</p>
+								<ul>
+									{% for singleVal in value %}
+									<li>{{ singleVal }}</li>
+									{% endfor %}
+								</ul>
+								{% endfor %}
+							{% endfor %}
+						{% endfor %}
+					</ul>
+				</section>
+				{% endif %}
+
+
+			</article>
+		</div>
+	</div>
+</section>
+{% endblock %}

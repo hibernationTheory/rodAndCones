@@ -1,0 +1,200 @@
+{
+    "name": "Core Competencies", 
+    "children": [
+        {
+            "name": "Programming Language", 
+            "children": [
+                {
+                    "category": "Programming Language", 
+                    "competency": 7.0, 
+                    "name": "CSS3", 
+                    "color": "#1c94b4", 
+                    "priority": 4, 
+                    "size": 4
+                }, 
+                {
+                    "category": "Programming Language", 
+                    "competency": 6.5, 
+                    "name": "Javascript", 
+                    "color": "#eddb4f", 
+                    "priority": 6, 
+                    "size": 6
+                }, 
+                {
+                    "category": "Programming Language", 
+                    "competency": 8.0, 
+                    "name": "Python", 
+                    "color": "#71b1c9", 
+                    "priority": 9, 
+                    "size": 9
+                }, 
+                {
+                    "category": "Programming Language", 
+                    "competency": 6.0, 
+                    "name": "HTML5", 
+                    "color": "#33b2ea", 
+                    "priority": 7, 
+                    "size": 7
+                }
+            ]
+        }, 
+        {
+            "name": "Javascript Library", 
+            "children": [
+                {
+                    "category": "Javascript Library", 
+                    "competency": 7.0, 
+                    "name": "Jquery", 
+                    "color": "#fff", 
+                    "priority": 16, 
+                    "size": 16
+                }, 
+                {
+                    "category": "Javascript Library", 
+                    "competency": 6.0, 
+                    "name": "Three.js", 
+                    "color": "#f1f1f1", 
+                    "priority": 17, 
+                    "size": 17
+                }, 
+                {
+                    "category": "Javascript Library", 
+                    "competency": 7.0, 
+                    "name": "D3.js", 
+                    "color": "#ffdd3c", 
+                    "priority": 5, 
+                    "size": 5
+                }
+            ]
+        }, 
+        {
+            "name": "Back-End Framework", 
+            "children": [
+                {
+                    "category": "Back-End Framework", 
+                    "competency": 3.0, 
+                    "name": "Node.js", 
+                    "color": "#3c3c3c", 
+                    "priority": 15, 
+                    "size": 15
+                }, 
+                {
+                    "category": "Back-End Framework", 
+                    "competency": 7.0, 
+                    "name": "Django", 
+                    "color": "#0a2f20", 
+                    "priority": 3, 
+                    "size": 3
+                }
+            ]
+        }, 
+        {
+            "name": "CSS Preprocessor", 
+            "children": [
+                {
+                    "category": "CSS Preprocessor", 
+                    "competency": 6.0, 
+                    "name": "SASS", 
+                    "color": "#fff976", 
+                    "priority": 18, 
+                    "size": 18
+                }, 
+                {
+                    "category": "CSS Preprocessor", 
+                    "competency": 6.0, 
+                    "name": "Less", 
+                    "color": "#2d4a76", 
+                    "priority": 20, 
+                    "size": 20
+                }
+            ]
+        }, 
+        {
+            "name": "Front-End Framework", 
+            "children": [
+                {
+                    "category": "Front-End Framework", 
+                    "competency": 8.0, 
+                    "name": "Bootstrap", 
+                    "color": "#5e3777", 
+                    "priority": 8, 
+                    "size": 8
+                }, 
+                {
+                    "category": "Front-End Framework", 
+                    "competency": 3.0, 
+                    "name": "React.js", 
+                    "color": "#222222", 
+                    "priority": 2, 
+                    "size": 2
+                }, 
+                {
+                    "category": "Front-End Framework", 
+                    "competency": 5.0, 
+                    "name": "Angular.js", 
+                    "color": "#e43137", 
+                    "priority": 1, 
+                    "size": 1
+                }
+            ]
+        }, 
+        {
+            "name": "General Skill", 
+            "children": [
+                {
+                    "category": "General Skill", 
+                    "competency": 5.0, 
+                    "name": "Scrum", 
+                    "color": "#1c9fab", 
+                    "priority": 22, 
+                    "size": 22
+                }
+            ]
+        }, 
+        {
+            "name": "Development Tool", 
+            "children": [
+                {
+                    "category": "Development Tool", 
+                    "competency": 2.0, 
+                    "name": "Gulp", 
+                    "color": "#85283d", 
+                    "priority": 14, 
+                    "size": 14
+                }, 
+                {
+                    "category": "Development Tool", 
+                    "competency": 7.0, 
+                    "name": "Bower", 
+                    "color": "#efab33", 
+                    "priority": 19, 
+                    "size": 19
+                }, 
+                {
+                    "category": "Development Tool", 
+                    "competency": 5.0, 
+                    "name": "Linux", 
+                    "color": "#bbbbbb", 
+                    "priority": 12, 
+                    "size": 12
+                }, 
+                {
+                    "category": "Development Tool", 
+                    "competency": 7.0, 
+                    "name": "Npm", 
+                    "color": "#993130", 
+                    "priority": 21, 
+                    "size": 21
+                }, 
+                {
+                    "category": "Development Tool", 
+                    "competency": 6.0, 
+                    "name": "Sublime Text Editor", 
+                    "color": "#a5a5a5", 
+                    "priority": 13, 
+                    "size": 13
+                }
+            ]
+        }
+    ]
+}

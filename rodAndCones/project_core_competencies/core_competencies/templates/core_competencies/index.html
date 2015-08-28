@@ -1,0 +1,100 @@
+{% extends 'core_competencies/base.html' %}
+
+{% load static %}
+
+<link rel="stylesheet" href="{% block style %}{% static 'core_competencies/css/style.css' %}{% endblock %}">
+<title>{% block title %} - Main{% endblock %}</title>
+
+<section>
+	{% block parallax-header %}
+	<div id="parallax-01" class="module parallax parallaxParent">
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-sm-12">
+					<div id="svg-content"></div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div id="introduction-main" class="introduction-area">
+			<h1 class="text-uppercase">Core Competencies</h1>
+			<h2>Display Your Skill Acquisition History &amp; Roadmap </h2>
+			<p>In the field of technology, there is so much to learn and yet there is always so little time. Given the constraints and conditions, it is a necessity for you to strategize your path of skill acquisition to optimize your personal development. Below is a list of competencies that are important to your growth as a web developer. Use this as a reminder of your already existing skills and a roadmap for the ones to be acquired. </p>
+	</div>
+	{% endblock %}
+</section>
+
+{% block main-content %}
+<section id="main-body" class="module" ng-controller="itemContainer" >
+
+	<nav class="navbar navbar-default">
+	    <div class="navbar-header">
+	      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+	        <span class="sr-only">Toggle navigation</span>
+	        <span class="icon-bar"></span>
+	        <span class="icon-bar"></span>
+	        <span class="icon-bar"></span>
+	      </button>
+	    </div>
+	    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+
+			<form class="navbar-form navbar-left" role="search">
+				<div class="form-group">
+					<input id="search-form" type="text" class="form-control" placeholder="Search" ng-model="query">
+				</div>
+			</form>
+
+			<form class="navbar-form navbar-left" role="menu">
+				<div class="form-group">
+				    <ul class="nav navbar-nav navbar-left">
+						<select id="category-form" class="form-control" role="menu" ng-model="selection">
+							<option value= ""><a href="#" >All</a></option>
+							{% for category in categories %}
+								<option><a href="#">{{ category }}</a></option>
+							{% endfor %}
+						</select>
+				     </ul>
+				</div>
+			</form>
+	    </div>
+	</nav>
+	{% for topic in data %}
+	<div class="topic-item" id="topic-item-{{ forloop.counter }}" style="background-color:{{ topic.color }}" data-item-name="{{ topic.name }}" data-item-category=" {{ topic.category }}" data-item-priority="{{ topic.priority }}" data-item-competency="{{ topic.competency }}" data-item-rating="{{ topic.rating.0 }}" change-color ng-controller="searchFilter as filter" ng-show="result = showElement(query, selection, 'topic-item-{{ forloop.counter }}')">
+		<div class="row">
+			<div class="hidden-xs col-sm-3">
+				<div class="topic-img-container">
+					<a href="topics/{{ topic.short_name }}">
+						<img src='{% static "core_competencies/images/logo/" %}{{ topic.image_name }}' alt="{{ topic.name }}" style="background-color:{{ topic.color }}">	
+					</a>
+				</div>
+			</div>
+			<div class="visible-xs col-xs-2"></div>
+			<div class="col-xs-8 col-sm-6 col-md-6">
+				<div class="topic-explanation text-left">
+					<h2 class="text-uppercase">{{ topic.name }} <sup>({{ topic.category }})</sup></h2>
+					<p shorten-text>{{ topic.description }}</p>
+				</div>
+			</div>
+			<div class="col-sm-3 hidden-xs hidden-sm">
+				<div class="topic-chart" id="topic-chart-{{ forloop.counter }}">
+					<p>{{ topic.rating.0 }}</p>
+				</div>
+			</div>
+		</div>
+	</div>
+	{% endfor %}
+</section>
+
+<footer>
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="footer-content">
+        <p><a href="http://www.enginarslan.com">oh hai!</a></p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+{% endblock %}
+
