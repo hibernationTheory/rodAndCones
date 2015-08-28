@@ -16,6 +16,12 @@ BLOG_PAGES_PATH = os.path.join(BLOG_PROJECT_PATH, 'blog', 'pages')
 BLOG_STATIC_PATH = os.path.join(BLOG_PROJECT_PATH, 'blog', 'static')
 BLOG_TEMPLATE_PATH = os.path.join(BLOG_PROJECT_PATH, 'blog', 'templates')
 
+### PROJECT CORE COMPETENCIES
+PROJECT_CORE_COMPETENCIES_PROJECT_PATH = os.path.join(PROJECT_PATH, 'project_core_competencies')
+PROJECT_CORE_COMPETENCIES_SETTINGS_PATH = os.path.join(PROJECT_CORE_COMPETENCIES_PROJECT_PATH, 'project__core_competencies')
+PROJECT_CORE_COMPETENCIES_STATIC_PATH = os.path.join(PROJECT_CORE_COMPETENCIES_PROJECT_PATH, 'core_competencies', 'static')
+PROJECT_CORE_COMPETENCIES_TEMPLATE_PATH = os.path.join(PROJECT_CORE_COMPETENCIES_PROJECT_PATH, 'core_competencies', 'templates')
+
 STATIC_ROOT_PATH = os.path.join(PROJECT_PATH, 'deploy')
 
 
@@ -93,7 +99,7 @@ STATICFILES_DIRS = (
     # Put strings here, like "/home/html/static" or "C:/www/django/static".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
-    STATIC_PATH, BLOG_STATIC_PATH
+    STATIC_PATH, BLOG_STATIC_PATH, PROJECT_CORE_COMPETENCIES_STATIC_PATH
 )
 
 # List of finder classes that know how to find static files in
@@ -102,14 +108,6 @@ STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.FileSystemFinder',
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
     #'django.contrib.staticfiles.finders.DefaultStorageFinder',
-    'compressor.finders.CompressorFinder',
-)
-
-COMPRESS_ENABLED = True
-
-COMPRESS_PRECOMPILERS = (
-    ('text/coffeescript', 'coffee --compile --stdio'),
-    ('text/less', 'lessc {infile} {outfile}'),
 )
 
 # Make this unique, and don't share it with anybody.
@@ -142,7 +140,8 @@ TEMPLATE_DIRS = (
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
     TEMPLATE_PATH,
-    BLOG_TEMPLATE_PATH
+    BLOG_TEMPLATE_PATH,
+    PROJECT_CORE_COMPETENCIES_TEMPLATE_PATH
 )
 
 INSTALLED_APPS = (
@@ -152,11 +151,10 @@ INSTALLED_APPS = (
     'django.contrib.sites',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    #less preprocessor:
-    'compressor',
     'startpage',
     'projects',
     'blog',
+    'project_core_competencies',
     # Uncomment the next line to enable the admin:
     'django.contrib.admin',
     # Uncomment the next line to enable admin documentation:

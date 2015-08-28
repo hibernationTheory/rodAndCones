@@ -18,4 +18,5 @@ urlpatterns = patterns('',
     url(r'^main$', 'startpage.views.main', name='main'),
     url(r'^projects/', include('projects.urls')),
     url(r'^blog/', include('blog.rodAndCones__blog.blog.urls')),
+    url(r'^core_competencies/', include('project_core_competencies.core_competencies.urls')),
 )
