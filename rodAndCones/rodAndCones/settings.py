@@ -10,7 +10,7 @@ STATIC_PATH = os.path.join(PROJECT_PATH, "static")
 DATABASE_PATH = os.path.join(PROJECT_PATH, "database", "database.db")
 
 ### BLOG TEMPLATE AND STATIC
-BLOG_PROJECT_PATH = os.path.join(PROJECT_PATH, 'blog', 'rodAndCones__blog')
+BLOG_PROJECT_PATH = os.path.join(PROJECT_PATH, 'blog')
 BLOG_SETTINGS_PATH = os.path.join(BLOG_PROJECT_PATH, 'rodAndCones__blog')
 BLOG_PAGES_PATH = os.path.join(BLOG_PROJECT_PATH, 'blog', 'pages')
 BLOG_STATIC_PATH = os.path.join(BLOG_PROJECT_PATH, 'blog', 'static')
