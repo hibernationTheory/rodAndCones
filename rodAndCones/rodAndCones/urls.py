@@ -16,7 +16,7 @@ urlpatterns = patterns('',
     # url(r'^admin/', include(admin.site.urls)),
     # url(r'^$', 'startpage.views.index', name='index'),
     url(r'^main$', 'startpage.views.main', name='main'),
-    url(r'^projects/', include('projects.urls')),
+    #url(r'^projects/', include('projects.urls')),
     url(r'^blog/', include('blog.blog.urls')),
     url(r'^core_competencies/', include('project_core_competencies.core_competencies.urls')),
 )
