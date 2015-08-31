@@ -1,3 +1,5 @@
+#!~/.virtualenvs/rodAndCones/bin/python
+
 """ this is a script that contains the locations of other scripts that lives under this project to run in a periodic manner """
 """ the execution is handled by the server"""
 
