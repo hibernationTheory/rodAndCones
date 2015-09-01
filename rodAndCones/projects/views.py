@@ -4,7 +4,6 @@ import os
 from django.core import serializers
 from django.template import RequestContext
 from django.shortcuts import render_to_response
-from models import Topic
 
 
 CURRENT_DIR = os.path.abspath(os.path.curdir)
@@ -41,47 +40,6 @@ def project_portfolio(request):
 	#context = RequestContext(request)
 	context_data = {"projects" :projectsData}
 	return render_to_response("projects/project_portfolio.html", context_data)
-
-def project_threejs_playground(request, var):
-	context_data = {}
-	return render_to_response("projects/project_threejs_playground/%s.html" %var, context_data)
-
-def project_deliberate(request):
-	jsonDataPath = os.path.join(CURRENT_DIR, "projects", "project_deliberate", "data.json")
-	with open(jsonDataPath) as jsonFile:
-		jsonData = json.load(jsonFile)
-
-	jsonDataList = []
-	jsonDataListTemp = []
-
-	for item in jsonData.iteritems():
-		jsonDataListTemp.append([item[0].lower(), item[1]])
-	jsonDataListTemp.sort()
-
-	jsonDataList = [i[1] for i in jsonDataListTemp]
-	categories = list(set([i["category"] for i in jsonDataList]))
-	categories.sort()
-	print(categories)
-
-	context_data = {"data":jsonDataList, "categories":categories}
-	return render_to_response("projects/project_deliberate/index.html", context_data)
-
-def project_deliberate_topic(request, name=""):
-	jsonDataPath = os.path.join(CURRENT_DIR, "projects", "project_deliberate", "data.json")
-	with open(jsonDataPath) as jsonFile:
-		jsonData = json.load(jsonFile)
-	context_data = {}
-
-	if name:
-		if name.endswith("/"):
-			name = name[:-1]
-		topicData = jsonData.get(name, None)
-		if topicData is None:
-			context_data = {}
-		else:
-			context_data['obj_data'] = topicData
-
-	return render_to_response("projects/project_deliberate/topicPage.html", context_data)
 
 def get_serialized_data_from_object(obj, **kwargs):
 	"""serializes a single object"""
